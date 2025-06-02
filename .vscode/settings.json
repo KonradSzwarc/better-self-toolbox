@@ -1,0 +1,25 @@
+{
+  // Automatic code formatting
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.astro", "**/*.svg"],
+  "eslint.validate": ["astro", "javascript", "typescript"],
+
+  // Theme
+  "workbench.colorTheme": "Houston",
+
+  // TypeScript
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.surveys.enabled": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.workspaceSymbols.scope": "currentProject",
+
+  // Astro
+  "[astro]": {
+    "editor.defaultFormatter": "Jota0222.multi-formatter",
+    "multiFormatter.formatterList": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
+  }
+}

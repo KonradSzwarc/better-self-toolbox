@@ -1,0 +1,4 @@
+# Add only paths that should be ignored by Prettier
+# but are not listed in .gitignore
+
+pnpm-lock.yaml

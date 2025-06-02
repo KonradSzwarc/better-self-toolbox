@@ -1,0 +1,39 @@
+{
+  "name": "better-self-toolbox",
+  "description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
+  "version": "0.0.1",
+  "license": "CC-BY-NC-4.0",
+  "author": "Konrad Szwarc <konrad.szwarc.dev@gmail.com> (https://github.com/KonradSzwarc)",
+  "homepage": "https://github.com/KonradSzwarc/better-self-toolbox#readme",
+  "bugs": "https://github.com/KonradSzwarc/better-self-toolbox/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KonradSzwarc/better-self-toolbox.git"
+  },
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.10.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "concurrently \"eslint .\" \"astro check\" \"prettier --check .\" -n eslint,astro,prettier -c magenta,red,yellow",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "astro": "5.8.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.4",
+    "@astrojs/ts-plugin": "1.10.4",
+    "concurrently": "9.1.2",
+    "eslint": "9.28.0",
+    "eslint-config-flat-gitignore": "2.1.0",
+    "eslint-plugin-astro": "1.3.1",
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1"
+  }
+}
