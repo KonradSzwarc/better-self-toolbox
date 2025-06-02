@@ -1,12 +1,8 @@
 {
   // Automatic code formatting
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "prettier.documentSelectors": ["**/*.astro", "**/*.svg"],
-  "eslint.validate": ["astro", "javascript", "typescript"],
 
   // Theme
   "workbench.colorTheme": "Houston",
@@ -16,6 +12,15 @@
   "typescript.surveys.enabled": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.workspaceSymbols.scope": "currentProject",
+
+  // Tailwind CSS
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cn\\(([^)]*(\\([^)]*\\))*[^)]*)\\)(?=[\\s]*[};,])", "[\"'`]([^\"'`]*).*?[\"'`]"] // Capture all strings between cn( and )
+  ],
+  "tailwindCSS.experimental.configFile": "src/styles/global.css",
 
   // Astro
   "[astro]": {

@@ -5,7 +5,9 @@
 /** @type {import('prettier').Config} */
 const config = {
   trailingComma: 'all',
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  tailwindStylesheet: 'src/styles/global.css',
+  tailwindFunctions: ['cn'],
   overrides: [
     {
       files: '*.astro',
