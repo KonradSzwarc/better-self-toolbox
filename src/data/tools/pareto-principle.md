@@ -1,0 +1,6 @@
+---
+name: 'Pareto Principle'
+summary: '80% of outcomes come from 20% of inputs.'
+tags:
+  - 'productivity'
+---

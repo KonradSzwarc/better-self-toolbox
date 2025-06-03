@@ -1,1 +1,18 @@
 @import 'tailwindcss';
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  * {
+    @apply border-black;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-white font-body text-zinc-950 antialiased;
+  }
+}

@@ -1,0 +1,6 @@
+---
+name: 'Cognitive Outsourcing'
+summary: 'Free mental space by offloading tasks to tools.'
+tags:
+  - 'productivity'
+---

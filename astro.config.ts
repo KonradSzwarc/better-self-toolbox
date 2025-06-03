@@ -1,8 +1,26 @@
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: 'Nunito',
+        cssVariable: '--font-heading',
+        weights: ['100 900'],
+        subsets: ['latin', 'latin-ext'],
+      },
+      {
+        provider: fontProviders.fontsource(),
+        name: 'Inter',
+        cssVariable: '--font-body',
+        weights: ['100 900'],
+        subsets: ['latin', 'latin-ext'],
+      },
+    ],
   },
 });

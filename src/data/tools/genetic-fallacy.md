@@ -1,0 +1,6 @@
+---
+name: 'Genetic Fallacy'
+summary: 'Judging a claim by its source instead of its content.'
+tags:
+  - 'logical-fallacy'
+---

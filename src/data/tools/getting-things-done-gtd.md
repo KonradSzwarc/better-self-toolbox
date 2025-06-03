@@ -1,0 +1,6 @@
+---
+name: 'Getting Things Done (GTD)'
+summary: 'Capture, clarify, and execute tasks with a structured system.'
+tags:
+  - 'productivity'
+---

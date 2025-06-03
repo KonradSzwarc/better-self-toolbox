@@ -1,0 +1,9 @@
+---
+name: 'Bottleneck Analysis'
+synonyms:
+  - 'Theory of Constraints'
+  - 'The Weakest Link'
+summary: 'Find and fix the most limiting part of a system.'
+tags:
+  - 'productivity'
+---

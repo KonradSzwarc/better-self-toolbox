@@ -1,0 +1,6 @@
+---
+name: '5-Second Rule'
+summary: 'Use a 5-second countdown to overcome inaction.'
+tags:
+  - 'productivity'
+---

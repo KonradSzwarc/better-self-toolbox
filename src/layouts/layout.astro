@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Font } from 'astro:assets';
 
 interface Props {
   title?: string;
@@ -8,15 +9,17 @@ interface Props {
 const { title = 'Better Self Toolbox' } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Font cssVariable="--font-heading" preload />
+    <Font cssVariable="--font-body" preload />
   </head>
-  <body class="antialiased">
+  <body>
     <slot />
   </body>
 </html>

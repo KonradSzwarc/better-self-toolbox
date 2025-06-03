@@ -1,7 +1,16 @@
 ---
+import Hero from '@/components/hero.astro';
+import Search from '@/components/search.astro';
 import Layout from '@/layouts/layout.astro';
+import ToolsList from '@/components/tools-list.astro';
+
+export const prerender = false;
 ---
 
 <Layout>
-  <h1>Better Self Toolbox</h1>
+  <main class="container mx-auto grid place-items-center px-4 pb-10">
+    <Hero />
+    <Search class="mb-10" />
+    <ToolsList />
+  </main>
 </Layout>
