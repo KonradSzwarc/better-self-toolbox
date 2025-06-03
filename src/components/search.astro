@@ -23,19 +23,19 @@ const tagsToRender = [
 ];
 ---
 
-<section class={cn('flex flex-col items-center', className)} {...rest}>
+<section class={cn('flex max-w-4xl flex-col items-center', className)} {...rest}>
   <input
     data-search-input
     type="text"
     value={search}
     placeholder="Search tools..."
-    class="mb-4 w-full max-w-3xl border border-black p-2 outline-offset-2 outline-black focus-visible:outline-2"
+    class="mb-4 w-full max-w-xl border border-black p-2"
   />
   <ul class="mt-4 flex flex-wrap justify-center gap-2">
     {
       tagsToRender.map((tag) => (
-        <li class="">
-          <label class="flex items-center border px-2 py-1 outline-offset-2 outline-black select-none has-[input:checked]:bg-black has-[input:checked]:text-white has-[input:focus]:outline-2">
+        <li>
+          <label class="not-[has] flex items-center border px-2 py-1 select-none">
             <input
               data-tag-checkbox
               type="radio"
@@ -51,6 +51,23 @@ const tagsToRender = [
     }
   </ul>
 </section>
+
+<style>
+  @reference '@/styles/global.css';
+
+  input[data-search-input]:focus-visible,
+  label:has(input:focus-visible) {
+    @apply outline-2 outline-offset-2 outline-black;
+  }
+
+  label:has(input:checked) {
+    @apply bg-black text-white;
+  }
+
+  label:has(input:not(:checked)) {
+    @apply cursor-pointer;
+  }
+</style>
 
 <script>
   function registerSearch() {
