@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+---
+
+<Layout title={tool.data.name}>
+  <main class="container mx-auto grid place-items-center px-4 py-10">
+    <h1>{tool.data.name}</h1>
+    <Content />
+  </main>
+</Layout>

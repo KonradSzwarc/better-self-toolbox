@@ -30,7 +30,11 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
           data-tool-tags={tool.data.tags.map((tag) => tag.id).join(',')}
           class={cn('flex flex-col border px-4 py-3', !idsToShow.has(tool.id) && 'hidden')}
         >
-          <h3 class="font-heading text-xl font-black">{tool.data.name}</h3>
+          <h3 class="font-heading text-xl font-black">
+            <a href={`/tools/${tool.id}`} class="hover:underline">
+              {tool.data.name}
+            </a>
+          </h3>
           <p class="mb-6 text-pretty">{tool.data.summary}</p>
           <ul class="mt-auto flex flex-wrap gap-1.5">
             {tool.data.tags.map((tag) => (
