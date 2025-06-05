@@ -1,7 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
+  adapter: cloudflare({
+    imageService: 'passthrough',
+  }),
   vite: {
     plugins: [tailwindcss()],
   },
