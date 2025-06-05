@@ -1,123 +1,16 @@
 ---
 import { cn } from '@/utils/styles';
+import { Fragment } from 'astro/jsx-runtime';
 import type { HTMLAttributes } from 'astro/types';
-import { getCollection } from 'astro:content';
+import TagFilters from './tag-filters.astro';
+import SearchInput from './search-input.astro';
 
 interface Props extends HTMLAttributes<'section'> {}
 
 const { class: className, ...rest } = Astro.props;
-
-const tags = await getCollection('tags');
-
-const search = Astro.url.searchParams.get('search') || '';
-const selectedTag = Astro.url.searchParams.get('tag') || 'all';
-
-const tagsToRender = [
-  {
-    id: 'all',
-    data: {
-      name: 'All',
-    },
-  },
-  ...tags,
-];
 ---
 
 <section class={cn('flex max-w-4xl flex-col items-center', className)} {...rest}>
-  <input
-    data-search-input
-    type="text"
-    value={search}
-    placeholder="Search tools..."
-    class="mb-4 w-full max-w-xl border border-black p-2"
-  />
-  <ul class="mt-4 flex flex-wrap justify-center gap-2">
-    {
-      tagsToRender.map((tag) => (
-        <li>
-          <label class="not-[has] flex items-center border px-2 py-1 select-none">
-            <input
-              data-tag-checkbox
-              type="radio"
-              id={`tag-${tag.id}`}
-              value={tag.id}
-              checked={selectedTag === tag.id}
-              class="sr-only"
-            />
-            <span>{tag.data.name}</span>
-          </label>
-        </li>
-      ))
-    }
-  </ul>
+  <SearchInput placeholder="Search tools..." class="mb-4 w-full max-w-xl" />
+  <TagFilters class="mt-4" />
 </section>
-
-<style>
-  @reference '@/styles/global.css';
-
-  input[data-search-input]:focus-visible,
-  label:has(input:focus-visible) {
-    @apply outline-2 outline-offset-2 outline-black;
-  }
-
-  label:has(input:checked) {
-    @apply bg-black text-white;
-  }
-
-  label:has(input:not(:checked)) {
-    @apply cursor-pointer;
-  }
-</style>
-
-<script>
-  function registerSearch() {
-    const searchInput = document.querySelector('[data-search-input]');
-    if (!searchInput) return;
-
-    searchInput.addEventListener('input', (e) => {
-      const value = (e.target as HTMLInputElement).value;
-      const url = new URL(window.location.href);
-
-      if (value.length === 0) {
-        url.searchParams.delete('search');
-      } else {
-        url.searchParams.set('search', value);
-      }
-
-      history.pushState(null, '', url.toString());
-      window.dispatchEvent(new Event('query-change'));
-    });
-  }
-
-  function registerTags() {
-    const tags = document.querySelectorAll('[data-tag-checkbox]') as NodeListOf<HTMLInputElement>;
-    const selectedTag = new URL(window.location.href).searchParams.get('tag') || 'all';
-
-    tags.forEach((tag) => {
-      tag.checked = tag.value === selectedTag;
-
-      tag.addEventListener('change', (e) => {
-        const tagElement = e.target as HTMLInputElement;
-        const selectedTag = tagElement.checked ? tagElement.value : 'all';
-
-        tags.forEach((tag) => {
-          tag.checked = tag.value === selectedTag;
-        });
-
-        const url = new URL(window.location.href);
-
-        if (selectedTag === 'all') {
-          url.searchParams.delete('tag');
-        } else {
-          url.searchParams.set('tag', selectedTag);
-        }
-
-        history.pushState(null, '', url.toString());
-        window.dispatchEvent(new Event('query-change'));
-      });
-    });
-  }
-
-  registerSearch();
-  registerTags();
-</script>

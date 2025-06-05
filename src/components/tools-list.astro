@@ -31,7 +31,7 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
           class={cn('flex flex-col border px-4 py-3', !idsToShow.has(tool.id) && 'hidden')}
         >
           <h3 class="font-heading text-xl font-black">{tool.data.name}</h3>
-          <p class="mb-2 text-pretty">{tool.data.summary}</p>
+          <p class="mb-6 text-pretty">{tool.data.summary}</p>
           <ul class="mt-auto flex flex-wrap gap-1.5">
             {tool.data.tags.map((tag) => (
               <li class="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
@@ -46,7 +46,7 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
 </section>
 
 <script>
-  import { searchTools } from '../utils/search';
+  import { searchTools } from '@/utils/search';
 
   function registerParamsObserver() {
     const toolsList = document.querySelector('[data-tools-list]');
@@ -54,9 +54,9 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
 
     const toolItems = [...toolsList.querySelectorAll('[data-tool-id]')] as HTMLUListElement[];
 
-    const searchableTools = [...toolItems].map((li) => ({
-      id: li.dataset.toolId!,
-      name: li.textContent!,
+    const searchableTools = toolItems.map((li) => ({
+      id: li.dataset.toolId ?? '',
+      name: li.querySelector('h3')?.textContent ?? '',
       tags: li.dataset.toolTags?.split(',') || [],
     }));
 

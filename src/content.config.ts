@@ -15,6 +15,7 @@ const tags = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/tags' }),
   schema: z.object({
     name: z.string(),
+    summary: z.string(),
   }),
 });
 
