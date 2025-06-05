@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/layout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+  tool: CollectionEntry<'tools'>;
+}
+
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+---
+
+<Layout title={tool.data.name}>
+  <main class="container mx-auto grid place-items-center px-4 py-10">
+    <h1>{tool.data.name}</h1>
+    <Content />
+  </main>
+</Layout>

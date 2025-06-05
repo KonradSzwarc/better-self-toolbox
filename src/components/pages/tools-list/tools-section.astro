@@ -1,0 +1,88 @@
+---
+import { searchTools } from '@/utils/search';
+import { cn } from '@/utils/styles';
+import type { HTMLAttributes } from 'astro/types';
+import { getCollection } from 'astro:content';
+import { entriesForLocale, addLocale, localizedPath } from '@/utils/i18n';
+
+interface Props extends HTMLAttributes<'section'> {}
+
+const { class: className, ...rest } = Astro.props;
+
+const tools = await getCollection('tools', entriesForLocale(Astro.currentLocale));
+const tags = await getCollection('tags', entriesForLocale(Astro.currentLocale));
+
+const searchableTools = tools.map((tool) => ({
+  id: tool.id,
+  name: tool.data.name,
+  tags: tool.data.tags.map((tag) => `${Astro.currentLocale}/${tag.id}`),
+}));
+
+const searchParams = new URL(Astro.url).searchParams;
+const idsToShow = searchTools(searchableTools, searchParams.get('search'), searchParams.get('tag'));
+---
+
+<section class={cn('flex flex-col items-center', className)} {...rest}>
+  <ul data-tools-list class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+    {
+      tools
+        .toSorted((a, b) => a.data.name.localeCompare(b.data.name))
+        .map((tool) => (
+          <li
+            data-tool-id={tool.id}
+            data-tool-tags={tool.data.tags.map((tag) => tag.id).join(',')}
+            class={cn('flex flex-col border px-4 py-3', !idsToShow.has(tool.id) && 'hidden')}
+          >
+            <h3 class="font-heading text-xl font-black">
+              <a href={localizedPath(`/tools/${tool.id}`, Astro.currentLocale)} class="hover:underline">
+                {tool.data.name}
+              </a>
+            </h3>
+            <p class="mb-6 text-pretty">{tool.data.summary}</p>
+            <ul class="mt-auto flex flex-wrap gap-1.5">
+              {tool.data.tags.map((tag) => (
+                <li class="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
+                  {tags.find((t) => t.id === addLocale(tag.id, Astro.currentLocale))?.data.name}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+    }
+  </ul>
+</section>
+
+<script>
+  import { searchTools } from '@/utils/search';
+
+  function registerParamsObserver() {
+    const toolsList = document.querySelector('[data-tools-list]');
+    if (!toolsList) return;
+
+    const toolItems = [...toolsList.querySelectorAll('[data-tool-id]')] as HTMLUListElement[];
+
+    const searchableTools = toolItems.map((li) => ({
+      id: li.dataset.toolId ?? '',
+      name: li.querySelector('h3')?.textContent ?? '',
+      tags: li.dataset.toolTags?.split(',') || [],
+    }));
+
+    function handleQueryChange() {
+      const searchParams = new URL(window.location.href).searchParams;
+      const idsToShow = searchTools(searchableTools, searchParams.get('search'), searchParams.get('tag'));
+
+      for (const li of toolItems) {
+        if (idsToShow.has(li.dataset.toolId!)) {
+          li.classList.remove('hidden');
+        } else {
+          li.classList.add('hidden');
+        }
+      }
+    }
+
+    window.addEventListener('load', handleQueryChange);
+    window.addEventListener('query-change', handleQueryChange);
+  }
+
+  registerParamsObserver();
+</script>

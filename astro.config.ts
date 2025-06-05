@@ -9,6 +9,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  i18n: {
+    locales: ['en', 'pl'],
+    defaultLocale: 'en',
+  },
   experimental: {
     fonts: [
       {

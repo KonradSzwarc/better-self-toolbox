@@ -1,0 +1,6 @@
+---
+name: 'Just World Hypothesis'
+summary: 'Believing the world is inherently fair and people usually get what they deserve.'
+tags:
+  - 'cognitive-bias'
+---
