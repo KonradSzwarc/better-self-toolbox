@@ -38,8 +38,8 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
                 {tool.data.name}
               </a>
             </h3>
-            <p class="mb-6 text-pretty">{tool.data.summary}</p>
-            <ul class="mt-auto flex flex-wrap gap-1.5">
+            <p class="text-pretty">{tool.data.summary}</p>
+            <ul class="mt-auto flex flex-wrap gap-1.5 pt-6">
               {tool.data.tags.map((tag) => (
                 <li class="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
                   {tags.find((t) => t.id === addLocale(tag.id, Astro.currentLocale))?.data.name}
