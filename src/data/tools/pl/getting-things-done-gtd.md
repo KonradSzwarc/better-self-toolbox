@@ -1,6 +1,6 @@
 ---
 name: 'Getting Things Done (GTD)'
-summary: 'Zbieraj, porządkuj i realizuj zadania według uporządkowanego systemu.'
+summary: 'Zbieraj, organizuj i realizuj zadania według uporządkowanego systemu.'
 tags:
   - 'productivity'
 ---
