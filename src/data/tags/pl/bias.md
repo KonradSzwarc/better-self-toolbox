@@ -1,4 +1,4 @@
 ---
-name: 'Bias'
-summary: 'Explore the shortcuts your brain takes and how they can lead you astray. Gain more control over your thoughts and behavior by understanding the predictable errors in human thinking.'
+name: 'Błąd poznawczy'
+summary: 'Zobacz jak Twój umysł upraszcza rzeczywistość i sprowadza Cię na manowcę. Zacznij lepiej kontrolować swoje myśli i zachowania dzięki zrozumieniu typowych błędów w myśleniu.'
 ---

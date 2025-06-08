@@ -1,4 +1,4 @@
 ---
-name: 'Well-Being'
-summary: 'Learn how to support your mental and emotional well-being. Discover practices that help you handle stress, navigate emotions, and increase your overall life satisfaction.'
+name: 'Dobrostan'
+summary: 'Naucz się lepiej dbać o swoje zdrowie psychiczne i emocjonalne. Odkryj praktyki, które pomogą Ci panować nad stresem, radzić sobie z emocjami i podnieść satysfakcję z życia.'
 ---

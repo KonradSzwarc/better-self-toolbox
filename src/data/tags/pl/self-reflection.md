@@ -1,4 +1,4 @@
 ---
-name: 'Self-Reflection'
-summary: 'Slow down and look within. Use structured tools to make sense of your experiences, values, and inner world. Gain self-insight that will help you grow and evolve.'
+name: 'Autorefleksja'
+summary: 'Zatrzymaj się i spójrz w głąb siebie, by lepiej zrozumieć swoje doświadczenia, wartości i wewnętrzny świat.'
 ---

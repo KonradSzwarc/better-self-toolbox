@@ -1,4 +1,4 @@
 ---
-name: 'Fallacy'
-summary: 'Learn to spot flawed arguments that distort logic and derail discussions. Build intellectual resilience by identifying manipulative reasoning patterns - whether in others’ arguments or your own.'
+name: 'Błąd logiczny'
+summary: 'Naucz się wyłapywać błędy logiczne i manipulacje w argumentacji - zarówno u innych jak i u siebie.'
 ---
