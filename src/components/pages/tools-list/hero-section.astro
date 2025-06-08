@@ -1,17 +1,19 @@
 ---
 import Toolbox from '@/assets/toolbox.svg';
+import { getLocale, getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'section'> {}
 
 const { class: className, ...rest } = Astro.props;
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
 ---
 
 <section class={cn('grid place-items-center p-10 text-center', className)} {...rest}>
   <Toolbox class="size-36" />
-  <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">Better Self Toolbox</h1>
-  <p class="max-w-2xl text-xl text-balance">
-    A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.
-  </p>
+  <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('pages.tools_list.title')}</h1>
+  <p class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</p>
 </section>

@@ -11,6 +11,6 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <section class={cn('flex max-w-4xl flex-col items-center', className)} {...rest}>
-  <SearchInput placeholder="Search tools..." class="mb-4 w-full max-w-xl" />
+  <SearchInput class="mb-4 w-full max-w-xl" />
   <TagFilters class="mt-4" />
 </section>

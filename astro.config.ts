@@ -2,6 +2,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 
+import { locales, defaultLocale } from './src/utils/i18n/constants';
+
 export default defineConfig({
   adapter: cloudflare({
     imageService: 'passthrough',
@@ -10,8 +12,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   i18n: {
-    locales: ['en', 'pl'],
-    defaultLocale: 'en',
+    locales: [...locales],
+    defaultLocale,
   },
   experimental: {
     fonts: [

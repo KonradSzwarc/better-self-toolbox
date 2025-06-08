@@ -1,4 +1,5 @@
 ---
+import { getLocale, getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import { Fragment } from 'astro/jsx-runtime';
 import type { HTMLAttributes } from 'astro/types';
@@ -8,9 +9,18 @@ interface Props extends HTMLAttributes<'input'> {}
 const { class: className, ...rest } = Astro.props;
 
 const search = Astro.url.searchParams.get('search') || '';
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
 ---
 
-<input data-search-input type="text" value={search} class={cn('border border-black p-2', className)} {...rest} />
+<input
+  data-search-input
+  type="text"
+  value={search}
+  placeholder={t('pages.tools_list.search')}
+  class={cn('border border-black p-2', className)}
+  {...rest}
+/>
 
 <style>
   @reference '@/styles/global.css';
