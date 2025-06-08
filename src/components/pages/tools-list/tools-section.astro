@@ -3,7 +3,7 @@ import { createSearch } from '@/utils/search';
 import { cn } from '@/utils/styles';
 import type { HTMLAttributes } from 'astro/types';
 import { getCollection } from 'astro:content';
-import { entriesForLocale, prependLocale, localizedPath, getLocale } from '@/utils/i18n';
+import { entriesForLocale, prependLocale, localizedPath, getLocale, omitLocale } from '@/utils/i18n';
 
 interface Props extends HTMLAttributes<'section'> {}
 
@@ -15,13 +15,12 @@ const tags = await getCollection('tags', entriesForLocale(locale));
 
 const search = createSearch(
   tools.map((tool) => ({
-    id: tool.id,
+    id: omitLocale(tool.id),
     name: tool.data.name,
     synonyms: tool.data.synonyms || [],
-    tags: tool.data.tags.map((tag) => prependLocale(tag.id, locale)),
+    tags: tool.data.tags.map((tag) => tag.id),
   })),
 );
-
 const searchParams = new URL(Astro.url).searchParams;
 const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
 ---
@@ -33,10 +32,9 @@ const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
         .toSorted((a, b) => a.data.name.localeCompare(b.data.name))
         .map((tool) => (
           <li
-            data-tool-id={tool.id}
-            data-tool-tags={tool.data.tags.map((tag) => tag.id).join(',')}
-            data-tool-synonyms={tool.data.synonyms?.join(',') || ''}
-            class={cn('flex flex-col border px-4 py-3', !idsToShow.has(tool.id) && 'hidden')}
+            data-tool-id={omitLocale(tool.id)}
+            data-synonyms={tool.data.synonyms?.join(',') || undefined}
+            class={cn('flex flex-col border px-4 py-3', !idsToShow.has(omitLocale(tool.id)) && 'hidden')}
           >
             <h3 class="font-heading text-xl font-black">
               <a href={localizedPath(`/tools/${tool.id}`, locale)} class="hover:underline">
@@ -46,7 +44,7 @@ const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
             <p class="text-pretty">{tool.data.summary}</p>
             <ul class="mt-auto flex flex-wrap gap-1.5 pt-6">
               {tool.data.tags.map((tag) => (
-                <li class="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
+                <li data-tag-id={tag.id} class="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
                   {tags.find((t) => t.id === prependLocale(tag.id, locale))?.data.name}
                 </li>
               ))}
@@ -64,14 +62,16 @@ const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
     const toolsList = document.querySelector('[data-tools-list]');
     if (!toolsList) return;
 
-    const toolItems = [...toolsList.querySelectorAll('[data-tool-id]')] as HTMLUListElement[];
+    const toolItems = [...toolsList.querySelectorAll('[data-tool-id]')] as HTMLLIElement[];
 
     const search = createSearch(
-      toolItems.map((li) => ({
-        id: li.dataset.toolId ?? '',
-        name: li.querySelector('h3')?.textContent ?? '',
-        synonyms: li.dataset.toolSynonyms?.split(',') || [],
-        tags: li.dataset.toolTags?.split(',') || [],
+      toolItems.map((tool) => ({
+        id: tool.dataset.toolId!,
+        name: tool.querySelector('h3')?.textContent ?? '',
+        synonyms: tool.dataset.synonyms?.split(',') || [],
+        tags: [...(tool.querySelectorAll('[data-tag-id]') as NodeListOf<HTMLLIElement>)].map(
+          (tag) => tag.dataset.tagId!,
+        ),
       })),
     );
 
