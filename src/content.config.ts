@@ -7,6 +7,7 @@ const tools = defineCollection({
   schema: z.object({
     name: z.string(),
     summary: z.string(),
+    synonyms: z.array(z.string()).nullish(),
     tags: z.array(reference('tags')),
   }),
 });

@@ -1,5 +1,5 @@
 ---
-import { searchTools } from '@/utils/search';
+import { createSearch } from '@/utils/search';
 import { cn } from '@/utils/styles';
 import type { HTMLAttributes } from 'astro/types';
 import { getCollection } from 'astro:content';
@@ -13,14 +13,17 @@ const locale = getLocale(Astro);
 const tools = await getCollection('tools', entriesForLocale(locale));
 const tags = await getCollection('tags', entriesForLocale(locale));
 
-const searchableTools = tools.map((tool) => ({
-  id: tool.id,
-  name: tool.data.name,
-  tags: tool.data.tags.map((tag) => prependLocale(tag.id, locale)),
-}));
+const search = createSearch(
+  tools.map((tool) => ({
+    id: tool.id,
+    name: tool.data.name,
+    synonyms: tool.data.synonyms || [],
+    tags: tool.data.tags.map((tag) => prependLocale(tag.id, locale)),
+  })),
+);
 
 const searchParams = new URL(Astro.url).searchParams;
-const idsToShow = searchTools(searchableTools, searchParams.get('search'), searchParams.get('tag'));
+const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
 ---
 
 <section class={cn('flex flex-col items-center', className)} {...rest}>
@@ -32,6 +35,7 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
           <li
             data-tool-id={tool.id}
             data-tool-tags={tool.data.tags.map((tag) => tag.id).join(',')}
+            data-tool-synonyms={tool.data.synonyms?.join(',') || ''}
             class={cn('flex flex-col border px-4 py-3', !idsToShow.has(tool.id) && 'hidden')}
           >
             <h3 class="font-heading text-xl font-black">
@@ -54,7 +58,7 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
 </section>
 
 <script>
-  import { searchTools } from '@/utils/search';
+  import { createSearch } from '@/utils/search';
 
   function registerParamsObserver() {
     const toolsList = document.querySelector('[data-tools-list]');
@@ -62,15 +66,18 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
 
     const toolItems = [...toolsList.querySelectorAll('[data-tool-id]')] as HTMLUListElement[];
 
-    const searchableTools = toolItems.map((li) => ({
-      id: li.dataset.toolId ?? '',
-      name: li.querySelector('h3')?.textContent ?? '',
-      tags: li.dataset.toolTags?.split(',') || [],
-    }));
+    const search = createSearch(
+      toolItems.map((li) => ({
+        id: li.dataset.toolId ?? '',
+        name: li.querySelector('h3')?.textContent ?? '',
+        synonyms: li.dataset.toolSynonyms?.split(',') || [],
+        tags: li.dataset.toolTags?.split(',') || [],
+      })),
+    );
 
     function handleQueryChange() {
       const searchParams = new URL(window.location.href).searchParams;
-      const idsToShow = searchTools(searchableTools, searchParams.get('search'), searchParams.get('tag'));
+      const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
 
       for (const li of toolItems) {
         if (idsToShow.has(li.dataset.toolId!)) {

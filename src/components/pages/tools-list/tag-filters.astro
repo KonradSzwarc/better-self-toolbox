@@ -74,9 +74,7 @@ const selectedTag = Astro.url.searchParams.get('tag') || 'all';
     for (const item of document.querySelectorAll('[data-tag-filters] [data-tooltip-id]')) {
       if (!(item instanceof HTMLElement)) continue;
 
-      console.log(item.dataset.tooltipId);
       const tooltip = document.querySelector(`[role="tooltip"][data-for="${item.dataset.tooltipId}"]`);
-      console.log(tooltip);
       if (!(tooltip instanceof HTMLElement)) continue;
 
       autoUpdate(item, tooltip, () => updatePosition(item, tooltip));
