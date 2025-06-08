@@ -5,5 +5,5 @@ synonyms:
   - 'Dyfuzja odpowiedzialności'
 summary: 'Im więcej obserwatorów, tym mniejsza skłonność do działania poszczególnych osób.'
 tags:
-  - 'cognitive-bias'
+  - 'bias'
 ---

@@ -5,5 +5,5 @@ synonyms:
   - 'Correspondence Bias'
 summary: 'Judging others on their character, but ourselves on situational factors.'
 tags:
-  - 'cognitive-bias'
+  - 'bias'
 ---

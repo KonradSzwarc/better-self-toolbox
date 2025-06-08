@@ -2,5 +2,5 @@
 name: 'Map and Territory Fallacy'
 summary: 'Confusing representations of reality with reality itself.'
 tags:
-  - 'cognitive-bias'
+  - 'bias'
 ---

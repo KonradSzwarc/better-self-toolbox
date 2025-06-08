@@ -73,9 +73,9 @@ const idsToShow = searchTools(searchableTools, searchParams.get('search'), searc
 
       for (const li of toolItems) {
         if (idsToShow.has(li.dataset.toolId!)) {
-          li.classList.remove('hidden');
+          li.classList.replace('hidden', 'flex');
         } else {
-          li.classList.add('hidden');
+          li.classList.replace('flex', 'hidden');
         }
       }
     }

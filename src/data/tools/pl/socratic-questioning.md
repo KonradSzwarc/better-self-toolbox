@@ -4,5 +4,5 @@ synonyms:
   - 'Metoda sokratyczna'
 summary: 'Używaj pytań pogłębiających, aby lepiej rozumieć podstawy problemu lub idei.'
 tags:
-  - 'thinking-pattern'
+  - 'mental-model'
 ---

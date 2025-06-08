@@ -7,5 +7,5 @@ synonyms:
   - 'Golden Mean Fallacy'
 summary: 'Favoring a middle ground without examining the facts.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

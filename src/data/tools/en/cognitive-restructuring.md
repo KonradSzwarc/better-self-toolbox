@@ -5,5 +5,4 @@ synonyms:
 summary: 'Track and challenge unhelpful thoughts to shift your mindset.'
 tags:
   - 'well-being'
-  - 'journaling'
 ---

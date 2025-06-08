@@ -4,5 +4,5 @@ synonyms:
   - 'Appeal to Purity'
 summary: 'Shifting the definition to exclude counterexamples.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

@@ -6,5 +6,5 @@ synonyms:
   - 'Błąd złotego środka'
 summary: 'Przyjmowanie, że prawda zawsze leży pośrodku, niezależnie od argumentów.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

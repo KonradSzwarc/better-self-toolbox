@@ -2,5 +2,5 @@
 name: 'Mentalny kontrast'
 summary: 'Wizualizując sukces, myśl także o przeszkodach, które trzeba było pokonać.'
 tags:
-  - 'decision-making'
+  - 'mental-model'
 ---

@@ -4,5 +4,5 @@ synonyms:
   - 'Efekt owczego pędu'
 summary: 'Przyjmowanie przekonania za prawdziwe, bo jest powszechnie występujące.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

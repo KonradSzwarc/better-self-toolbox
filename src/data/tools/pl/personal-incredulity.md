@@ -4,5 +4,5 @@ synonyms:
   - 'Odwołanie do ignorancji'
 summary: 'Uznawanie czegoś za fałszywe, ponieważ tego nie rozumiemy.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

@@ -5,5 +5,5 @@ synonyms:
   - 'Begging the Question'
 summary: 'Supporting a claim with a restated version of itself.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---

@@ -6,5 +6,4 @@ synonyms:
 summary: 'Achieve major results through consistent tiny improvements.'
 tags:
   - 'productivity'
-  - 'habits'
 ---

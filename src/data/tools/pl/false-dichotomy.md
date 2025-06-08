@@ -5,5 +5,5 @@ synonyms:
   - 'Czarno-białe myślenie'
 summary: 'Upraszczanie problemu poprzez ograniczanie wyboru do dwóch opcji.'
 tags:
-  - 'logical-fallacy'
+  - 'fallacy'
 ---
