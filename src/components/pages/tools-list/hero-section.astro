@@ -1,8 +1,8 @@
 ---
-import Toolbox from '@/assets/toolbox.svg';
 import { getLocale, getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import type { HTMLAttributes } from 'astro/types';
+import IconToolbox from '~icons/mdi/toolbox';
 
 interface Props extends HTMLAttributes<'section'> {}
 
@@ -13,7 +13,7 @@ const t = getTranslations(locale);
 ---
 
 <section class={cn('grid place-items-center p-10 text-center', className)} {...rest}>
-  <Toolbox class="size-36" />
+  <IconToolbox class="size-36" />
   <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('pages.tools_list.title')}</h1>
   <p class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</p>
 </section>

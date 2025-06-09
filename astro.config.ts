@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
+import Icons from 'unplugin-icons/vite';
 
 import { locales, defaultLocale } from './src/utils/i18n/constants';
 
@@ -9,7 +10,12 @@ export default defineConfig({
     imageService: 'passthrough',
   }),
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      Icons({
+        compiler: 'astro',
+      }),
+    ],
   },
   i18n: {
     locales: [...locales],
