@@ -2,5 +2,7 @@
   "pages.tools_list.title": "Better Self Toolbox",
   "pages.tools_list.description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
   "pages.tools_list.search": "Search for tools...",
-  "pages.tools_list.all_tag": "All"
+  "pages.tools_list.all_tag": "All",
+  "pages.tool_details.category": "Category",
+  "pages.tool_details.also_known_as": "Other names"
 }

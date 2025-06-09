@@ -1,5 +1,8 @@
 ---
 name: 'Slippery Slope'
+synonyms:
+  - 'Domino Effect'
+  - 'Snowball Effect'
 summary: 'Assuming that one event must lead to a cascade of others without evidence.'
 tags:
   - 'fallacy'
@@ -16,14 +19,16 @@ The generic schema of such argument is:
 Examples:
 
 > If we allow people to say offensive things in public, it will lead to more physical violence, which will cause social unrest.
+
 > If we allow same-sex marriage, next we'll have to allow people to marry their pets or robots.
+
 > If we let sixteen-year-olds vote, soon fifteen-year-olds will demand the same, then younger and younger kids until babies will vote too.
 
 ## Why it's invalid?
 
 - It avoids engaging with the issue at hand by shifting the focus to some hypothetical scenario.
 - No proof is provided for the claim that the hypothetical scenario will actually happen.
-- It usually leverages fear making the argument an [appeal to emotion](./appeal-to-emotion).
+- It usually leverages fear making the argument an [appeal to emotion](../appeal-to-emotion).
 
 ## How to respond?
 

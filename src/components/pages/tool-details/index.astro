@@ -1,19 +1,51 @@
 ---
 import Layout from '@/layouts/layout.astro';
+import { getLocale, getTranslations, prependLocale } from '@/utils/i18n';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
 }
 
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
+
 const { tool } = Astro.props;
+
+const tags = await getCollection('tags', (tag) => tool.data.tags.some((t) => prependLocale(t.id, locale) === tag.id));
+
 const { Content } = await render(tool);
 ---
 
 <Layout title={tool.data.name}>
   <main class="container mx-auto grid place-items-center px-4 py-10">
-    <h1>{tool.data.name}</h1>
-    <Content />
+    <article class="prose text-pretty prose-zinc prose-headings:font-heading prose-headings:font-black">
+      <header class="not-prose">
+        <h1 class="font-heading text-4xl font-black">{tool.data.name}</h1>
+        <p class="mt-4 text-xl">{tool.data.summary}</p>
+        <div class="mt-4 flex items-center gap-1.5">
+          <strong>{t('pages.tool_details.category')}:</strong>
+          <ul class="flex flex-wrap gap-2">
+            {tags.map((tag, i, arr) => <li>{`${tag.data.name}${i < arr.length - 1 ? ',' : ''}`}</li>)}
+          </ul>
+        </div>
+        {
+          tool.data.synonyms && (
+            <div class="flex items-center gap-1.5">
+              <strong>{t('pages.tool_details.also_known_as')}:</strong>
+              <ul class="flex flex-wrap gap-2">
+                {tool.data.synonyms.map((name, i, arr) => (
+                  <li>{`${name}${i < arr.length - 1 ? ',' : ''}`}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </header>
+      <hr class="!my-8" />
+      <Content />
+    </article>
   </main>
 </Layout>
