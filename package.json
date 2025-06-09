@@ -31,10 +31,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/cloudflare": "12.5.3",
+    "@astrojs/cloudflare": "12.5.4",
     "@astrojs/ts-plugin": "1.10.4",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "5.8.1",
+    "astro": "5.9.1",
     "concurrently": "9.1.2",
     "globals": "16.2.0",
     "prettier": "3.5.3",
