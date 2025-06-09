@@ -37,7 +37,7 @@ const idsToShow = search(searchParams.get('search'), searchParams.get('tag'));
             class={cn('flex flex-col border px-4 py-3', !idsToShow.has(omitLocale(tool.id)) && 'hidden')}
           >
             <h3 class="font-heading text-xl font-black">
-              <a href={localizedPath(`/tools/${tool.id}`, locale)} class="hover:underline">
+              <a href={localizedPath(`/${omitLocale(tool.id)}`, locale)} class="hover:underline">
                 {tool.data.name}
               </a>
             </h3>

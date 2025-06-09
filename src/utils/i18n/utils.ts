@@ -29,5 +29,11 @@ export function omitLocale(path: string) {
 }
 
 export function localizedPath(path: string, locale: Locale) {
-  return getRelativeLocaleUrl(locale, omitLocale(path));
+  let localizedPath = getRelativeLocaleUrl(locale, path);
+
+  if (localizedPath.endsWith('/')) {
+    localizedPath = localizedPath.slice(0, -1);
+  }
+
+  return localizedPath;
 }
