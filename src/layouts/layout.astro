@@ -2,6 +2,7 @@
 import { Font } from 'astro:assets';
 import '@/styles/global.css';
 import { getLocale, getTranslations } from '@/utils/i18n';
+import LanguageSwitcher from '@/components/language-switcher.astro';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
@@ -19,6 +20,9 @@ const t = getTranslations(locale);
     <Font cssVariable="--font-body" preload />
   </head>
   <body>
+    <div class="relative flex h-0 w-full justify-end">
+      <LanguageSwitcher class="absolute top-4 right-4" />
+    </div>
     <slot />
   </body>
 </html>

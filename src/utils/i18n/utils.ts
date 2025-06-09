@@ -21,19 +21,31 @@ export function entriesForLocale(locale: Locale) {
 }
 
 export function prependLocale(path: string, locale: Locale) {
-  return `${locale}/${path}`;
+  return parsePath([locale, path].join('/'));
 }
 
+const regexLocales = `(${locales.join('|')})`;
 export function omitLocale(path: string) {
-  return path.match(/^(pl|en)\//) ? path.replace(/^(pl|en)\//, '') : path.replace(/\/(pl|en)\//, '/');
+  return parsePath(
+    path
+      .replace(new RegExp(`^${regexLocales}/`), '')
+      .replace(new RegExp(`/${regexLocales}/`), '/')
+      .replace(new RegExp(`/${regexLocales}$`), ''),
+  );
 }
 
 export function localizedPath(path: string, locale: Locale) {
-  let localizedPath = getRelativeLocaleUrl(locale, path);
+  return parsePath(getRelativeLocaleUrl(locale, path));
+}
 
-  if (localizedPath.endsWith('/')) {
-    localizedPath = localizedPath.slice(0, -1);
-  }
+function parsePath(path: string) {
+  return trimEndSlash(removeDoubleSlashes(path)) || '/';
+}
 
-  return localizedPath;
+function removeDoubleSlashes(path: string) {
+  return path.replace('//', '/');
+}
+
+function trimEndSlash(path: string) {
+  return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
 }

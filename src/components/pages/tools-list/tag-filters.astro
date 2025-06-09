@@ -37,7 +37,7 @@ const selectedTag = Astro.url.searchParams.get('tag') || 'all';
       <div
         role="tooltip"
         data-for={omitLocale(tag.id)}
-        class="z-20 max-w-[calc(100%-1rem)] rounded-lg border border-black bg-white px-4 py-3 text-pretty shadow-md md:max-w-[520px]"
+        class="z-20 max-w-[calc(100%-1rem)] rounded border bg-white px-4 py-3 text-pretty shadow-md md:max-w-[520px]"
       >
         {tag.data.summary}
       </div>

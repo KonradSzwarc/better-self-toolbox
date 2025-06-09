@@ -1,4 +1,7 @@
 {
+  "components.language_switcher.english": "English",
+  "components.language_switcher.polish": "Polish",
+  "components.language_switcher.label": "Change language",
   "pages.tools_list.title": "Better Self Toolbox",
   "pages.tools_list.description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
   "pages.tools_list.search": "Search for tools...",
