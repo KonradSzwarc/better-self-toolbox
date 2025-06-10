@@ -1,14 +1,67 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '@/layouts/layout.astro';
-import HeroSection from './hero-section.astro';
-import SearchSection from './search-section.astro';
-import ToolsSection from './tools-section.astro';
+import { entriesForLocale, getLocale, getTranslations, omitLocale } from '@/utils/i18n';
+import { SearchInputReact } from './search-input.react';
+import { TagFiltersReact } from './tag-filters.react';
+import IconToolbox from '~icons/mdi/toolbox';
+import { ToolsGridReact } from './tools-grid.react';
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
+
+const tagsCollection = await getCollection('tags', entriesForLocale(locale));
+const toolsCollection = await getCollection('tools', entriesForLocale(locale));
+
+const tags = tagsCollection.map((tag) => ({
+  id: omitLocale(tag.id),
+  name: tag.data.name,
+  summary: tag.data.summary,
+}));
+const tagsMap = new Map(tags.map((tag) => [tag.id, tag]));
+
+const tools = toolsCollection.map((tool) => ({
+  id: omitLocale(tool.id),
+  name: tool.data.name,
+  summary: tool.data.summary,
+  synonyms: tool.data.synonyms || [],
+  tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
+}));
 ---
 
 <Layout>
   <main class="container mx-auto grid place-items-center px-4 pb-10">
-    <HeroSection />
-    <SearchSection class="mt-4 mb-12" />
-    <ToolsSection />
+    <section class="flex flex-col items-center p-10 text-center">
+      <IconToolbox className="size-36" />
+      <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('pages.tools_list.title')}</h1>
+      <p class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</p>
+    </section>
+
+    <section class="mt-4 mb-12 flex max-w-4xl flex-col items-center">
+      <SearchInputReact
+        client:load
+        className="mb-4 w-full max-w-xl"
+        placeholder={t('pages.tools_list.search')}
+        initialValue={Astro.url.searchParams.get('search')}
+      />
+      <TagFiltersReact
+        client:load
+        tags={tags}
+        className="mt-4"
+        label={t('pages.tools_list.tag_filters_label')}
+        allTagLabel={t('pages.tools_list.all_tag')}
+        initialValue={Astro.url.searchParams.get('tag')}
+      />
+    </section>
+
+    <section class="flex flex-col items-center">
+      <ToolsGridReact
+        client:load
+        tools={tools}
+        locale={locale}
+        initialSearch={Astro.url.searchParams.get('search')}
+        initialTag={Astro.url.searchParams.get('tag')}
+      />
+    </section>
   </main>
 </Layout>

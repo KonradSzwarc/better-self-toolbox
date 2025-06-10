@@ -37,17 +37,17 @@ const { Content } = await render(tool);
       <header class="not-prose">
         <h1 class="font-heading text-4xl font-black">{tool.data.name}</h1>
         <p class="mt-4 text-xl">{tool.data.summary}</p>
-        <div class="mt-4 flex items-center gap-1.5">
-          <strong>{t('pages.tool_details.category')}:</strong>
-          <ul class="flex flex-wrap gap-2">
+        <div class="mt-4 flex gap-1.5">
+          <strong class="text-nowrap">{t('pages.tool_details.category')}:</strong>
+          <ul class="flex flex-wrap gap-x-2">
             {tags.map((tag, i, arr) => <li>{`${tag.data.name}${i < arr.length - 1 ? ',' : ''}`}</li>)}
           </ul>
         </div>
         {
           tool.data.synonyms && (
-            <div class="flex items-center gap-1.5">
-              <strong>{t('pages.tool_details.also_known_as')}:</strong>
-              <ul class="flex flex-wrap gap-2">
+            <div class="flex gap-1.5">
+              <strong class="text-nowrap">{t('pages.tool_details.also_known_as')}:</strong>
+              <ul class="flex flex-wrap gap-x-2">
                 {tool.data.synonyms.map((name, i, arr) => (
                   <li>{`${name}${i < arr.length - 1 ? ',' : ''}`}</li>
                 ))}

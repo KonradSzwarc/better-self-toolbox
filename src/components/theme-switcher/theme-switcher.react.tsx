@@ -20,8 +20,8 @@ type Theme = (typeof themes)[number];
 
 export function ThemeSwitcherReact({ label, labels, className }: Props) {
   const [theme, setTheme] = useState<Theme>(() => {
-    const storageTheme = localStorage.getItem('theme');
-    return themes.includes(storageTheme as Theme) ? (storageTheme as Theme) : 'system';
+    const storageTheme = localStorage.getItem('theme') as Theme;
+    return themes.includes(storageTheme) ? storageTheme : 'system';
   });
 
   const changeTheme = (theme: Theme) => () => {
