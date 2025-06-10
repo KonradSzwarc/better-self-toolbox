@@ -1,13 +1,10 @@
+import { useMemo } from 'react';
 import Fuse from 'fuse.js';
 import { useSearchParam } from '@/hooks/use-search-param';
-import { localizedPath, omitLocale } from '@/utils/i18n';
-import type { Locale } from '@/utils/i18n/constants';
 import { cn } from '@/utils/styles';
-import { useMemo } from 'react';
 
 interface Props {
   className?: string;
-  locale: Locale;
   initialSearch?: string | null;
   initialTag?: string | null;
   tools: {
@@ -15,6 +12,7 @@ interface Props {
     name: string;
     summary: string;
     synonyms: string[];
+    url: string;
     tags: {
       id: string;
       name: string;
@@ -22,7 +20,7 @@ interface Props {
   }[];
 }
 
-export function ToolsGridReact({ tools, className, locale, initialSearch, initialTag }: Props) {
+export function ToolsGridReact({ tools, className, initialSearch, initialTag }: Props) {
   const [search] = useSearchParam({ name: 'search', initialValue: initialSearch });
   const [tag] = useSearchParam({ name: 'tag', initialValue: initialTag });
   const results = useSearch(tools, search, tag);
@@ -33,7 +31,7 @@ export function ToolsGridReact({ tools, className, locale, initialSearch, initia
         {results.map((tool) => (
           <li key={tool.id} className={cn('flex flex-col border px-4 py-3')}>
             <h3 className="font-heading text-xl font-black">
-              <a href={localizedPath(`/${omitLocale(tool.id)}`, locale)} className="hover:underline">
+              <a href={tool.url} className="hover:underline">
                 {tool.name}
               </a>
             </h3>

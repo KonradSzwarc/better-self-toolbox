@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { DropdownMenu } from 'radix-ui';
-import type { Locale } from '@/utils/i18n/constants';
+import type { Locale } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 
 interface Props {

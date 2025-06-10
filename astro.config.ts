@@ -1,23 +1,29 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 import node from '@astrojs/node';
 import react from '@astrojs/react';
+import playformCompress from '@playform/compress';
+import compressor from 'astro-compressor';
 import Icons from 'unplugin-icons/vite';
 
 import { locales, defaultLocale } from './src/utils/i18n/constants';
 
 export default defineConfig({
-  integrations: [react()],
+  adapter: node({
+    mode: 'middleware',
+  }),
 
-  adapter:
-    process.env.APP_ENV === 'local'
-      ? node({
-          mode: 'standalone',
-        })
-      : cloudflare({
-          imageService: 'passthrough',
-        }),
+  integrations: [
+    react(),
+    playformCompress({
+      CSS: false,
+      HTML: true,
+      Image: false,
+      JavaScript: false,
+      SVG: true,
+    }),
+    compressor(),
+  ],
 
   vite: {
     plugins: [
@@ -32,6 +38,10 @@ export default defineConfig({
   i18n: {
     locales: [...locales],
     defaultLocale,
+  },
+
+  build: {
+    inlineStylesheets: 'always',
   },
 
   experimental: {

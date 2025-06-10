@@ -2,7 +2,7 @@ import type { AstroGlobal } from 'astro';
 import type { CollectionEntry, DataEntryMap } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
-import { defaultLocale, locales } from './constants';
+import { defaultLocale, locales, regexLocales } from './constants';
 import type { Locale } from './constants';
 import { messages, type MessageKey } from './messages';
 
@@ -24,7 +24,6 @@ export function prependLocale(path: string, locale: Locale) {
   return parsePath([locale, path].join('/'));
 }
 
-const regexLocales = `(${locales.join('|')})`;
 export function omitLocale(path: string) {
   return parsePath(
     path

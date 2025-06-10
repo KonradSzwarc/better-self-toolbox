@@ -12,6 +12,6 @@
   "pages.tools_list.all_tag": "All",
   "pages.tools_list.tag_filters_label": "Filter by category",
   "pages.tool_details.category": "Category",
-  "pages.tool_details.also_known_as": "Other names",
+  "pages.tool_details.also_known_as": "Known as",
   "pages.tool_details.back": "Back to list"
 }

@@ -1,8 +1,7 @@
-import { RadioGroup } from 'radix-ui';
-import { Tooltip } from 'radix-ui';
+import { useEffect, useRef, useState } from 'react';
+import { RadioGroup, Tooltip } from 'radix-ui';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
-import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   className?: string;
@@ -60,8 +59,8 @@ function TagFilter({ id, name, summary }: TagFilterProps) {
       clearTimeout(timeout);
     };
 
-    element.addEventListener('touchstart', onTouchStart);
-    element.addEventListener('touchend', onTouchEnd);
+    element.addEventListener('touchstart', onTouchStart, { passive: true });
+    element.addEventListener('touchend', onTouchEnd, { passive: true });
 
     return () => {
       element.removeEventListener('touchstart', onTouchStart);

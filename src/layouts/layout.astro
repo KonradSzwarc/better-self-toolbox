@@ -2,9 +2,9 @@
 import { Font } from 'astro:assets';
 import '@/styles/global.css';
 import { getLocale, getTranslations } from '@/utils/i18n';
-import LanguageSwitcher from '@/components/language-switcher';
-import ThemeScript from '@/components/theme-switcher/theme-script.astro';
-import ThemeSwitcher from '@/components/theme-switcher';
+import LanguageSwitcher from '@/components/language-switcher.astro';
+import ThemeScript from '@/components/theme-script.astro';
+import ThemeSwitcher from '@/components/theme-switcher.astro';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);

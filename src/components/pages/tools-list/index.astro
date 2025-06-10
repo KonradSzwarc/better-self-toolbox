@@ -2,9 +2,10 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/layout.astro';
 import { entriesForLocale, getLocale, getTranslations, omitLocale } from '@/utils/i18n';
+import { localizedPath } from '@/utils/i18n';
+import IconToolbox from '~icons/mdi/toolbox';
 import { SearchInputReact } from './search-input.react';
 import { TagFiltersReact } from './tag-filters.react';
-import IconToolbox from '~icons/mdi/toolbox';
 import { ToolsGridReact } from './tools-grid.react';
 
 const locale = getLocale(Astro);
@@ -25,6 +26,7 @@ const tools = toolsCollection.map((tool) => ({
   name: tool.data.name,
   summary: tool.data.summary,
   synonyms: tool.data.synonyms || [],
+  url: localizedPath(`/${omitLocale(tool.id)}`, locale),
   tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
 }));
 ---
@@ -34,7 +36,7 @@ const tools = toolsCollection.map((tool) => ({
     <section class="flex flex-col items-center p-10 text-center">
       <IconToolbox className="size-36" />
       <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('pages.tools_list.title')}</h1>
-      <p class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</p>
+      <h2 class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</h2>
     </section>
 
     <section class="mt-4 mb-12 flex max-w-4xl flex-col items-center">
@@ -58,7 +60,6 @@ const tools = toolsCollection.map((tool) => ({
       <ToolsGridReact
         client:load
         tools={tools}
-        locale={locale}
         initialSearch={Astro.url.searchParams.get('search')}
         initialTag={Astro.url.searchParams.get('tag')}
       />
