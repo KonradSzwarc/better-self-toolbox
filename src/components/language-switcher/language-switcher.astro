@@ -1,0 +1,36 @@
+---
+import { getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
+import type { Locale } from '@/utils/i18n/constants';
+import { LanguageSwitcherReact } from './language-switcher.react';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
+const pathname = omitLocale(Astro.url.pathname);
+
+const languages = {
+  en: {
+    flag: '🇬🇧',
+    label: t('components.language_switcher.english'),
+    path: localizedPath(pathname, 'en'),
+  },
+  pl: {
+    flag: '🇵🇱',
+    label: t('components.language_switcher.polish'),
+    path: localizedPath(pathname, 'pl'),
+  },
+} satisfies Record<Locale, object>;
+---
+
+<LanguageSwitcherReact
+  client:load
+  label={t('components.language_switcher.label')}
+  value={languages[locale].flag}
+  languages={languages}
+  className={className}
+/>

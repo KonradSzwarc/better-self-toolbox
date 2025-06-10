@@ -1,14 +1,24 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
+import react from '@astrojs/react';
 import Icons from 'unplugin-icons/vite';
 
 import { locales, defaultLocale } from './src/utils/i18n/constants';
 
 export default defineConfig({
-  adapter: cloudflare({
-    imageService: 'passthrough',
-  }),
+  integrations: [react()],
+
+  adapter:
+    process.env.APP_ENV === 'local'
+      ? node({
+          mode: 'standalone',
+        })
+      : cloudflare({
+          imageService: 'passthrough',
+        }),
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -17,10 +27,12 @@ export default defineConfig({
       }),
     ],
   },
+
   i18n: {
     locales: [...locales],
     defaultLocale,
   },
+
   experimental: {
     fonts: [
       {

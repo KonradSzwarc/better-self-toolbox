@@ -2,7 +2,7 @@
 import { Font } from 'astro:assets';
 import '@/styles/global.css';
 import { getLocale, getTranslations } from '@/utils/i18n';
-import LanguageSwitcher from '@/components/language-switcher.astro';
+import LanguageSwitcher from '@/components/language-switcher';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
