@@ -1,20 +1,42 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  --background: var(--color-white);
+  --foreground: var(--color-zinc-950);
+  --border: var(--color-zinc-950);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-white);
+  --border: var(--color-white);
+}
+
 @theme inline {
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
 }
 
 @layer base {
   * {
-    @apply border-black;
+    @apply border-border;
   }
   html {
     @apply scroll-smooth;
     @apply lg:mr-0 lg:ml-[calc(100vw-100%)]; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
   }
   body {
-    @apply bg-white font-body text-zinc-950 antialiased;
+    @apply bg-background font-body text-foreground antialiased;
   }
 }

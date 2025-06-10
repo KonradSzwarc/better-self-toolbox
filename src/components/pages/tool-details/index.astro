@@ -23,12 +23,17 @@ const { Content } = await render(tool);
 <Layout title={tool.data.name}>
   <main class="container mx-auto grid place-items-center px-4 py-10">
     <nav class="mb-8 w-full max-w-prose">
-      <a href="/" class="flex items-center gap-1 text-sm font-medium text-zinc-500 transition hover:text-zinc-700">
-        <IconArrowBack class="size-4" />
+      <a
+        href="/"
+        class="flex items-center gap-1 text-sm font-medium text-foreground/75 transition hover:text-foreground"
+      >
+        <IconArrowBack className="size-4" />
         {t('pages.tool_details.back')}
       </a>
     </nav>
-    <article class="prose text-pretty prose-zinc prose-headings:font-heading prose-headings:font-black">
+    <article
+      class="prose text-pretty prose-zinc dark:prose-invert prose-headings:font-heading prose-headings:font-black"
+    >
       <header class="not-prose">
         <h1 class="font-heading text-4xl font-black">{tool.data.name}</h1>
         <p class="mt-4 text-xl">{tool.data.summary}</p>

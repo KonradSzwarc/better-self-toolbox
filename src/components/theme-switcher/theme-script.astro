@@ -1,0 +1,8 @@
+<script is:inline>
+  const storageTheme = localStorage.getItem('theme') ?? 'system';
+  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const isDark = storageTheme === 'dark' || (storageTheme === 'system' && colorScheme === 'dark');
+
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  localStorage.setItem('theme', storageTheme);
+</script>

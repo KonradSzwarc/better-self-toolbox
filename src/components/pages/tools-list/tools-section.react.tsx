@@ -43,7 +43,7 @@ export function ToolsSectionReact({ tools, tags, className, locale, initialSearc
               <p className="text-pretty">{tool.summary}</p>
               <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
                 {tool.tagIds.map((tagId) => (
-                  <li key={tagId} className="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium">
+                  <li key={tagId} className="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium dark:bg-zinc-700">
                     {tags.find((t) => t.id === tagId)?.name}
                   </li>
                 ))}

@@ -73,7 +73,7 @@ function TagFilter({ id, name, summary }: TagFilterProps) {
     <RadioGroup.Item
       value={id}
       ref={ref}
-      className="flex cursor-pointer items-center border px-2 py-1 select-none data-[state=checked]:bg-black data-[state=checked]:text-white"
+      className="flex cursor-pointer items-center border px-2 py-1 select-none data-[state=checked]:bg-foreground data-[state=checked]:text-background"
     >
       {name}
     </RadioGroup.Item>
@@ -87,7 +87,7 @@ function TagFilter({ id, name, summary }: TagFilterProps) {
       <Tooltip.Portal>
         <Tooltip.Content
           sideOffset={8}
-          className="mx-2 max-w-[calc(100vw-2rem)] border bg-white px-4 py-3 text-pretty shadow md:max-w-lg"
+          className="mx-2 max-w-[calc(100vw-2rem)] border bg-background px-4 py-3 text-pretty shadow md:max-w-lg"
         >
           {summary}
         </Tooltip.Content>

@@ -16,7 +16,7 @@ export function SearchInputReact({ className, placeholder, initialValue }: Props
       value={search}
       onChange={(e) => changeSearch(e.target.value)}
       placeholder={placeholder}
-      className={cn('border border-black p-2', className)}
+      className={cn('border p-2 placeholder:text-foreground/75', className)}
     />
   );
 }

@@ -3,6 +3,8 @@ import { Font } from 'astro:assets';
 import '@/styles/global.css';
 import { getLocale, getTranslations } from '@/utils/i18n';
 import LanguageSwitcher from '@/components/language-switcher';
+import ThemeScript from '@/components/theme-switcher/theme-script.astro';
+import ThemeSwitcher from '@/components/theme-switcher';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
@@ -18,10 +20,12 @@ const t = getTranslations(locale);
     <meta name="description" content={t('pages.tools_list.description')} />
     <Font cssVariable="--font-heading" preload />
     <Font cssVariable="--font-body" preload />
+    <ThemeScript />
   </head>
   <body>
     <div class="relative flex h-0 w-full justify-end">
       <LanguageSwitcher class="absolute top-4 right-4" />
+      <ThemeSwitcher class="absolute top-4 right-16" />
     </div>
     <slot />
   </body>
