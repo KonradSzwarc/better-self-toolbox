@@ -8,7 +8,7 @@ import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 
 import '@/styles/global.css';
-import { getLocale } from '@/utils/i18n';
+import { getLocale, localeCodes } from '@/utils/i18n';
 import LanguageSwitcher from '@/components/language-switcher.astro';
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
@@ -26,7 +26,7 @@ const interUrl = locale === 'pl' ? interLatinExtUrl : interLatinUrl;
 const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
 ---
 
-<html lang={locale}>
+<html lang={localeCodes[locale]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -38,6 +38,7 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <style>
       :root {
         --font-heading: 'Nunito Variable';

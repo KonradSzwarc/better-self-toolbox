@@ -2,25 +2,36 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
 import preact from '@astrojs/preact';
+import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
 import compressor from 'astro-compressor';
 import Icons from 'unplugin-icons/vite';
 
-import { locales, defaultLocale } from './src/utils/i18n/constants';
+import { locales, defaultLocale, localeCodes } from './src/utils/i18n/constants';
 
 export default defineConfig({
+  site: process.env.ASTRO_SITE?.trim() || 'http://localhost:4321',
+
   adapter: node({
     mode: 'middleware',
   }),
 
   integrations: [
-    preact({ compat: true }),
+    preact({
+      compat: true,
+    }),
+    sitemap({
+      i18n: {
+        defaultLocale,
+        locales: localeCodes,
+      },
+    }),
     playformCompress({
       CSS: false,
       HTML: true,
       Image: false,
       JavaScript: false,
-      SVG: true,
+      SVG: false,
     }),
     compressor(),
   ],

@@ -42,6 +42,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/node": "9.2.2",
     "@astrojs/preact": "4.1.0",
+    "@astrojs/sitemap": "3.4.1",
     "@astrojs/ts-plugin": "1.10.4",
     "@iconify-json/mdi": "1.2.3",
     "@playform/compress": "0.2.0",
