@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 import node from '@astrojs/node';
-import react from '@astrojs/react';
+import preact from '@astrojs/preact';
 import playformCompress from '@playform/compress';
 import compressor from 'astro-compressor';
 import Icons from 'unplugin-icons/vite';
@@ -14,7 +14,7 @@ export default defineConfig({
   }),
 
   integrations: [
-    react(),
+    preact({ compat: true }),
     playformCompress({
       CSS: false,
       HTML: true,
@@ -30,7 +30,7 @@ export default defineConfig({
       tailwindcss(),
       Icons({
         compiler: 'jsx',
-        jsx: 'react',
+        jsx: 'preact',
       }),
     ],
   },

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { RadioGroup, Tooltip } from 'radix-ui';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
@@ -15,7 +15,7 @@ interface Props {
   }[];
 }
 
-export function TagFiltersReact({ className, label, allTagLabel, tags, initialValue }: Props) {
+export function TagFiltersPreact({ className, label, allTagLabel, tags, initialValue }: Props) {
   const [selectedTag, changeSelectedTag] = useSearchParam({ name: 'tag', defaultValue: 'all', initialValue });
 
   return (

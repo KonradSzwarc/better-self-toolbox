@@ -1,6 +1,6 @@
 ---
 import { getLocale, getTranslations } from '@/utils/i18n';
-import { ThemeSwitcherReact } from './theme-switcher.react';
+import { ThemeSwitcherPreact } from './theme-switcher.preact';
 
 interface Props {
   class?: string;
@@ -12,8 +12,8 @@ const locale = getLocale(Astro);
 const t = getTranslations(locale);
 ---
 
-<ThemeSwitcherReact
-  client:only="react"
+<ThemeSwitcherPreact
+  client:only="preact"
   label={t('components.theme_switcher.label')}
   labels={{
     light: t('components.theme_switcher.light'),

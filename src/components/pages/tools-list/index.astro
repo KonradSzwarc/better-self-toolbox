@@ -4,9 +4,9 @@ import Layout from '@/layouts/layout.astro';
 import { entriesForLocale, getLocale, getTranslations, omitLocale } from '@/utils/i18n';
 import { localizedPath } from '@/utils/i18n';
 import IconToolbox from '~icons/mdi/toolbox';
-import { SearchInputReact } from './search-input.react';
-import { TagFiltersReact } from './tag-filters.react';
-import { ToolsGridReact } from './tools-grid.react';
+import { SearchInputPreact } from './search-input.preact';
+import { TagFiltersPreact } from './tag-filters.preact';
+import { ToolsGridPreact } from './tools-grid.preact';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
@@ -40,13 +40,13 @@ const tools = toolsCollection.map((tool) => ({
     </section>
 
     <section class="mt-4 mb-12 flex max-w-4xl flex-col items-center">
-      <SearchInputReact
+      <SearchInputPreact
         client:load
         className="mb-4 w-full max-w-xl"
         placeholder={t('pages.tools_list.search')}
         initialValue={Astro.url.searchParams.get('search')}
       />
-      <TagFiltersReact
+      <TagFiltersPreact
         client:load
         tags={tags}
         className="mt-4"
@@ -57,7 +57,7 @@ const tools = toolsCollection.map((tool) => ({
     </section>
 
     <section class="flex flex-col items-center">
-      <ToolsGridReact
+      <ToolsGridPreact
         client:load
         tools={tools}
         initialSearch={Astro.url.searchParams.get('search')}

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo } from 'preact/hooks';
 import Fuse from 'fuse.js';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
@@ -20,7 +20,7 @@ interface Props {
   }[];
 }
 
-export function ToolsGridReact({ tools, className, initialSearch, initialTag }: Props) {
+export function ToolsGridPreact({ tools, className, initialSearch, initialTag }: Props) {
   const [search] = useSearchParam({ name: 'search', initialValue: initialSearch });
   const [tag] = useSearchParam({ name: 'tag', initialValue: initialTag });
   const results = useSearch(tools, search, tag);

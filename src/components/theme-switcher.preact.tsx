@@ -1,4 +1,5 @@
-import { useState, type ComponentType, type SVGProps } from 'react';
+import { useState } from 'preact/hooks';
+import type { ComponentProps, ComponentType } from 'preact';
 import { DropdownMenu } from 'radix-ui';
 import { cn } from '@/utils/styles';
 import IconMoon from '~icons/mdi/moon-and-stars';
@@ -18,7 +19,7 @@ interface Props {
 const themes = ['light', 'dark', 'system'] as const;
 type Theme = (typeof themes)[number];
 
-export function ThemeSwitcherReact({ label, labels, className }: Props) {
+export function ThemeSwitcherPreact({ label, labels, className }: Props) {
   const [theme, setTheme] = useState<Theme>(() => {
     const storageTheme = localStorage.getItem('theme') as Theme;
     return themes.includes(storageTheme) ? storageTheme : 'system';
@@ -63,7 +64,7 @@ export function ThemeSwitcherReact({ label, labels, className }: Props) {
 
 interface DropdownItemProps {
   label: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon: ComponentType<ComponentProps<'svg'>>;
   onClick: () => void;
 }
 

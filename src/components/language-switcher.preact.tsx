@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from 'preact';
 import { DropdownMenu } from 'radix-ui';
 import type { Locale } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
@@ -17,7 +17,7 @@ interface Props {
   >;
 }
 
-export function LanguageSwitcherReact({ label, value, languages, className }: Props) {
+export function LanguageSwitcherPreact({ label, value, languages, className }: Props) {
   return (
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger asChild>

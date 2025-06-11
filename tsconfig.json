@@ -3,17 +3,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "react": ["./node_modules/preact/compat/"],
+      "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
+      "react-dom": ["./node_modules/preact/compat/"],
+      "react-dom/*": ["./node_modules/preact/compat/*"]
     },
     "exactOptionalPropertyTypes": false,
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "jsxImportSource": "preact",
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "types": ["unplugin-icons/types/react"]
+    "types": ["unplugin-icons/types/preact"]
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
