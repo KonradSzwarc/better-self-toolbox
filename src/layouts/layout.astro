@@ -8,13 +8,19 @@ import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 
 import '@/styles/global.css';
-import { getLocale, getTranslations } from '@/utils/i18n';
+import { getLocale } from '@/utils/i18n';
 import LanguageSwitcher from '@/components/language-switcher.astro';
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
 
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
 const locale = getLocale(Astro);
-const t = getTranslations(locale);
 
 const interUrl = locale === 'pl' ? interLatinExtUrl : interLatinUrl;
 const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
@@ -25,8 +31,8 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{t('pages.tools_list.title')}</title>
-    <meta name="description" content={t('pages.tools_list.description')} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="preload" as="font" type="font/woff2" href={nunitoUrl} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
