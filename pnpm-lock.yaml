@@ -14,6 +14,12 @@ importers:
       '@fastify/static':
         specifier: 8.2.0
         version: 8.2.0
+      '@fontsource-variable/inter':
+        specifier: 5.2.6
+        version: 5.2.6
+      '@fontsource-variable/nunito':
+        specifier: 5.2.6
+        version: 5.2.6
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -480,6 +486,12 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@fontsource-variable/inter@5.2.6':
+    resolution: {integrity: sha512-jks/bficUPQ9nn7GvXvHtlQIPudW7Wx8CrlZoY8bhxgeobNxlQan8DclUJuYF2loYRrGpfrhCIZZspXYysiVGg==}
+
+  '@fontsource-variable/nunito@5.2.6':
+    resolution: {integrity: sha512-dGYTQ0Hl94jjfMraYefrURHGH8fk/vL/1zYAZGofiPJVs6C0OkM8T87Te5Gwrbe6HG/XEMm5lib8AqasTN3ucw==}
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
@@ -4481,6 +4493,10 @@ snapshots:
       react-dom: '@preact/compat@18.3.1(preact@10.26.9)'
 
   '@floating-ui/utils@0.2.9': {}
+
+  '@fontsource-variable/inter@5.2.6': {}
+
+  '@fontsource-variable/nunito@5.2.6': {}
 
   '@iconify-json/mdi@1.2.3':
     dependencies:

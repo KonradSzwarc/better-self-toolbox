@@ -1,5 +1,12 @@
 ---
-import { Font } from 'astro:assets';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/nunito';
+
+import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
+import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
+import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
+
 import '@/styles/global.css';
 import { getLocale, getTranslations } from '@/utils/i18n';
 import LanguageSwitcher from '@/components/language-switcher.astro';
@@ -8,6 +15,9 @@ import ThemeSwitcher from '@/components/theme-switcher.astro';
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
+
+const interUrl = locale === 'pl' ? interLatinExtUrl : interLatinUrl;
+const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
 ---
 
 <html lang={locale}>
@@ -18,8 +28,14 @@ const t = getTranslations(locale);
     <meta name="generator" content={Astro.generator} />
     <title>{t('pages.tools_list.title')}</title>
     <meta name="description" content={t('pages.tools_list.description')} />
-    <Font cssVariable="--font-heading" preload />
-    <Font cssVariable="--font-body" preload />
+    <link rel="preload" as="font" type="font/woff2" href={nunitoUrl} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin="anonymous" />
+    <style>
+      :root {
+        --font-heading: 'Nunito Variable';
+        --font-body: 'Inter Variable';
+      }
+    </style>
     <ThemeScript />
   </head>
   <body>
