@@ -29,7 +29,7 @@ export function ToolsGridPreact({ tools, className, initialSearch, initialTag }:
     <section className={cn('flex flex-col items-center', className)}>
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {results.map((tool) => (
-          <li key={tool.id} className={cn('flex flex-col border px-4 py-3')}>
+          <li key={tool.id} className={cn('content-auto flex flex-col border px-4 py-3')}>
             <h3 className="font-heading text-xl font-black">
               <a href={tool.url} className="hover:underline">
                 {tool.name}
