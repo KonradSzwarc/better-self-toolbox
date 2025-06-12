@@ -10,5 +10,3 @@ export const localeCodes = {
 export type Locale = (typeof locales)[number];
 
 export const regexLocales = `(${locales.join('|')})`;
-
-export const localizedHomepages = new Set(locales.map((locale) => (locale === defaultLocale ? '/' : `/${locale}`)));

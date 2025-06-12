@@ -1,0 +1,14 @@
+---
+import { SearchInputPreact, type SearchInputProps } from './search-input.preact';
+
+interface Props extends SearchInputProps {}
+
+const { placeholder, className } = Astro.props;
+---
+
+<SearchInputPreact client:load placeholder={placeholder} className={className} />
+<script is:inline>
+  document
+    .querySelector('input[type="search"]')
+    ?.setAttribute('value', new URL(window.location.href).searchParams.get('search') ?? '');
+</script>

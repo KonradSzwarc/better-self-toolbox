@@ -1,0 +1,20 @@
+---
+import { TagFiltersPreact, type TagFiltersProps } from './tag-filters.preact';
+
+interface Props extends TagFiltersProps {}
+
+const { className, tags, allTagLabel, label } = Astro.props;
+---
+
+<TagFiltersPreact client:load className={className} tags={tags} allTagLabel={allTagLabel} label={label} />
+<script is:inline>
+  const tag = new URL(window.location.href).searchParams.get('tag') ?? 'all';
+  const checked = document.querySelector('button[role="radio"][aria-checked="true"]');
+  const toCheck = document.querySelector(`button[role="radio"][value="${tag}"]`);
+  if (checked.value !== toCheck.value) {
+    checked.ariaChecked = 'false';
+    checked.dataset.state = 'unchecked';
+    toCheck.ariaChecked = 'true';
+    toCheck.dataset.state = 'checked';
+  }
+</script>

@@ -1,0 +1,14 @@
+---
+import { ToolsGridPreact, type ToolsGridProps } from './tools-grid.preact';
+
+interface Props extends ToolsGridProps {}
+
+const { tools, className } = Astro.props;
+---
+
+<script is:inline>
+  const params = new URL(window.location.href).searchParams;
+  (params.has('search') || params.has('tag')) &&
+    document.querySelector('[data-tools-section]')?.classList.add('hidden');
+</script>
+<ToolsGridPreact client:load tools={tools} className={className} />

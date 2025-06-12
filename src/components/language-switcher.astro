@@ -2,6 +2,7 @@
 import { getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
 import type { Locale } from '@/utils/i18n';
 import { LanguageSwitcherPreact } from './language-switcher.preact';
+import { cn } from '@/utils/styles';
 
 interface Props {
   class?: string;
@@ -33,4 +34,6 @@ const languages = {
   value={languages[locale].flag}
   languages={languages}
   className={className}
-/>
+>
+  <div slot="fallback" class={cn('size-8 border', className)}></div>
+</LanguageSwitcherPreact>

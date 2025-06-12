@@ -1,14 +1,13 @@
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
 
-interface Props {
+export interface SearchInputProps {
   className?: string;
   placeholder: string;
-  initialValue?: string | null;
 }
 
-export function SearchInputPreact({ className, placeholder, initialValue }: Props) {
-  const [search, changeSearch] = useSearchParam({ name: 'search', initialValue });
+export function SearchInputPreact({ className, placeholder }: SearchInputProps) {
+  const [search, changeSearch] = useSearchParam({ name: 'search' });
 
   return (
     <input

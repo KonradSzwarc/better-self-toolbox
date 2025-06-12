@@ -3,11 +3,10 @@ import { RadioGroup, Tooltip } from 'radix-ui';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
 
-interface Props {
+export interface TagFiltersProps {
   className?: string;
   label: string;
   allTagLabel: string;
-  initialValue?: string | null;
   tags: {
     id: string;
     name: string;
@@ -15,8 +14,8 @@ interface Props {
   }[];
 }
 
-export function TagFiltersPreact({ className, label, allTagLabel, tags, initialValue }: Props) {
-  const [selectedTag, changeSelectedTag] = useSearchParam({ name: 'tag', defaultValue: 'all', initialValue });
+export function TagFiltersPreact({ className, label, allTagLabel, tags }: TagFiltersProps) {
+  const [selectedTag, changeSelectedTag] = useSearchParam({ name: 'tag', defaultValue: 'all' });
 
   return (
     <Tooltip.Provider delayDuration={1000} disableHoverableContent>

@@ -1,6 +1,7 @@
 ---
 import { getLocale, getTranslations } from '@/utils/i18n';
 import { ThemeSwitcherPreact } from './theme-switcher.preact';
+import { cn } from '@/utils/styles';
 
 interface Props {
   class?: string;
@@ -21,4 +22,6 @@ const t = getTranslations(locale);
     system: t('components.theme_switcher.system'),
   }}
   className={className}
-/>
+>
+  <div slot="fallback" class={cn('size-8 border', className)}></div>
+</ThemeSwitcherPreact>

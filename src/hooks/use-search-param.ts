@@ -3,16 +3,20 @@ import { useCallback, useEffect, useMemo, useState } from 'preact/hooks';
 interface Props {
   name: string;
   defaultValue?: string;
-  initialValue?: string | null;
 }
 
-export function useSearchParam({ name, defaultValue = '', initialValue }: Props) {
-  const [value, setValue] = useState<string>(initialValue ?? defaultValue);
+export function useSearchParam({ name, defaultValue = '' }: Props) {
+  const getValueFromUrl = useCallback(() => {
+    if (typeof window === 'undefined') return defaultValue;
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name) || defaultValue;
+  }, [name, defaultValue]);
+
+  const [value, setValue] = useState<string>(getValueFromUrl);
 
   useEffect(() => {
     const onQueryChange = () => {
-      const url = new URL(window.location.href);
-      setValue(url.searchParams.get(name) || defaultValue);
+      setValue(getValueFromUrl());
     };
 
     window.addEventListener('query-change', onQueryChange);
