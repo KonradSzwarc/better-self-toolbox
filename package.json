@@ -12,7 +12,7 @@
   },
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
     "node": "22.x"
   },
@@ -32,7 +32,7 @@
     "radix-ui": "1.4.2",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
-    "tailwind-merge": "3.3.0"
+    "tailwind-merge": "3.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
@@ -44,16 +44,16 @@
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@tailwindcss/typography": "0.5.16",
-    "@tailwindcss/vite": "4.1.8",
+    "@tailwindcss/vite": "4.1.10",
     "@total-typescript/ts-reset": "0.6.1",
-    "astro": "5.9.1",
+    "astro": "5.9.4",
     "astro-compressor": "1.0.0",
     "concurrently": "9.1.2",
     "globals": "16.2.0",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.12",
-    "tailwindcss": "4.1.8",
+    "tailwindcss": "4.1.10",
     "typescript": "5.8.3",
     "unplugin-icons": "22.1.0"
   },
