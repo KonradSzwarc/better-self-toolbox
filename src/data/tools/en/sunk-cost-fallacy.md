@@ -4,3 +4,57 @@ summary: 'Clinging to failing plans due to previous effort.'
 tags:
   - 'bias'
 ---
+
+## What Is the Sunk Cost Fallacy?
+
+The sunk cost fallacy is a cognitive bias that influences our decision-making processes, causing us to continue investing in something simply because we've already committed resources to it. It represents our tendency to follow through with an endeavor despite evidence suggesting that it's no longer beneficial, solely because we've already invested time, money, effort, or emotional energy.
+
+## How It Manifests in Our Life?
+
+The sunk cost fallacy appears in numerous aspects of our lives, often without our conscious awareness.
+
+### Personal Decisions
+
+- Continuing to watch a movie you're not enjoying simply because you paid for the ticket or have already invested 30 minutes watching it
+- Finishing a book you dislike because you've already read half of it
+- Eating an entire meal at a restaurant despite being full, just to "get your money's worth"
+
+### Relationships
+
+- Remaining in an unfulfilling relationship because of the years already invested
+- Continuing friendships that have become toxic due to shared history
+- Pursuing education in a field you've lost interest in because you've already completed several courses
+
+### Professional Life
+
+- Continuing with failing business projects because of resources already committed
+- Refusing to abandon ineffective strategies because of previous investments
+- Holding onto declining investments because of the initial purchase price
+
+### Historical Example
+
+One famous historical example is the [Concorde supersonic jet project](https://interestingengineering.com/transportation/concorde-the-real-reason-why-the-supersonic-passenger-jet-failed), where the British and French governments continued funding despite knowing from the design stage that it wouldn't be profitable. The project ultimately cost ten times more than expected and generated losses for 30 years before being discontinued.
+
+## How to Overcome the Sunk Cost Fallacy?
+
+Recognizing and overcoming this fallacy is crucial for personal growth and effective decision-making. There are a few strategies to help break free from its influence.
+
+### Focus on Future Value
+
+Make decisions based on future potential benefits rather than past investments. Ask yourself: "Regardless of what I've already invested, what choice will give me the best outcome going forward?"
+
+### Practice Mindfulness
+
+Being aware of your emotions and biases when making decisions can help you detach from sunk costs. Mindfulness meditation has been shown to increase resistance to sunk cost bias by focusing attention on the present moment rather than dwelling on past investments.
+
+### Set Clear Exit Criteria
+
+Before starting any significant project or commitment, define specific conditions under which you'll reassess or walk away. This creates an objective framework for decision-making that isn't clouded by emotional attachment to sunk costs.
+
+### Seek Outside Perspectives
+
+External viewpoints can offer clarity when you're too emotionally invested in a situation. Others who aren't attached to your past investments can often see more clearly whether continuing is worthwhile.
+
+### Reframe Your Thinking
+
+Instead of viewing abandonment as "wasting" your investment, reframe it as freeing up resources for better opportunities. Consider your current position as a new starting point, regardless of how you got there.
