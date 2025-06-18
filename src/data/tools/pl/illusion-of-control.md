@@ -1,5 +1,6 @@
 ---
 name: 'Iluzja kontroli'
+path: 'iluzja-kontroli'
 summary: 'Przecenianie swojej sprawczości w sytuacjach, nad którymi nie mamy kontroli.'
 tags:
   - 'bias'

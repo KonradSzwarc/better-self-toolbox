@@ -1,5 +1,6 @@
 ---
 name: 'Fałszywa dychotomia'
+path: 'falszywa-dychotomia'
 synonyms:
   - 'Fałszywa alternatywa'
   - 'Czarno-białe myślenie'

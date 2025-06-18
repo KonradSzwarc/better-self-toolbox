@@ -1,5 +1,6 @@
 ---
 name: 'Błąd przeżywalności'
+path: 'blad-przezywalnosci'
 summary: 'Skupienie wyłącznie na historiach sukcesu, ignorując podobne, zakończone porażką.'
 tags:
   - 'bias'

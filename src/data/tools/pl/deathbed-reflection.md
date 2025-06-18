@@ -1,5 +1,6 @@
 ---
 name: 'Refleksja z łoża śmierci'
+path: 'refleksja-z-loza-smierci'
 synonyms:
   - 'Memento mori'
 summary: 'Ustalaj priorytety, kierując się tym, co uznasz za ważne u kresu życia.'

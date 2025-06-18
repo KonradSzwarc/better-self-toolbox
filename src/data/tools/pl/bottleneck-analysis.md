@@ -1,5 +1,6 @@
 ---
 name: 'Analiza wąskiego gardła'
+path: 'analiza-waskiego-gardla'
 synonyms:
   - 'Teoria ograniczeń'
   - 'Najsłabsze ogniwo'

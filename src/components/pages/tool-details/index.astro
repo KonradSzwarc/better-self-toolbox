@@ -1,9 +1,16 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import { render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import Layout from '@/layouts/layout.astro';
-import { getLocale, getTranslations, localizedPath, prependLocale } from '@/utils/i18n';
+import {
+  getLocale,
+  getTranslations,
+  locales,
+  localizedPath,
+  omitLocale,
+  prependLocale,
+  type Locale,
+} from '@/utils/i18n';
 import IconArrowBack from '~icons/mdi/arrow-back';
 
 interface Props {
@@ -22,9 +29,18 @@ const { Content } = await render(tool);
 function toSortedList(items: string[]) {
   return items.toSorted((a, b) => a.localeCompare(b)).join(', ');
 }
+
+let paths: Partial<Record<Locale, string>> = {};
+
+for (const locale of locales) {
+  const entry = await getEntry('tools', `${locale}/${omitLocale(tool.id)}`);
+  if (entry) {
+    paths[locale] = localizedPath(`/${omitLocale(entry.data.path ?? entry.id)}`, locale);
+  }
+}
 ---
 
-<Layout title={tool.data.name} description={tool.data.summary} noIndex={!tool.body}>
+<Layout title={tool.data.name} description={tool.data.summary} noIndex={!tool.body} paths={paths}>
   <main class="container mx-auto grid place-items-center px-4 py-10">
     <nav class="mb-8 w-full max-w-prose">
       <a

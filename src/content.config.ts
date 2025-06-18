@@ -6,6 +6,7 @@ const tools = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/tools' }),
   schema: z.object({
     name: z.string(),
+    path: z.string().nullish(),
     summary: z.string(),
     synonyms: z.array(z.string()).nullish(),
     tags: z.array(reference('tags')),

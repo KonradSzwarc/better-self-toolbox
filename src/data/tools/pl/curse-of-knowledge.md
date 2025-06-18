@@ -1,5 +1,6 @@
 ---
 name: 'Klątwa wiedzy'
+path: 'klatwa-wiedzy'
 summary: 'Zakładanie, że inni ludzie posiadają podobną do nas wiedzę w danym temacie.'
 tags:
   - 'bias'

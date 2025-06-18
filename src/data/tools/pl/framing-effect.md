@@ -1,5 +1,6 @@
 ---
 name: 'Efekt ramowania'
+path: 'efekt-ramowania'
 synonyms:
   - 'Efekt obramowania'
   - 'Efekt ram interpretacyjnych'

@@ -1,5 +1,6 @@
 ---
 name: 'Efekt obserwatora'
+path: 'efekt-obserwatora'
 synonyms:
   - 'Efekt widza'
   - 'Dyfuzja odpowiedzialności'

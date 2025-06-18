@@ -1,5 +1,6 @@
 ---
 name: 'Społeczny dowód słuszności'
+path: 'spoleczny-dowod-slusznosci'
 summary: 'Skłonność do oceniania poprawności zachowania na podstawie tego, co robią inni.'
 tags:
   - 'bias'

@@ -1,5 +1,6 @@
 ---
 name: 'Zasada 1-3-5'
+path: 'zasada-1-3-5'
 summary: 'Planuj każdy dzień, wybierając 1 duże, 3 średnie i 5 małych zadań do wykonania.'
 tags:
   - 'productivity'

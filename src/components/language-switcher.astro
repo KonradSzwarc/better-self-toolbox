@@ -6,9 +6,10 @@ import { cn } from '@/utils/styles';
 
 interface Props {
   class?: string;
+  paths?: Partial<Record<Locale, string>>;
 }
 
-const { class: className } = Astro.props;
+const { class: className, paths } = Astro.props;
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
@@ -18,12 +19,12 @@ const languages = {
   en: {
     flag: '🇬🇧',
     label: t('components.language_switcher.english'),
-    path: localizedPath(pathname, 'en'),
+    path: paths?.en ?? localizedPath(pathname, 'en'),
   },
   pl: {
     flag: '🇵🇱',
     label: t('components.language_switcher.polish'),
-    path: localizedPath(pathname, 'pl'),
+    path: paths?.pl ?? localizedPath(pathname, 'pl'),
   },
 } satisfies Record<Locale, object>;
 ---

@@ -1,5 +1,6 @@
 ---
 name: 'Błąd błędu logicznego'
+path: 'blad-bledu-logicznego'
 summary: 'Odrzucanie tezy tylko dlatego, że została źle uzasadniona.'
 tags:
   - 'fallacy'

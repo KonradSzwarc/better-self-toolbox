@@ -1,5 +1,6 @@
 ---
 name: 'Dowód anegdotyczny'
+path: 'dowod-anegdotyczny'
 summary: 'Używanie pojedynczych przypadków jako dowodu na ogólne twierdzenie.'
 tags:
   - 'fallacy'

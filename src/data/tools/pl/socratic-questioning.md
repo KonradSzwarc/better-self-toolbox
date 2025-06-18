@@ -1,5 +1,6 @@
 ---
 name: 'Pytania sokratejskie'
+path: 'pytania-sokratejskie'
 synonyms:
   - 'Metoda sokratyczna'
 summary: 'Używaj pytań pogłębiających, aby lepiej rozumieć podstawy problemu lub idei.'

@@ -1,5 +1,6 @@
 ---
 name: 'Efekt Barnuma'
+path: 'efekt-barnuma'
 synonyms:
   - 'Efekt Forera'
   - 'Efekt horoskopowy'

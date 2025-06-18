@@ -1,5 +1,6 @@
 ---
 name: 'Pytanie z tezą'
+path: 'pytanie-z-teza'
 synonyms:
   - 'Presupozycja'
 summary: 'Przemycanie ukrytego założenia w treści pytania.'

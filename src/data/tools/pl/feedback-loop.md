@@ -1,5 +1,6 @@
 ---
 name: 'Pętla informacji zwrotnej'
+path: 'petla-informacji-zwrotnej'
 summary: 'Dostosowuj swoje działania na podstawie efektów, jakie wywołują.'
 tags:
   - 'productivity'

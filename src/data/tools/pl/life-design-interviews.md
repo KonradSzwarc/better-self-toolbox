@@ -1,5 +1,6 @@
 ---
 name: 'Wywiady stylu życia'
+path: 'wywiady-stylu-zycia'
 summary: 'Rozmawiaj z ludźmi na różnych ścieżkach życiowych, by zainspirować własne wybory.'
 tags:
   - 'life-design'

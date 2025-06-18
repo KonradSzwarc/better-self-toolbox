@@ -1,5 +1,6 @@
 ---
 name: 'Równia pochyła'
+path: 'rownia-pochyla'
 synonyms:
   - 'Efekt kuli śnieżnej'
   - 'Efekt domina'

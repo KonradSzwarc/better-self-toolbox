@@ -1,5 +1,6 @@
 ---
 name: 'Efekt pominięcia'
+path: 'efekt-pominiecia'
 summary: 'Postrzeganie szkodliwych działań jako gorszych, niż równie szkodliwa bezczynność.'
 tags:
   - 'bias'

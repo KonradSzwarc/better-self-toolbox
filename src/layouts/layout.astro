@@ -8,7 +8,7 @@ import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 
 import '@/styles/global.css';
-import { getLocale, localeCodes } from '@/utils/i18n';
+import { getLocale, localeCodes, type Locale } from '@/utils/i18n';
 import LanguageSwitcher from '@/components/language-switcher.astro';
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
@@ -17,9 +17,10 @@ interface Props {
   title: string;
   description: string;
   noIndex?: boolean;
+  paths?: Partial<Record<Locale, string>>;
 }
 
-const { title, description, noIndex } = Astro.props;
+const { title, description, noIndex, paths } = Astro.props;
 
 const locale = getLocale(Astro);
 
@@ -41,6 +42,7 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
     <style>
       :root {
         --font-heading: 'Nunito Variable';
@@ -51,7 +53,7 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
   </head>
   <body>
     <div class="relative flex h-0 w-full justify-end">
-      <LanguageSwitcher class="absolute top-4 right-4" />
+      <LanguageSwitcher class="absolute top-4 right-4" paths={paths} />
       <ThemeSwitcher class="absolute top-4 right-16" />
     </div>
     <slot />

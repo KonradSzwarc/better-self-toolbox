@@ -1,5 +1,6 @@
 ---
 name: 'Przyczyny bezpośrednie i źródłowe'
+path: 'przyczyny-bezposrednie-i-zrodlowe'
 summary: 'Poza analizą samego zdarzenia, zidentyfikuj co wpłynęło na jego wystąpienie.'
 tags:
   - 'mental-model'

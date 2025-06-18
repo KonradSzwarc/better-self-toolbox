@@ -1,5 +1,6 @@
 ---
 name: 'Generator okazji'
+path: 'generator-okazji'
 summary: 'Twórz warunki, w których „szczęśliwe trafy” zdarzają się częściej.'
 tags:
   - 'life-design'

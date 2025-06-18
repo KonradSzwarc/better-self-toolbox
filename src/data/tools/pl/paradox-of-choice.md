@@ -1,5 +1,6 @@
 ---
 name: 'Paradoks wyboru'
+path: 'paradoks-wyboru'
 summary: 'Zbyt wiele możliwości prowadzi do paraliżu decyzyjnego.'
 tags:
   - 'bias'

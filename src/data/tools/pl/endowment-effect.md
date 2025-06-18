@@ -1,5 +1,6 @@
 ---
 name: 'Efekt posiadania'
+path: 'efekt-posiadania'
 summary: 'Przecenianie czegoś tylko dlatego, że jest naszą własnością.'
 tags:
   - 'bias'

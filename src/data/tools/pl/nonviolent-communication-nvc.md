@@ -1,5 +1,6 @@
 ---
 name: 'Porozumienie bez przemocy (NVC)'
+path: 'porozumienie-bez-przemocy-nvc'
 summary: 'Mów z empatią, koncentrując się na potrzebach zamiast na winie.'
 tags:
   - 'relations'

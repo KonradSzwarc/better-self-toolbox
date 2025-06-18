@@ -1,5 +1,6 @@
 ---
 name: 'Dźwignia'
+path: 'dzwignia'
 synonyms:
   - 'Macierz wysiłek–efekt'
 summary: 'Działaj tam, gdzie osiągniesz najlepsze efekty przy najmniejszym wysiłku.'

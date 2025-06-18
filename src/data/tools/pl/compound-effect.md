@@ -1,5 +1,6 @@
 ---
 name: 'Efekt skumulowany'
+path: 'efekt-skumulowany'
 synonyms:
   - 'Marginalne zyski'
   - 'Kaizen'

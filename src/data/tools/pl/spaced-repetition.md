@@ -1,5 +1,6 @@
 ---
 name: 'Powtórki w interwałach'
+path: 'powtorki-w-interwalach'
 synonyms:
   - 'Spaced Repetition'
 summary: 'Utrwalaj wiedzę, powtarzając ją w stale rosnących odstępach czasu.'

@@ -1,5 +1,6 @@
 ---
 name: 'Fałszywy kompromis'
+path: 'falszywy-kompromis'
 synonyms:
   - 'Błąd symetrii'
   - 'Błąd fałszywej równowagi'

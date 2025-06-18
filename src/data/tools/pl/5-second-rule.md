@@ -1,5 +1,6 @@
 ---
 name: 'Zasada 5 sekund'
+path: 'zasada-5-sekund'
 summary: 'Pokonaj opór przed działaniem, odliczając od 5 do 0.'
 tags:
   - 'productivity'

@@ -31,7 +31,7 @@ const tools = toolsCollection.map((tool) => ({
   name: tool.data.name,
   summary: tool.data.summary,
   synonyms: tool.data.synonyms || [],
-  url: localizedPath(`/${omitLocale(tool.id)}`, locale),
+  url: localizedPath(`/${omitLocale(tool.data.path ?? tool.id)}`, locale),
   tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
 }));
 ---
