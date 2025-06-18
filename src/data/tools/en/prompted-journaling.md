@@ -31,7 +31,7 @@ Periodically revisit past entries to notice changes, recurring themes and though
 
 ### Establish a Consistent Routine
 
-Carve out a specific time each day or several times per week—ideally linked to a daily habit like morning coffee—to answer 1–3 prompts. Consistency solidifies journaling as a habit and ensures progress tracking over time.
+Carve out a specific time each day or several times per week - ideally linked to a daily habit like morning coffee - to answer 1–3 prompts. Consistency solidifies journaling as a habit and ensures progress tracking over time.
 
 ### Set a Timer
 

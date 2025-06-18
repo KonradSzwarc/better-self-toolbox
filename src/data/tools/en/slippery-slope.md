@@ -10,9 +10,9 @@ tags:
 
 ## What Is the Slippery Slope Fallacy?
 
-The slippery slope fallacy is a logical error that occurs when someone argues that a relatively small first step will inevitably trigger a chain of related events culminating in some significant (usually negative) outcome. This type of argument anticipates a series of consequences without providing sufficient evidence to substantiate the claim that one event must necessarily lead to another. The fallacy gets its name from the metaphor of sliding down an incline—once you take one step on a slippery slope, you'll inevitably slide all the way to the bottom.
+The slippery slope fallacy is a logical error that occurs when someone argues that a relatively small first step will inevitably trigger a chain of related events culminating in some significant (usually negative) outcome. This type of argument anticipates a series of consequences without providing sufficient evidence to substantiate the claim that one event must necessarily lead to another. The fallacy gets its name from the metaphor of sliding down an incline - once you take one step on a slippery slope, you'll inevitably slide all the way to the bottom.
 
-It's important to note that not all slippery slope arguments are fallacious—when there is strong evidence that the consequences of an initial action are highly likely to occur, the argument may be valid. However, most slippery slope arguments fail to provide this necessary evidence.
+It's important to note that not all slippery slope arguments are fallacious - when there is strong evidence that the consequences of an initial action are highly likely to occur, the argument may be valid. However, most slippery slope arguments fail to provide this necessary evidence.
 
 ## Types of Slippery Slope Arguments
 

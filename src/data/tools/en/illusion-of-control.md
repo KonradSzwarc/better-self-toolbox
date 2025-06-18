@@ -4,3 +4,46 @@ summary: 'Overestimating your influence over uncontrollable events.'
 tags:
   - 'bias'
 ---
+
+## What Is the Illusion of Control?
+
+The illusion of control is a cognitive bias where we overestimate our ability to influence outcomes that are largely determined by chance or external factors. It reflects our natural tendency to believe we have more control over events than we actually do. It stems from our inherent desire for predictability, stability, and a sense of agency in an unpredictable world.
+
+## How It Manifests?
+
+- People wear "lucky" clothing or perform rituals before important events to influence their outcomes.
+- People press the "close door" or "call" button multiple times, believing it will make the elevator arrive faster.
+- Managers may excessively oversee every detail of a project, believing their involvement will guarantee success.
+- Patients think that positive affirmations or specific prayers can drive their healing process more than medical treatments or natural disease progression.
+- People convince themselves that following highly restrictive diets or detox regimens guarantees significant health improvements, underestimating genetic and environmental factors.
+- Lottery participants select "lucky" numbers or purchase tickets at perceived auspicious times, convinced that these choices will influence their chances of winning.
+- Individuals create detailed plans and schedules for unpredictable events, convinced that preparation alone can eliminate all uncertainty.
+
+## How to Overcome the Illusion of Control?
+
+### Distinguish Controllable from Uncontrollable
+
+For any ongoing concern or project, draw two columns. In the first, list aspects you can directly affect (e.g., your preparation). In the second, list factors outside your control (e.g., market trends). Allocate most of your energy to controllable items and the rest to contingency planning for uncontrollable factors.
+
+### Increase Awareness
+
+Notice when you feel unduly responsible for outcomes beyond your influence, engage in excessive planning, or experience anxiety over uncontrollable factors. Keep a thought journal for one week, noting instances when you assume control over random events (e.g., believing a "lucky" ritual affects outcomes).
+
+### Cultivate Mindfulness
+
+Dedicate 10 minutes daily to mindfulness exercises that emphasize observing thoughts without judgment, reducing the urge to over-control outcomes. Remind yourself that unpredictability is inherent in life.
+
+### Embrace Imperfection
+
+Recognize that setbacks are opportunities for learning and growth. Instead of dwelling on what you couldn't control, focus on what you can do differently next time. You can also ask yourself: "How can I adapt my response?" to shift focus from controlling events to managing your reactions.
+
+### Focus on the Process
+
+Instead of outcome-oriented goals with many factors beyond your control, set process-oriented goals where your control is more tangible. For example:
+
+- Instead of aiming for a specific sales target, focus on the number of calls you make or the number of meetings you attend.
+- Instead of aiming for a specific weight loss goal, focus on the number of days you exercise or the number of healthy meals you eat.
+
+### Seek External Feedback
+
+Before finalizing major plans, ask a colleague or friend to critique your assumptions about what you can control. Engage with individuals outside your usual circle to broaden understanding of factors affecting outcomes.

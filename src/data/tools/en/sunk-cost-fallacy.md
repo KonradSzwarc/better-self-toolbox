@@ -9,9 +9,7 @@ tags:
 
 The sunk cost fallacy is a cognitive bias that influences our decision-making processes, causing us to continue investing in something simply because we've already committed resources to it. It represents our tendency to follow through with an endeavor despite evidence suggesting that it's no longer beneficial, solely because we've already invested time, money, effort, or emotional energy.
 
-## How It Manifests in Our Life?
-
-The sunk cost fallacy appears in numerous aspects of our lives, often without our conscious awareness.
+## How It Manifests?
 
 ### Personal Decisions
 
