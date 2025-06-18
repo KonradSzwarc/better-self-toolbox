@@ -8,31 +8,68 @@ tags:
   - 'fallacy'
 ---
 
-## How it looks like?
+## What Is the Slippery Slope Fallacy?
 
-Your interlocutor rejects your claim by insisting that will lead to a cascade of other events that finally result in an undesirable (or even catastrophic) outcome. However, no arguments are provided explaining why this chain reaction will actually happen.
+The slippery slope fallacy is a logical error that occurs when someone argues that a relatively small first step will inevitably trigger a chain of related events culminating in some significant (usually negative) outcome. This type of argument anticipates a series of consequences without providing sufficient evidence to substantiate the claim that one event must necessarily lead to another. The fallacy gets its name from the metaphor of sliding down an incline—once you take one step on a slippery slope, you'll inevitably slide all the way to the bottom.
 
-The generic schema of such argument is:
+It's important to note that not all slippery slope arguments are fallacious—when there is strong evidence that the consequences of an initial action are highly likely to occur, the argument may be valid. However, most slippery slope arguments fail to provide this necessary evidence.
 
-> If we allow X to happen, then Z will eventually happen too. As Z is undesirable, we cannot allow X to happen.
+## Types of Slippery Slope Arguments
 
-Examples:
+### Causal Slippery Slope
 
-> If we allow people to say offensive things in public, it will lead to more physical violence, which will cause social unrest.
+Claiming that a minor inciting event will inevitably lead to a major outcome through a chain of cause-and-effect relationships.
 
-> If we allow same-sex marriage, next we'll have to allow people to marry their pets or robots.
+> If we legalize marijuana, it will become normal. If it becomes normal, more drugs will be legalized. Eventually, this will lead to legalizing all drugs and the collapse of society.
 
-> If we let sixteen-year-olds vote, soon fifteen-year-olds will demand the same, then younger and younger kids until babies will vote too.
+### Precedential Slippery Slope
 
-## Why it's invalid?
+Assuming that if we set a precedent by treating something relatively minor a specific way now, we'll have to treat something major the same way later.
 
-- It avoids engaging with the issue at hand by shifting the focus to some hypothetical scenario.
-- No proof is provided for the claim that the hypothetical scenario will actually happen.
-- It usually leverages fear making the argument an [appeal to emotion](../appeal-to-emotion).
+> If emotional support dogs are allowed on campus, what’s going to stop students from trying to bring emotional support horses, snakes, or scorpions?
 
-## How to respond?
+### Conceptual Slippery Slope
 
-- Ask for the evidence that the chain reaction will happen.
-- Dissect the steps to prove they don't have to follow each other.
-- Point out some safeguards that can stop the chain before it goes too far.
-- Push for evaluating the current issue on its own merits. Hypothetical misuse cannot justify avoiding a reasonable action.
+Suggesting that if it's possible to transition from point A to point B in a series of small steps, then there's no meaningful difference between the two.
+
+> Lowering the voting age to 16 will make 14-year-olds want to vote, and then once we lower it to 14, we'll find ourselves asking if we should lower it to 12 or even 10.
+
+## How to Identify a Slippery Slope Fallacy?
+
+To recognize a slippery slope fallacy, look for a few key characteristics.
+
+### Sequential Predictions Without Evidence
+
+The argument presents a series of sequential predictions about the consequences of an initial action without providing sufficient evidence to support the causal link between them. Each step in the chain is presented as inevitable, but little or no evidence is offered to back up these claims.
+
+> If we allow students to redo one assignment, soon they’ll expect to redo every test, and eventually, grades will become meaningless.
+
+### Exaggerated Consequences
+
+The arguer exaggerates the consequences to create a sense of urgency or inevitability. The arguer amplifies the potential outcomes of the initial action, painting a dire picture of the future to persuade others to avoid taking that action.
+
+> If you let your child skip one day of school, next thing you know, they’ll drop out entirely and never get a job.
+
+### Appeal to Emotion
+
+The arguer uses fear-based persuasion tactics to influence decision-making. By painting a bleak picture of the future, the arguer seeks to instill fear and uncertainty in their audience, compelling them to accept their position out of a sense of self-preservation.
+
+> If we ban one type of junk food, soon the government will control everything we eat, and personal freedom will be lost.
+
+## How to Respond to a Slippery Slope Fallacy?
+
+### Identify Missing Steps and Demand Evidence
+
+Point out the gray area between an initial action and the possible next steps. Ask for evidence to support the claimed relationship between events. Every proposition in the chain has to be true for the overall argument to work, so even if one link is irrational or not supported by evidence, the argument collapses.
+
+### Focus on the Immediate Issue
+
+Avoid argumentative chains and focus on the immediate point or issue, not potential consequences far down the line or under certain circumstances. This helps maintain clarity and prevents the discussion from being derailed by hypothetical scenarios. A hypothetical misuse cannot justify avoiding a reasonable action.
+
+### Evaluate the Probability of Each Step
+
+Assess the likelihood of each step in the proposed chain of events. Unless each link in the chain is a logical certainty, the argument becomes weaker the further it moves from the original premise. By analyzing the probability of each step, you can identify where the argument breaks down.
+
+### Point Out Some Safeguards
+
+Highlight existing or potential safeguards that can prevent the feared chain reaction from occurring. This way you can demonstrate that the feared chain of events is not inevitable and that there are practical mechanisms in place to prevent the situation from spiraling out of control.
