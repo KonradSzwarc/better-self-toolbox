@@ -24,7 +24,7 @@ function toSortedList(items: string[]) {
 }
 ---
 
-<Layout title={tool.data.name} description={tool.data.summary}>
+<Layout title={tool.data.name} description={tool.data.summary} noIndex={!tool.body}>
   <main class="container mx-auto grid place-items-center px-4 py-10">
     <nav class="mb-8 w-full max-w-prose">
       <a

@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
@@ -8,8 +9,10 @@ import Icons from 'unplugin-icons/vite';
 
 import { locales, defaultLocale, localeCodes } from './src/utils/i18n/constants';
 
+const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
+
 export default defineConfig({
-  site: process.env.ASTRO_SITE?.trim() || 'http://localhost:4321',
+  site,
 
   integrations: [
     preact({
@@ -19,6 +22,18 @@ export default defineConfig({
       i18n: {
         defaultLocale,
         locales: localeCodes,
+      },
+      filter(page) {
+        const pathParts = new URL(page).pathname.split('/').filter(Boolean);
+        if (!locales.includes(pathParts[0] ?? '')) pathParts.unshift(defaultLocale);
+        const path = `./src/data/tools/${pathParts.join('/')}.md`;
+        if (!fs.existsSync(path)) return true;
+        return Boolean(
+          fs
+            .readFileSync(path, 'utf8')
+            .replace(/^---.+---/s, '')
+            .trim(),
+        );
       },
     }),
     playformCompress({
