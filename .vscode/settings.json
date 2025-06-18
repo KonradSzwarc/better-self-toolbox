@@ -21,6 +21,9 @@
     ["cn\\(([^)]*(\\([^)]*\\))*[^)]*)\\)(?=[\\s]*[};,])", "[\"'`]([^\"'`]*).*?[\"'`]"] // Capture all strings between cn( and )
   ],
   "tailwindCSS.experimental.configFile": "src/styles/global.css",
+  "tailwindCSS.includeLanguages": {
+    "markdown": "html"
+  },
 
   // Astro
   "[astro]": {
