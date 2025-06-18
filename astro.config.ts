@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
 import compressor from 'astro-compressor';
 import Icons from 'unplugin-icons/vite';
+import rehypeExternalLinks, { type Options as RehypeExternalLinksOptions } from 'rehype-external-links';
 
 import { locales, defaultLocale, localeCodes } from './src/utils/i18n/constants';
 
@@ -59,6 +60,18 @@ export default defineConfig({
   i18n: {
     locales: [...locales],
     defaultLocale,
+  },
+
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          rel: ['noopener', 'noreferrer', 'nofollow'],
+          target: '_blank',
+        } satisfies RehypeExternalLinksOptions,
+      ],
+    ],
   },
 
   build: {
