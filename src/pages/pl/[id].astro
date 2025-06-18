@@ -6,10 +6,12 @@ import { entriesForLocale, omitLocale } from '@/utils/i18n';
 export async function getStaticPaths() {
   const tools = await getCollection('tools', entriesForLocale('pl'));
 
-  return tools.map((tool) => ({
-    params: { id: omitLocale(tool.id) },
-    props: { tool },
-  }));
+  return tools
+    .filter((tool) => Boolean(tool.body))
+    .map((tool) => ({
+      params: { id: omitLocale(tool.id) },
+      props: { tool },
+    }));
 }
 
 const { tool } = Astro.props;

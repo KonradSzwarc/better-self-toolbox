@@ -26,14 +26,16 @@ const tags = tagsCollection.map((tag) => ({
 }));
 const tagsMap = new Map(tags.map((tag) => [tag.id, tag]));
 
-const tools = toolsCollection.map((tool) => ({
-  id: omitLocale(tool.id),
-  name: tool.data.name,
-  summary: tool.data.summary,
-  synonyms: tool.data.synonyms || [],
-  url: localizedPath(`/${omitLocale(tool.id)}`, locale),
-  tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
-}));
+const tools = toolsCollection
+  .filter((tool) => Boolean(tool.body))
+  .map((tool) => ({
+    id: omitLocale(tool.id),
+    name: tool.data.name,
+    summary: tool.data.summary,
+    synonyms: tool.data.synonyms || [],
+    url: localizedPath(`/${omitLocale(tool.id)}`, locale),
+    tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
+  }));
 ---
 
 <Layout title={t('pages.tools_list.title')} description={t('pages.tools_list.description')}>
