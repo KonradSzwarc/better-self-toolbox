@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/layout.astro';
+import { getLocale, getTranslations, localizedPath } from '@/utils/i18n';
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
+---
+
+<Layout title={t('pages.404.title')} description={t('pages.404.description')}>
+  <main class="flex min-h-dvh flex-col items-center justify-center px-4 text-center md:pb-[10vh]">
+    <div class="max-w-prose text-balance">
+      <h1 class="mb-4 font-heading text-7xl font-bold text-foreground">404</h1>
+      <h2 class="mb-2 font-heading text-3xl font-bold text-foreground">{t('pages.404.title')}</h2>
+      <p class="mb-12 font-body text-lg text-foreground">{t('pages.404.description')}</p>
+      <a
+        href={localizedPath('/', locale)}
+        class="inline-block rounded bg-foreground px-6 py-3 font-semibold text-background"
+      >
+        {t('pages.404.back')}
+      </a>
+    </div>
+  </main>
+</Layout>
