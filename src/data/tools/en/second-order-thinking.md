@@ -13,7 +13,7 @@ Second-order thinking is a cognitive approach where you go beyond immediate outc
 
 ### 1. Clarify Your Objective
 
-Define what you ultimately want to achieve so you can judge if consequences support your vision.
+Define what you ultimately want to achieve.
 
 ### 2. List First-Order Effects
 
@@ -41,7 +41,7 @@ Balance short-term gains against long-term risks and benefits to select the opti
   2. **First-Order Effect**<br />
   If I grab a chocolate bar, I'll feel full and happy right away.
   3. **And Then What?**<br />
-  I'll gain weight, feel more sluggish, and get my energy levels out of balance.
+  It may become a habit, causing me to gain weight, feel more sluggish, and get my energy levels out of balance.
   4. **Stakeholders & Time Horizons**<br />
   My health, energy levels, and long-term well-being.
   5. **Trade-Offs and Choice**<br />
