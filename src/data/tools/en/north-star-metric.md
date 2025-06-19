@@ -69,7 +69,7 @@ If you focus exclusively on optimizing a single metric, you may start prioritizi
 
 - Regularly reflect on whether your metric still aligns with your true values and well-being.
 - Be open to adjusting or changing your North Star Metric as your life evolves.
-- Remember that the metric is a tool for guidance, not the ultimate goal.
+- Remember that the metric is a tool for guidance - not the ultimate goal.
 
 ## Examples of Personal North Star Metrics
 
@@ -100,11 +100,7 @@ If you focus exclusively on optimizing a single metric, you may start prioritizi
 - Books you read each month
 - Words/phrases in a foreign language you learn each week
 - Reflections or summaries written after learning sessions
--
-
-- Minutes of mindfulness practice daily
 - New perspectives explored through reading weekly
-- Hours of sleep you get each night
 - New concepts or techniques learned monthly
 
 ### Community Impact
