@@ -31,11 +31,11 @@ Periodically revisit past entries to notice changes, recurring themes and though
 
 ### Establish a Consistent Routine
 
-Carve out a specific time each day or several times per week - ideally linked to a daily habit like morning coffee - to answer 1–3 prompts. Consistency solidifies journaling as a habit and ensures progress tracking over time.
+Carve out a specific time each day or several times per week - ideally linked to a daily habit like morning coffee - to answer 1-3 prompts. Consistency solidifies journaling as a habit and ensures progress tracking over time.
 
 ### Set a Timer
 
-If you're short on time or tend to overthink, set a timer for 5–10 minutes to keep your writing more concise. Aim for focused exploration of each prompt for a few minutes rather than lengthy entries. Depth over quantity promotes genuine insight without causing overwhelm.
+If you're short on time or tend to overthink, set a timer for 5-10 minutes to keep your writing more concise. Aim for focused exploration of each prompt for a few minutes rather than lengthy entries. Depth over quantity promotes genuine insight without causing overwhelm.
 
 ### Use a Dedicated Journal
 

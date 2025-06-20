@@ -52,7 +52,7 @@ Becoming anti-fragile is less about avoiding stress, and more about how you resp
 ### Build Optionality
 
 - **Keep Your Options Open**<br/>
-  Versatility gives you the ability to shift directions when the environment changes. This applies to career choices, investments, social life, and many more. Develop versatile skills (e.g., writing, speaking, negotiating) to easily switch between different opportunities.
+  Versatility gives you the ability to shift directions when the environment changes. This applies to career choices, investments, social life, and many more. Develop versatile skills applicable in many different contexts (e.g., writing, speaking, negotiating) to easily switch between appearing opportunities.
 
 - **Experiment and Tinker**<br/>
   Take many small, recoverable risks. Learn through doing and adapt quickly to feedback. View each trial as information, not a verdict.

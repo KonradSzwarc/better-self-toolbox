@@ -75,7 +75,7 @@ For each Odyssey, identify two to three probing questions that challenge your as
 - Life Three: "Traveling The World As Science Documentarian"
   - How do I fund and sustain a career as a traveling science documentarian?
   - What stories or scientific topics am I most passionate about sharing globally?
-  - Which skills—such as filmmaking or journalism—do I need to develop or strengthen?
+  - Which skills related to filmmaking and journalism do I need to develop or strengthen?
 
 </details>
 

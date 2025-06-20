@@ -92,7 +92,7 @@ List all possible options that you are considering and assign a score for each c
 | Growth & Advancement     | 4      |          |          |          |
 | Job Security & Stability | 4      |          |          |          |
 | Training & Preparation   | 3      |          |          |          |
-| Work–Life Balance        | 3      |          |          |          |
+| Work-Life Balance        | 3      |          |          |          |
 | Risk & Uncertainty       | 2      |          |          |          |
 | **Total**                | **30** |          |          |          |
 
