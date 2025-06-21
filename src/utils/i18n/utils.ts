@@ -1,6 +1,7 @@
 import type { AstroGlobal } from 'astro';
 import type { CollectionEntry, DataEntryMap } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { trimEnd } from 'lodash-es';
 
 import { defaultLocale, locales, regexLocales } from './constants';
 import type { Locale } from './constants';
@@ -38,13 +39,9 @@ export function localizedPath(path: string, locale: Locale) {
 }
 
 function parsePath(path: string) {
-  return trimEndSlash(removeDoubleSlashes(path)) || '/';
+  return trimEnd(removeDoubleSlashes(path), '/') || '/';
 }
 
 function removeDoubleSlashes(path: string) {
   return path.replace('//', '/');
-}
-
-function trimEndSlash(path: string) {
-  return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
 }
