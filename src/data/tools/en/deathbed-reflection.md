@@ -6,3 +6,72 @@ summary: 'Prioritize actions by imagining what will matter at the end.'
 tags:
   - 'life-design'
 ---
+
+## What Is Deathbed Reflection?
+
+Deathbed Reflection is a self-development tool that helps you prioritize what truly matters in your life by imagining yourself at the end of your journey. Unlike day-to-day decision-making that often gets clouded by immediate concerns, this practice invites you to view your current choices from the perspective of your future self on your deathbed.
+
+Think of it as a time-travel exercise for your mind. By projecting yourself forward to your final moments, you gain a profound perspective that can transform how you make decisions today. This shift in viewpoint often reveals that many of our daily worries and pursuits may not be as important as we think, while highlighting what truly deserves our time and attention.
+
+## How to Practice Deathbed Reflection
+
+Practicing Deathbed Reflection doesn't require special equipment or expertise—just a willingness to engage honestly with yourself. Here's a simple process to follow:
+
+### 1. Create a Comfortable Setting
+
+Find a quiet, private space where you won't be disturbed. Sit or lie down comfortably, and take several deep breaths to relax your body and mind. Some people find that soft, contemplative music helps set the right mood, though this is optional.
+
+### 2. Visualize Your Deathbed Scene
+
+Close your eyes and imagine yourself at the end of your life. Picture specific details: Where are you? Who might be around you? How old are you? Make this scene as vivid and personal as possible. The goal is to create a realistic scenario that feels authentic to you.
+
+### 3. Reflect on Key Questions
+
+From this end-of-life perspective, ask yourself meaningful questions such as:
+
+- What am I most proud of in my life?
+- What do I wish I had done more of?
+- What do I regret not doing?
+- Did I spend enough time with the people who matter most?
+- Did I pursue what truly mattered to me, or what others expected?
+- If I could live my life over again, what would I do differently?
+
+### 4. Apply Your Insights
+
+After completing the reflection, take time to write down your insights. What surprised you? What values or priorities became clear? Most importantly, identify specific actions you can take now to align your current life with what you discovered matters most.
+
+## Tips for Effective Practice
+
+- Schedule regular reflection sessions to keep your priorities aligned with what truly matters.
+- Be brutally honest with yourself during the exercise. Self-deception defeats the purpose.
+- Consider writing a "letter from your future self" to your present self, offering guidance based on your reflection.
+- Use the insights gained to create concrete action steps, not just general intentions.
+- If visualizing your own death feels too uncomfortable at first, try imagining yourself at a very advanced age looking back on your life instead.
+
+## Similar Tools
+
+If instead of focusing on your life journey and overall legacy, you want to focus on a particular decision you have to make, check the [Regret Minimization Framework](./regret-minimization-framework.md).
+
+## Common Deathbed Regrets to Consider
+
+Palliative care nurse Bronnie Ware documented the most common regrets expressed by dying patients in her book [The Top Five Regrets of the Dying](https://www.goodreads.com/book/show/13059271-the-top-five-regrets-of-the-dying). Consider these regrets during your reflection to avoid similar outcomes in your own life.
+
+### I wish I'd had the courage to live a life true to myself, not the life others expected of me
+
+This was the most common regret of all, with many people realizing at the end of their lives that they had left many of their dreams unfulfilled due to choices they had made or not made. When people look back clearly on their life journey, they often recognize how they compromised their authentic desires to meet others' expectations, leaving them with a profound sense of missed opportunities.
+
+### I wish I hadn't worked so hard
+
+This regret was expressed by every male patient Ware nursed, as they deeply regretted spending so much of their lives on the "treadmill of work existence". They missed their children's youth and their partner's companionship, sacrificing precious family time and relationships for career advancement that seemed far less important in their final days.
+
+### I wish I'd had the courage to express my feelings
+
+Many patients reported suppressing their feelings to avoid conflict or keep peace with others, carrying bitterness or resentment throughout their lives as a result. By not speaking their truth, they settled for mediocre existences and never became who they were truly capable of becoming, leaving important words unsaid and emotions unexpressed.
+
+### I wish I had stayed in touch with my friends
+
+Many didn't truly realize the full benefits of old friendships until their dying weeks, when it was often too late to reconnect. They had become so caught up in their own busy lives that they let meaningful connections slip away over the years, leading to deep regrets about not giving these relationships the time and effort they deserved.
+
+### I wish I had let myself be happier
+
+This surprisingly common regret reveals that many people only realized at the end that happiness is largely a choice. They had remained stuck in familiar patterns and habits, with the false comfort of familiarity overflowing into their emotional lives as well as their physical ones, preventing them from experiencing the joy and lightness they craved.
