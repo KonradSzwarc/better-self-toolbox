@@ -1,17 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '@/utils/i18n';
 import { getCollection, getEntry, render } from 'astro:content';
-import Layout from '@/layouts/layout.astro';
-import {
-  getLocale,
-  getTranslations,
-  locales,
-  localizedPath,
-  omitLocale,
-  prependLocale,
-  type Locale,
-} from '@/utils/i18n';
 import IconArrowBack from '~icons/mdi/arrow-back';
+import Layout from '@/layouts/layout.astro';
+import { getLocale, getTranslations, locales, localizedPath, omitLocale, prependLocale } from '@/utils/i18n';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
@@ -30,7 +23,7 @@ function toSortedList(items: string[]) {
   return items.toSorted((a, b) => a.localeCompare(b)).join(', ');
 }
 
-let paths: Partial<Record<Locale, string>> = {};
+const paths: Partial<Record<Locale, string>> = {};
 
 for (const locale of locales) {
   const entry = await getEntry('tools', `${locale}/${omitLocale(tool.id)}`);

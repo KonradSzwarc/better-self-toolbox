@@ -1,5 +1,5 @@
-import { useLayoutEffect, useMemo, useRef } from 'preact/hooks';
 import Fuse from 'fuse.js';
+import { useLayoutEffect, useMemo, useRef } from 'preact/hooks';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
 
@@ -92,5 +92,5 @@ function useSearch(tools: ToolsGridProps['tools'], search: string, tagId: string
     }
 
     return results;
-  }, [trimmedSearch, tagId, fuse]);
+  }, [trimmedSearch, tagId, fuse, tools]);
 }

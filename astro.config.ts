@@ -1,19 +1,22 @@
-import fs from 'node:fs/promises';
+import type { SitemapItem } from '@astrojs/sitemap';
+import type { Options as RehypeExternalLinksOptions } from 'rehype-external-links';
 import { execSync } from 'node:child_process';
-import { trimEnd } from 'lodash-es';
-import tailwindcss from '@tailwindcss/vite';
-import { globby } from 'globby';
-import { defineConfig } from 'astro/config';
+import fs from 'node:fs/promises';
+import process from 'node:process';
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
-import sitemap, { type SitemapItem } from '@astrojs/sitemap';
+import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
-import { parse } from 'yaml';
+import tailwindcss from '@tailwindcss/vite';
 import compressor from 'astro-compressor';
+import { defineConfig } from 'astro/config';
+import { globby } from 'globby';
+import { trimEnd } from 'lodash-es';
+import rehypeExternalLinks from 'rehype-external-links';
 import Icons from 'unplugin-icons/vite';
-import rehypeExternalLinks, { type Options as RehypeExternalLinksOptions } from 'rehype-external-links';
+import { parse } from 'yaml';
 
-import { locales, defaultLocale, localeCodes, regexLocales } from './src/utils/i18n/constants';
+import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 
 const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
 const toolPagesMaps = await createToolPagesMaps();

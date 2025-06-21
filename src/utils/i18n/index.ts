@@ -1,3 +1,3 @@
-export { getLocale, getTranslations, entriesForLocale, prependLocale, omitLocale, localizedPath } from './utils';
-export { locales, defaultLocale, localeCodes } from './constants';
+export { defaultLocale, localeCodes, locales } from './constants';
 export type { Locale } from './constants';
+export { entriesForLocale, getLocale, getTranslations, localizedPath, omitLocale, prependLocale } from './utils';

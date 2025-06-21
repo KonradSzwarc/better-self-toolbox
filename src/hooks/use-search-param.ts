@@ -24,7 +24,7 @@ export function useSearchParam({ name, defaultValue = '' }: Props) {
     return () => {
       window.removeEventListener('query-change', onQueryChange);
     };
-  }, []);
+  }, [getValueFromUrl]);
 
   const changeValue = useCallback(
     (newValue: string) => {

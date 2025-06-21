@@ -1,6 +1,6 @@
-import { defineCollection, reference, z } from 'astro:content';
-
 import { glob } from 'astro/loaders';
+
+import { defineCollection, reference, z } from 'astro:content';
 
 const tools = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/data/tools' }),

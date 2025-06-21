@@ -1,10 +1,10 @@
-import { useState } from 'preact/hooks';
 import type { ComponentProps, ComponentType } from 'preact';
+import { useState } from 'preact/hooks';
 import { DropdownMenu } from 'radix-ui';
-import { cn } from '@/utils/styles';
+import IconComputer from '~icons/mdi/computer';
 import IconMoon from '~icons/mdi/moon-and-stars';
 import IconSun from '~icons/mdi/weather-sunny';
-import IconComputer from '~icons/mdi/computer';
+import { cn } from '@/utils/styles';
 
 interface Props {
   className?: string;
@@ -38,6 +38,7 @@ export function ThemeSwitcherPreact({ label, labels, className }: Props) {
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger asChild>
         <button
+          type="button"
           className={cn('flex size-8 cursor-pointer items-center justify-center border', className)}
           aria-label={label}
         >

@@ -1,11 +1,12 @@
 import type { AstroGlobal } from 'astro';
 import type { CollectionEntry, DataEntryMap } from 'astro:content';
+import type { Locale } from './constants';
+import type { MessageKey } from './messages';
+
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { trimEnd } from 'lodash-es';
-
 import { defaultLocale, locales, regexLocales } from './constants';
-import type { Locale } from './constants';
-import { messages, type MessageKey } from './messages';
+import { messages } from './messages';
 
 export function getLocale(astro: AstroGlobal): Locale {
   const locale = astro.currentLocale as Locale;

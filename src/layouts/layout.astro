@@ -1,17 +1,18 @@
 ---
-import '@fontsource-variable/inter';
-import '@fontsource-variable/nunito';
+import type { Locale } from '@/utils/i18n';
+import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
 
 import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
-import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
-
-import '@/styles/global.css';
-import { getLocale, localeCodes, type Locale } from '@/utils/i18n';
+import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
 import LanguageSwitcher from '@/components/language-switcher.astro';
+
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
+import { getLocale, localeCodes } from '@/utils/i18n';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/nunito';
+import '@/styles/global.css';
 
 interface Props {
   title: string;

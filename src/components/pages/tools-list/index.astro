@@ -1,9 +1,9 @@
 ---
+import type { Locale } from '@/utils/i18n';
 import { getCollection } from 'astro:content';
-import Layout from '@/layouts/layout.astro';
-import { entriesForLocale, getTranslations, omitLocale, type Locale } from '@/utils/i18n';
-import { localizedPath } from '@/utils/i18n';
 import IconToolbox from '~icons/mdi/toolbox';
+import Layout from '@/layouts/layout.astro';
+import { entriesForLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
 import SearchInput from './search-input.astro';
 import TagFilters from './tag-filters.astro';
 import ToolsGrid from './tools-grid.astro';

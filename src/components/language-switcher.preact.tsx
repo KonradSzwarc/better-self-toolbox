@@ -1,6 +1,6 @@
+import type { Locale } from '@/utils/i18n';
 import { Fragment } from 'preact';
 import { DropdownMenu } from 'radix-ui';
-import type { Locale } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 
 interface Props {
@@ -22,6 +22,7 @@ export function LanguageSwitcherPreact({ label, value, languages, className }: P
     <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger asChild>
         <button
+          type="button"
           className={cn('flex size-8 cursor-pointer items-center justify-center border', className)}
           aria-label={label}
         >
