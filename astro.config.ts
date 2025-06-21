@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
@@ -16,6 +17,7 @@ export default defineConfig({
   site,
 
   integrations: [
+    mdx(),
     preact({
       compat: true,
     }),
