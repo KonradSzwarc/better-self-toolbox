@@ -16,6 +16,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
 
+import rehypeLinkedHeadings from './plugins/rehype-linked-headings';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 
 const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
@@ -71,6 +72,7 @@ export default defineConfig({
           target: '_blank',
         } satisfies RehypeExternalLinksOptions,
       ],
+      rehypeLinkedHeadings,
     ],
   },
 

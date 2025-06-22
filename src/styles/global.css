@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+@config '../../tailwind.config.mjs';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -34,10 +35,37 @@
   }
   html {
     @apply scroll-smooth;
-    @apply lg:mr-0 lg:ml-[calc(100vw-100%)]; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+    @apply lg:ml-[calc(100vw-100%)] lg:mr-0; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
   }
   body {
     @apply bg-background font-body text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .anchor-link {
+    @apply text-foreground inline-block pb-0.5 align-middle opacity-40;
+  }
+
+  @media (hover: hover) {
+    .anchor-link {
+      @apply opacity-0;
+    }
+  }
+
+  .heading-wrapper {
+    @apply prose-headings:mt-0 prose-headings:mb-0 prose-headings:mr-[0.5em] prose-headings:text-[length:inherit] prose-headings:inline prose-headings:scroll-mt-6;
+
+    &:hover .anchor-link {
+      @apply opacity-40;
+    }
+  }
+
+  :where(.heading-wrapper:has(> h2)) {
+    @apply prose-h2-sizing;
+  }
+  :where(.heading-wrapper:has(> h3)) {
+    @apply prose-h3-sizing;
   }
 }
 
