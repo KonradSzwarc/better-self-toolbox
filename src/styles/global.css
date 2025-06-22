@@ -42,6 +42,16 @@
   }
 }
 
+@layer utilities {
+  :where(.heading-wrapper:has(> h2)) {
+    @apply prose-h2-sizing;
+  }
+
+  :where(.heading-wrapper:has(> h3)) {
+    @apply prose-h3-sizing;
+  }
+}
+
 @utility content-auto {
   content-visibility: auto;
 }

@@ -11,7 +11,7 @@ export interface Props extends HTMLAttributes<'h2' | 'h3'> {
 const { as: Component, label, id, class: className, ...props } = Astro.props;
 ---
 
-<div class="group has-[h2]:prose-h2-sizing has-[h3]:prose-h3-sizing">
+<div class="heading-wrapper group">
   <Component id={id} class={cn('mt-0 mr-[0.25em] mb-0 inline scroll-mt-6 text-[length:inherit]', className)} {...props}>
     <slot />
   </Component>
