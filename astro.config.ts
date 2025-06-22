@@ -7,7 +7,6 @@ import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
-import compressor from 'astro-compressor';
 import { defineConfig } from 'astro/config';
 import { globby } from 'globby';
 import { trimEnd } from 'lodash-es';
@@ -42,7 +41,6 @@ export default defineConfig({
       JavaScript: false,
       SVG: false,
     }),
-    compressor(),
   ],
 
   vite: {

@@ -52,7 +52,6 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/lodash-es": "4.17.12",
     "astro": "5.10.0",
-    "astro-compressor": "1.0.0",
     "astro-eslint-parser": "1.2.2",
     "concurrently": "9.1.2",
     "eslint": "9.29.0",
