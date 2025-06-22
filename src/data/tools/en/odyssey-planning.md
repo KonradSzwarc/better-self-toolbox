@@ -45,20 +45,19 @@ Use simple graphics (lines, icons, or color coding) to portray progression and i
 
 For each Odyssey, write a pithy six-word title capturing its essence. This distillation sharpens focus and facilitates recall.
 
-<details>
-  <summary>Example</summary>
+:::details Example
 
 - Life One: "Teaching High School Science, Inspiring Young Minds"
 - Life Two: "Developing Educational Apps For Science Learners"
 - Life Three: "Traveling The World As Science Documentarian"
-</details>
+
+:::
 
 ### 4. Generate Guiding Questions
 
 For each Odyssey, identify two to three probing questions that challenge your assumptions, clarify your motivations, and identify what you need to learn to move forward.
 
-<details>
-  <summary>Example</summary>
+:::details Example
 
 - Life One: "Teaching High School Science, Inspiring Young Minds"
 
@@ -77,7 +76,7 @@ For each Odyssey, identify two to three probing questions that challenge your as
   - What stories or scientific topics am I most passionate about sharing globally?
   - Which skills related to filmmaking and journalism do I need to develop or strengthen?
 
-</details>
+:::
 
 ### 5. Compare Timelines
 

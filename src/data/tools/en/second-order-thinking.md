@@ -33,8 +33,7 @@ Balance short-term gains against long-term risks and benefits to select the opti
 
 ## Practical Examples of Second-Order Thinking
 
-<details>
-  <summary>Example 1: Eating Junk Food When Hungry</summary>
+:::details Example 1: Eating Junk Food When Hungry
 
 1. **Clarify Objective**<br />
    I want to quickly satisfy my hunger.
@@ -47,10 +46,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice**<br />
    Instead of the chocolate, I choose a nutritious snack, preventing a cycle of poor eating habits and long-term health issues.
 
-</details>
+:::
 
-<details>
-  <summary>Example 2: Skipping Exercise to Relax</summary>
+:::details Example 2: Skipping Exercise to Relax
 
 1. **Clarify Objective**<br />
    I want to feel rested after a long day.
@@ -63,10 +61,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice**<br />
    I go for a short walk instead of intense exercise, maintaining my routine and supporting my long-term well-being.
 
-</details>
+:::
 
-<details>
-  <summary>Example 3: Taking on Too Many Commitments</summary>
+:::details Example 3: Taking on Too Many Commitments
 
 1. **Clarify Objective**<br />
    I want to be helpful and involved in my community.
@@ -79,10 +76,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice**<br />
    I choose to focus on one or two key initiatives, ensuring I can give my best effort and maintain my well-being.
 
-</details>
+:::
 
-<details>
-  <summary>Example 4: Avoiding a Difficult Conversation</summary>
+:::details Example 4: Avoiding a Difficult Conversation
 
 1. **Clarify Objective**<br />
    I want to avoid discomfort and conflict.
@@ -95,10 +91,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice**<br />
    I address the issue calmly, improving understanding and resolving tension.
 
-</details>
+:::
 
-<details>
-  <summary>Example 5: Sending an Angry Email</summary>
+:::details Example 5: Sending an Angry Email
 
 1. **Clarify Objective:**<br />
    I want to express my frustration and feel heard.
@@ -111,10 +106,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice:**<br />
    I wait to cool off, then meet in person to discuss the issue constructively.
 
-</details>
+:::
 
-<details>
-  <summary>Example 6: Impulse Shopping During a Sale</summary>
+:::details Example 6: Impulse Shopping During a Sale
 
 1. **Clarify Objective:**<br />
    I want to take advantage of a discount and enjoy a new gadget.
@@ -127,10 +121,9 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice:**<br />
    I decide to skip the purchase, saving money and space for things I truly value.
 
-</details>
+:::
 
-<details>
-  <summary>Example 7: Procrastinating on a Big Project</summary>
+:::details Example 7: Procrastinating on a Big Project
 
 1. **Clarify Objective:**<br />
    I want to avoid stress and do something fun instead.
@@ -143,4 +136,4 @@ Balance short-term gains against long-term risks and benefits to select the opti
 5. **Trade-Offs and Choice:**<br />
    I break the project into small tasks, and doing them one at a time balanced with fun activities.
 
-</details>
+:::

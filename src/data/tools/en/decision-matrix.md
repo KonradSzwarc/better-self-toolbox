@@ -27,8 +27,7 @@ List all possible options that you are considering and assign a score for each c
 
 ## Examples of Decision Matrix
 
-<details>
-  <summary>Selecting a University</summary>
+:::details Selecting a University
 
 | Criterion                          | Weight | University A | University B | University C |
 | ---------------------------------- | ------ | ------------ | ------------ | ------------ |
@@ -44,10 +43,9 @@ List all possible options that you are considering and assign a score for each c
 | International Exposure & Diversity | 2      |              |              |              |
 | **Total**                          | **65** |              |              |              |
 
-</details>
+:::
 
-<details>
-  <summary>Planning a Family Vacation Destination</summary>
+:::details Planning a Family Vacation Destination
 
 | Criterion                | Weight   | Destination A | Destination B | Destination C |
 | ------------------------ | -------- | ------------- | ------------- | ------------- |
@@ -62,10 +60,9 @@ List all possible options that you are considering and assign a score for each c
 | Cultural Value           | 0.10     |               |               |               |
 | **Total**                | **1.00** |               |               |               |
 
-</details>
+:::
 
-<details>
-  <summary>Evaluating Investment Opportunities</summary>
+:::details Evaluating Investment Opportunities
 
 | Criterion                      | Weight  | Investment A | Investment B | Investment C |
 | ------------------------------ | ------- | ------------ | ------------ | ------------ |
@@ -79,10 +76,9 @@ List all possible options that you are considering and assign a score for each c
 | Liquidity                      | 5       |              |              |              |
 | **Total**                      | **100** |              |              |              |
 
-</details>
+:::
 
-<details>
-  <summary>Deciding on a Major Career Change</summary>
+:::details Deciding on a Major Career Change
 
 | Criterion                | Weight | Career A | Career B | Career C |
 | ------------------------ | ------ | -------- | -------- | -------- |
@@ -96,10 +92,9 @@ List all possible options that you are considering and assign a score for each c
 | Risk & Uncertainty       | 2      |          |          |          |
 | **Total**                | **30** |          |          |          |
 
-</details>
+:::
 
-<details>
-  <summary>Choosing the Right Type of Exercise</summary>
+:::details Choosing the Right Type of Exercise
 
 | Criterion            | Weight | Exercise A | Exercise B | Exercise C |
 | -------------------- | ------ | ---------- | ---------- | ---------- |
@@ -113,10 +108,9 @@ List all possible options that you are considering and assign a score for each c
 | Complexity           | 2      |            |            |            |
 | **Total**            | **30** |            |            |            |
 
-</details>
+:::
 
-<details>
-  <summary>Picking a Side-Project to Work On</summary>
+:::details Picking a Side-Project to Work On
 
 | Criterion                | Weight  | Project A | Project B | Project C |
 | ------------------------ | ------- | --------- | --------- | --------- |
@@ -131,4 +125,4 @@ List all possible options that you are considering and assign a score for each c
 | Monetization Opportunity | 5%      |           |           |           |
 | **Total**                | **100** |           |           |           |
 
-</details>
+:::
