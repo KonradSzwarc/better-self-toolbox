@@ -1,6 +1,4 @@
 import type { SitemapItem } from '@astrojs/sitemap';
-import type { Options as RehypeExternalLinksOptions } from 'rehype-external-links';
-import type { FlexibleContainerOptions } from 'remark-flexible-containers';
 import { execSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import process from 'node:process';
@@ -13,12 +11,9 @@ import compressor from 'astro-compressor';
 import { defineConfig } from 'astro/config';
 import { globby } from 'globby';
 import { trimEnd } from 'lodash-es';
-import rehypeExternalLinks from 'rehype-external-links';
-import remarkFlexibleContainers from 'remark-flexible-containers';
 import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
 
-import rehypeLinkedHeadings from './plugins/rehype-linked-headings';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 
 const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
@@ -63,32 +58,6 @@ export default defineConfig({
   i18n: {
     locales: [...locales],
     defaultLocale,
-  },
-
-  markdown: {
-    remarkPlugins: [
-      [
-        remarkFlexibleContainers,
-        {
-          containerTagName: (type) => {
-            return type === 'details' ? 'details' : 'div';
-          },
-          titleTagName: (type) => {
-            return type === 'details' ? 'summary' : 'span';
-          },
-        } satisfies FlexibleContainerOptions,
-      ],
-    ],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['noopener', 'noreferrer', 'nofollow'],
-          target: '_blank',
-        } satisfies RehypeExternalLinksOptions,
-      ],
-      rehypeLinkedHeadings,
-    ],
   },
 
   build: {

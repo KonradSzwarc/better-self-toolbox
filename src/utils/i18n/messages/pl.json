@@ -6,6 +6,7 @@
   "components.theme_switcher.light": "Jasny",
   "components.theme_switcher.dark": "Ciemny",
   "components.theme_switcher.system": "Systemowy",
+  "components.mdx.heading_with_anchor.anchor_label": "Sekcja \"{name}\"",
   "pages.tools_list.title": "Better Self Toolbox",
   "pages.tools_list.description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój.",
   "pages.tools_list.search": "Wyszukaj narzędzia...",

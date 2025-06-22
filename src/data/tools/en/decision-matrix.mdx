@@ -5,6 +5,8 @@ tags:
   - 'mental-model'
 ---
 
+import { Collapsible } from '@/components/mdx/collapsible';
+
 ## What is the Decision Matrix?
 
 A decision matrix is a tool to evaluate and prioritize multiple options by comparing them against defined criteria. You can use it to transform complex decisions into a structured format where alternatives are scored against pre-defined factors, enabling more objective and transparent decision-making.
@@ -27,7 +29,7 @@ List all possible options that you are considering and assign a score for each c
 
 ## Examples of Decision Matrix
 
-:::details Selecting a University
+<Collapsible client:load title="Selecting a University">
 
 | Criterion                          | Weight | University A | University B | University C |
 | ---------------------------------- | ------ | ------------ | ------------ | ------------ |
@@ -43,9 +45,9 @@ List all possible options that you are considering and assign a score for each c
 | International Exposure & Diversity | 2      |              |              |              |
 | **Total**                          | **65** |              |              |              |
 
-:::
+</Collapsible>
 
-:::details Planning a Family Vacation Destination
+<Collapsible client:load title="Planning a Family Vacation Destination">
 
 | Criterion                | Weight   | Destination A | Destination B | Destination C |
 | ------------------------ | -------- | ------------- | ------------- | ------------- |
@@ -60,9 +62,9 @@ List all possible options that you are considering and assign a score for each c
 | Cultural Value           | 0.10     |               |               |               |
 | **Total**                | **1.00** |               |               |               |
 
-:::
+</Collapsible>
 
-:::details Evaluating Investment Opportunities
+<Collapsible client:load title="Evaluating Investment Opportunities">
 
 | Criterion                      | Weight  | Investment A | Investment B | Investment C |
 | ------------------------------ | ------- | ------------ | ------------ | ------------ |
@@ -76,9 +78,9 @@ List all possible options that you are considering and assign a score for each c
 | Liquidity                      | 5       |              |              |              |
 | **Total**                      | **100** |              |              |              |
 
-:::
+</Collapsible>
 
-:::details Deciding on a Major Career Change
+<Collapsible client:load title="Deciding on a Major Career Change">
 
 | Criterion                | Weight | Career A | Career B | Career C |
 | ------------------------ | ------ | -------- | -------- | -------- |
@@ -92,9 +94,9 @@ List all possible options that you are considering and assign a score for each c
 | Risk & Uncertainty       | 2      |          |          |          |
 | **Total**                | **30** |          |          |          |
 
-:::
+</Collapsible>
 
-:::details Choosing the Right Type of Exercise
+<Collapsible client:load title="Choosing the Right Type of Exercise">
 
 | Criterion            | Weight | Exercise A | Exercise B | Exercise C |
 | -------------------- | ------ | ---------- | ---------- | ---------- |
@@ -108,9 +110,9 @@ List all possible options that you are considering and assign a score for each c
 | Complexity           | 2      |            |            |            |
 | **Total**            | **30** |            |            |            |
 
-:::
+</Collapsible>
 
-:::details Picking a Side-Project to Work On
+<Collapsible client:load title="Picking a Side-Project to Work On">
 
 | Criterion                | Weight  | Project A | Project B | Project C |
 | ------------------------ | ------- | --------- | --------- | --------- |
@@ -125,4 +127,4 @@ List all possible options that you are considering and assign a score for each c
 | Monetization Opportunity | 5%      |           |           |           |
 | **Total**                | **100** |           |           |           |
 
-:::
+</Collapsible>

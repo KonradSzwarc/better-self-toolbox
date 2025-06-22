@@ -28,7 +28,7 @@ Choose a **preferable method** to visualize your wheel.
 
 ### 3. Rate Your Life in Each Domain
 
-For each domain, ask yourself: **"On a scale of 1–10, how satisfied am I right now?"** You can also write a sentence or two on why you chose that number.
+For each domain, ask yourself: **"On a scale of 1-10, how satisfied am I right now?"** You can also write a sentence or two on why you chose that number.
 
 ### 4. Analyze Your Results
 
