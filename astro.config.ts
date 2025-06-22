@@ -101,7 +101,6 @@ async function createToolPagesMaps() {
 function filterPagesWithContent(pageUrl: string) {
   const filePath = toolPagesMaps.urlToFilePath.get(trimEnd(pageUrl, '/'));
   if (!filePath) return true;
-  console.log(filePath, Boolean(toolPagesMaps.filePathToContent.get(filePath)));
 
   return Boolean(toolPagesMaps.filePathToContent.get(filePath));
 }
@@ -127,8 +126,6 @@ function serializeSitemap(sitemapItem: SitemapItem) {
 
     return [{ url, lang: localeCodes[locale] }];
   });
-
-  console.log(links);
 
   if (links.length > 1) {
     sitemapItem.links = links;
