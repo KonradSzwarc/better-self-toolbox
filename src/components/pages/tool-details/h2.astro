@@ -1,19 +1,7 @@
 ---
 import HeadingWithAnchor, { type Props as HeadingWithAnchorProps } from './heading-with-anchor.astro';
-import { getLocale, getTranslations } from '@/utils/i18n';
 
-interface Props extends Omit<HeadingWithAnchorProps, 'as' | 'label'> {}
-
-const text = await Astro.slots.render('default');
-
-const locale = getLocale(Astro);
-const t = getTranslations(locale);
+interface Props extends Omit<HeadingWithAnchorProps, 'as'> {}
 ---
 
-<HeadingWithAnchor
-  as="h2"
-  label={t('components.mdx.heading_with_anchor.anchor_label').replace('{name}', text)}
-  {...Astro.props}
->
-  <slot />
-</HeadingWithAnchor>
+<HeadingWithAnchor as="h2" {...Astro.props}><slot /> </HeadingWithAnchor>

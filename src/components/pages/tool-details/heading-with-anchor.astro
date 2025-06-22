@@ -1,25 +1,32 @@
 ---
+import { getLocale, getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import type { HTMLAttributes } from 'astro/types';
 import MdiLinkVariant from '~icons/mdi/link-variant';
 
 export interface Props extends HTMLAttributes<'h2' | 'h3'> {
   as: 'h2' | 'h3';
-  label: string;
 }
 
-const { as: Component, label, id, class: className, ...props } = Astro.props;
+const { as: Component, id, class: className, ...props } = Astro.props;
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
+
+const isFootnoteHeading = id === 'footnote-label';
+const footnoteLabel = t('pages.tool_details.footnotes');
+const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('default');
 ---
 
-<div class="heading-wrapper group">
+<div class={cn('heading-wrapper group', '[&+ol]:mt-0')} {...props}>
   <Component id={id} class={cn('mt-0 mr-[0.25em] mb-0 inline scroll-mt-6 text-[length:inherit]', className)} {...props}>
-    <slot />
+    {isFootnoteHeading ? footnoteLabel : <slot />}
   </Component>
   <a
     href={`#${id}`}
     class="anchor-link inline-block pb-0.5 align-middle text-foreground opacity-40 group-hover:opacity-40 hover-supported:opacity-0"
   >
     <MdiLinkVariant width="1em" height="1em" aria-hidden="true" />
-    <span class="sr-only">{label}</span>
+    <span class="sr-only">{t('components.mdx.heading_with_anchor.anchor_label').replace('{name}', label)}</span>
   </a>
 </div>

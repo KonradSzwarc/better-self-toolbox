@@ -61,6 +61,12 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+
+  markdown: {
+    remarkRehype: {
+      footnoteLabelProperties: { className: '' },
+    },
+  },
 });
 
 /** Create maps allowing to quickly find data about a tool page by file path or url */

@@ -15,6 +15,8 @@
   "pages.tool_details.category": "Kategoria",
   "pages.tool_details.also_known_as": "Inne nazwy",
   "pages.tool_details.back": "Powrót do listy",
+  "pages.tool_details.footnotes": "Przypisy",
+  "pages.tool_details.footnote_back_label": "Powrót do odnośnika {name}",
   "pages.404.title": "Nie znaleziono strony",
   "pages.404.description": "Strona o podanym adresie nie została odnaleziona. Sprawdź, czy podany adres strony jest poprawny lub wróć do strony głównej.",
   "pages.404.back": "Wróć do strony głównej"

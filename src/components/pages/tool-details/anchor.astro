@@ -1,9 +1,14 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { getLocale, getTranslations } from '@/utils/i18n';
+import MdiUndoVariant from '~icons/mdi/undo-variant';
 
 export interface Props extends HTMLAttributes<'a'> {}
 
 const { href, ...props } = Astro.props;
+
+const locale = getLocale(Astro);
+const t = getTranslations(locale);
 
 function isHrefExternal(href?: string) {
   if (!href || !Astro.site) return false;
@@ -11,13 +16,18 @@ function isHrefExternal(href?: string) {
 }
 
 const isExternal = isHrefExternal(href?.toString());
-
 if (isExternal) {
   props.target = '_blank';
   props.rel = 'noopener noreferrer nofollow';
 }
+
+const isFootnoteBackref = typeof props['data-footnote-backref'] === 'string';
+if (isFootnoteBackref) {
+  props['aria-label'] = t('pages.tool_details.footnote_back_label').replace(
+    '{name}',
+    props['aria-label']?.split(' ').pop() ?? '',
+  );
+}
 ---
 
-<a href={href} {...props}>
-  <slot />
-</a>
+<a href={href} {...props}>{isFootnoteBackref ? <MdiUndoVariant className="inline-block" /> : <slot />}</a>
