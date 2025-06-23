@@ -5,10 +5,10 @@ import { LikertTablePreact } from './likert-table.preact';
 
 interface Props extends Omit<LikertTableProps, 'totalLabel'> {}
 
-const { items, scale } = Astro.props;
+const { items, max } = Astro.props;
 
 const locale = getLocale(Astro);
 const t = getTranslations(locale);
 ---
 
-<LikertTablePreact client:load items={items} scale={scale} totalLabel={t('components.mdx.likert_table.total')} />
+<LikertTablePreact client:load items={items} max={max} totalLabel={t('components.mdx.likert_table.total')} />

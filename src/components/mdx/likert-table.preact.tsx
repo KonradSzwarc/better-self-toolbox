@@ -2,54 +2,56 @@ import { mean, round } from 'lodash-es';
 import { useId, useState } from 'preact/hooks';
 import { Fragment } from 'preact/jsx-runtime';
 
+const MIN_VALUE = 1;
+
 export interface LikertTableProps {
   totalLabel: string;
-  scale: {
-    from: number;
-    to: number;
-  };
+  max: number;
   items: {
     label: string;
     isReversed?: boolean;
   }[];
 }
 
-export function LikertTablePreact({ totalLabel, scale, items }: LikertTableProps) {
-  const [values, setValues] = useState<Record<string, number>>({});
+export function LikertTablePreact({ totalLabel, max, items }: LikertTableProps) {
+  const [values, setValues] = useState<number[]>(items.map(() => 0));
 
   return (
     <div class="grid grid-cols-[1fr_80px] border-t text-foreground [&_p]:m-0 [&_p]:p-2">
-      {items.map((item) => (
+      {items.map((item, i) => (
         <LikertTableItem
           key={item.label}
           item={item}
-          scale={scale}
-          onChange={(name, value) =>
-            setValues((prev) => {
-              if (value === null) {
-                const { [name]: _, ...rest } = prev;
-                return rest;
-              }
-              return { ...prev, [name]: value };
-            })
-          }
+          max={max}
+          value={values[i] ?? 0}
+          onChange={(value) => setValues(values.map((v, j) => (j === i ? value : v)))}
         />
       ))}
       <p class="border-x border-b font-bold">
-        {totalLabel} ({scale.from}-{scale.to})
+        {totalLabel} (${MIN_VALUE}-{max})
       </p>
-      <p class="border-r border-b text-center font-bold">{round(mean(Object.values(values)), 2) || 0}</p>
+      <p class="border-r border-b text-center font-bold">
+        {round(
+          mean(
+            values
+              .map((value, index) => (items[index]?.isReversed && value > 0 ? max + MIN_VALUE - value : value))
+              .filter(Boolean),
+          ),
+          2,
+        ) || '-'}
+      </p>
     </div>
   );
 }
 
 interface LikertTableItemProps {
   item: LikertTableProps['items'][number];
-  scale: LikertTableProps['scale'];
-  onChange: (name: string, value: number | null) => void;
+  max: number;
+  value: number;
+  onChange: (value: number) => void;
 }
 
-function LikertTableItem({ item, scale, onChange }: LikertTableItemProps) {
+function LikertTableItem({ item, max, value, onChange }: LikertTableItemProps) {
   const id = useId();
 
   return (
@@ -57,22 +59,20 @@ function LikertTableItem({ item, scale, onChange }: LikertTableItemProps) {
       <p class="border-x border-b">{item.label}</p>
       <input
         id={id}
+        name={id}
         type="number"
         class="border-r border-b p-2 text-center"
-        placeholder={`${scale.from}-${scale.to}`}
-        min={scale.from}
-        max={scale.to}
+        placeholder={`${MIN_VALUE}-${max}`}
+        max={max}
+        min={MIN_VALUE}
+        value={value || ''}
         onInput={(e) => {
           const newValue = Number(e.currentTarget.value);
 
-          if (Number.isNaN(newValue) || newValue < scale.from || newValue > scale.to) {
-            onChange(id, null);
-          }
-
-          if (item.isReversed) {
-            onChange(id, scale.to + scale.from - newValue);
+          if (!Number.isInteger(newValue) || newValue < MIN_VALUE || newValue > max) {
+            onChange(0);
           } else {
-            onChange(id, newValue);
+            onChange(newValue);
           }
         }}
       />
