@@ -7,6 +7,7 @@
   "components.theme_switcher.dark": "Dark",
   "components.theme_switcher.system": "System",
   "components.mdx.heading_with_anchor.anchor_label": "Section \"{name}\"",
+  "components.mdx.likert_table.total": "Result",
   "pages.tools_list.title": "Better Self Toolbox",
   "pages.tools_list.description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
   "pages.tools_list.search": "Search for tools...",

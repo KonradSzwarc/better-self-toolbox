@@ -4,3 +4,145 @@ summary: 'People thrive when they feel capable, connected, and in control.'
 tags:
   - 'well-being'
 ---
+
+import LikertTable from '@/components/mdx/likert-table.astro';
+
+## What Is Self-Determination Theory?
+
+Self-Determination Theory (SDT) is a psychological framework that explains what drives our motivation and well-being. It posits that people function best when three innate needs are satisfied: feeling capable (competence), feeling connected to others (relatedness), and feeling in control of one's actions (autonomy).
+
+SDT emerged in the 1980s through the work of psychologists Edward L. Deci and Richard M. Ryan, who studied why people engage in activities for their own sake rather than for external rewards.
+
+## What Are the Three Core Needs?
+
+### 1. Autonomy
+
+Being in control of your choices and actions. It's about feeling like you have the freedom to make decisions and act on them.
+
+### 2. Competence
+
+Being able to do something well. It's about feeling confident in your abilities and knowing that you can achieve your goals.
+
+### 3. Relatedness
+
+Being connected to others. It's about feeling like you belong and that you have support from those around you.
+
+## How To Assess Your Needs?
+
+To understand how well your needs are being met, you can use the following questionnaire.
+
+Rate each statement below on a scale of **1 (not true at all) to 7 (completely true)** based of the **past four weeks** of your life.
+
+### Autonomy
+
+<LikertTable
+  scale={{ from: 1, to: 7 }}
+  items={[
+    { label: 'I feel free to make my own decisions about important matters in my life' },
+    { label: 'My daily activities reflect my personal values and beliefs' },
+    { label: 'I have control over how I spend my time' },
+    { label: 'I can express my true self in my relationships and activities' },
+    { label: "I feel pressured to do things I don't really want to do", isReversed: true },
+    { label: 'I choose my goals based on what matters to me personally' },
+    { label: "I feel like I'm living according to my own priorities" },
+    { label: 'Others make most of the important decisions for me', isReversed: true },
+    { label: 'I have the freedom to pursue what interests me most' },
+    { label: 'I feel authentic and genuine in how I present myself to others' },
+  ]}
+/>
+
+### Competence
+
+<LikertTable
+  scale={{ from: 1, to: 7 }}
+  items={[
+    { label: 'I feel confident in my ability to handle challenges that come my way' },
+    { label: 'I am successful at completing tasks that are important to me' },
+    { label: 'I feel capable of learning new skills when I need to' },
+    { label: 'I often feel overwhelmed by daily demands', isReversed: true },
+    { label: 'I can solve problems effectively when they arise' },
+    { label: 'I feel skilled at the activities that matter most to me' },
+    { label: 'I doubt my ability to achieve my goals', isReversed: true },
+    { label: 'I feel competent in managing the responsibilities in my life' },
+    { label: 'I can accomplish things that require sustained effort' },
+    { label: 'I feel effective in pursuing what I want to achieve' },
+  ]}
+/>
+
+### Relatedness
+
+<LikertTable
+  scale={{ from: 1, to: 7 }}
+  items={[
+    { label: 'I feel close and connected to the people who are important to me' },
+    { label: 'People in my life care about my well-being' },
+    { label: 'I have satisfying relationships with others' },
+    { label: 'I often feel lonely or isolated', isReversed: true },
+    { label: 'I feel like I belong in my community or social group' },
+    { label: 'There are people I can rely on when I need support' },
+    { label: 'I feel disconnected from others around me', isReversed: true },
+    { label: 'I have meaningful conversations with people I care about' },
+    { label: 'I feel valued and appreciated by others' },
+    { label: 'I can share my thoughts and feelings openly with people close to me' },
+  ]}
+/>
+
+## How To Improve Within Each Need?
+
+### Autonomy
+
+- **Do a values check-in.**<br/>
+  Regularly pause to ask: Are my major decisions and routines aligned with what I care about most? You can use tools like a personal values list or [journaling prompts](../prompted-journaling#values-exploration) to reconnect with what matters to you and make conscious adjustments if you've drifted.
+
+- **Practice "because I choose to."**<br/>
+  Even when doing something difficult or obligatory, reframe it as a choice. Instead of "I have to go to work.", try "I choose to go to work because I value being dependable and financially stable." This mental shift helps restore a sense of control and ownership.
+
+- **Set personal, meaningful goals.**<br/>
+  Instead of chasing goals based on external pressure (like status or approval), choose ones that feel personally important and fulfilling. Ask "What do I want to grow into?" or "What would make me proud of how I spend my time?"
+
+- **Create daily "choice points."**<br/>
+  Look for small decisions that help you feel in control, like choosing what to eat, when to start a task, or which project to tackle first. Even tiny choices build a cumulative sense of agency.
+
+- **Reduce "shoulds" and increase "wants."**<br/>
+  Notice when you say "I should…" and ask yourself: Is this something I truly want or value? If not, either reframe the task in terms of a value or re-evaluate whether it belongs in your life.
+
+### Competence
+
+- **Break big goals into small, achievable steps.**<br/>
+  Large goals can feel overwhelming, but breaking them into bite-sized actions makes progress feel possible. Completing each step builds confidence and momentum. For example instead of "Get in shape," start with "Take a 15-minute walk three times this week."
+
+- **Track and review your progress.**<br/>
+  Use a journal, app, or habit tracker to visualize your growth over time. This makes your effort tangible and gives you motivation to keep going. Reflect on what you accomplished and what you learned at least once a week.
+
+- **Challenge yourself in the "growth zone."**<br/>
+  Aim for tasks that stretch you without overwhelming you. This "Goldilocks zone" (not too easy, not too hard) is where learning and mastery flourish.
+  Ask yourself "What's one small challenge I can take on today?"
+
+- **Reflect on your past successes.**<br/>
+  Make a list of skills you've developed and problems you've overcome. Revisiting these reminds you of your capacity to grow and adapt, even when things feel difficult.
+
+- **Seek constructive feedback.**<br/>
+  Instead of only wanting praise, ask trusted people "What's one way I could improve?" Honest, supportive feedback helps you improve while reinforcing that you're respected and capable.
+
+- **Teach or explain what you've learned.**<br/>
+  Sharing your knowledge, whether in conversation, writing, or mentoring, reinforces your understanding and boosts your sense of mastery.
+
+### Relatedness
+
+- **Invest in quality time, not just quantity.**<br/>
+  Schedule meaningful time with people who uplift you. Aim for interactions where you can be fully present without multitasking or rushing. Even 10 minutes of deep connection matters more than hours of distracted interaction.
+
+- **Be authentic and vulnerable.**<br/>
+  Open up about your real thoughts, feelings, and struggles. Authenticity invites deeper connection and helps others feel safe doing the same. You don't have to overshare. Just speak honestly about how you're doing.
+
+- **Reach out, even if it feels awkward.**<br/>
+  Don't wait for others to initiate. A simple "Hey, I was thinking of you" message or sending a funny meme can rekindle connection. People appreciate being remembered more than we think.
+
+- **Offer small acts of kindness.**<br/>
+  A kind word, a genuine compliment, or a helping hand builds connection and lifts both people. Try to offer at least one thoughtful gesture each day.
+
+- **Join or create community spaces.**<br/>
+  Whether it's a book club, spiritual group, interest-based community, or online forum, find places where you can share interests and values with others in a meaningful way.
+
+- **Be present with people.**<br/>
+  When spending time with someone, give your full attention. Silence notifications, make eye contact, and listen deeply. Your presence signals that they matter.
