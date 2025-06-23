@@ -32,6 +32,7 @@ const tools = toolsCollection.map((tool) => ({
   summary: tool.data.summary,
   synonyms: tool.data.synonyms || [],
   url: localizedPath(`/${omitLocale(tool.data.path ?? tool.id)}`, locale),
+  hasContent: Boolean(tool.body),
   tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
 }));
 ---
