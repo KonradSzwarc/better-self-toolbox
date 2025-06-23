@@ -33,8 +33,8 @@ export function ToolsGridPreact({ tools, className }: ToolsGridProps) {
   return (
     <ul ref={listRef} className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
       {results.map((tool) => (
-        <li key={tool.id} className="group flex border content-auto">
-          <a href={tool.url} className="flex w-full flex-col px-4 py-3">
+        <li key={tool.id} className="group flex content-auto">
+          <a href={tool.url} className="flex w-full flex-col border px-4 py-3">
             <h3 className="font-heading text-xl font-black group-hover:underline">{tool.name}</h3>
             <p className="text-pretty">{tool.summary}</p>
             <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">

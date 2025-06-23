@@ -40,6 +40,12 @@
   body {
     @apply bg-background font-body text-foreground antialiased;
   }
+  a,
+  input,
+  button,
+  div[role='menuitem'] {
+    @apply focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-sky-600 focus-visible:dark:outline-sky-400;
+  }
 }
 
 @layer utilities {
