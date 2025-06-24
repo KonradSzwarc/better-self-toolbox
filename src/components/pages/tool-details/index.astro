@@ -5,9 +5,9 @@ import { getCollection, getEntry, render } from 'astro:content';
 import IconArrowBack from '~icons/mdi/arrow-back';
 import Layout from '@/layouts/layout.astro';
 import { getLocale, getTranslations, locales, localizedPath, omitLocale, prependLocale } from '@/utils/i18n';
+import Anchor from './anchor.astro';
 import H2 from './h2.astro';
 import H3 from './h3.astro';
-import Anchor from './anchor.astro';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
