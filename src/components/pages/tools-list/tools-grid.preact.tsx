@@ -1,6 +1,7 @@
 import Fuse from 'fuse.js';
 import { useLayoutEffect, useMemo, useRef } from 'preact/hooks';
 import MdiCheckCircleOutline from '~icons/mdi/check-circle-outline';
+import { useIsClient } from '@/hooks/use-is-client';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
 
@@ -21,6 +22,7 @@ export interface ToolsGridProps {
 }
 
 export function ToolsGridPreact({ tools, className }: ToolsGridProps) {
+  const isClient = useIsClient();
   const listRef = useRef<HTMLUListElement>(null);
   const [search] = useSearchParam({ name: 'search' });
   const [tag] = useSearchParam({ name: 'tag' });
@@ -31,7 +33,11 @@ export function ToolsGridPreact({ tools, className }: ToolsGridProps) {
   }, []);
 
   return (
-    <ul ref={listRef} className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
+    <ul
+      ref={listRef}
+      key={isClient ? 'client' : 'server'}
+      className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}
+    >
       {results.map((tool) => (
         <li key={tool.id} className="group flex content-auto">
           <a href={tool.url} className="flex w-full flex-col border px-4 py-3">
