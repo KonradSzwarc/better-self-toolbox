@@ -1,0 +1,100 @@
+diff --git a/dist/index.cjs b/dist/index.cjs
+index ab3dab28261fe3e8630d5147c0a3282ed98893dc..4fe0d69dd6395d056b080b7f678a250d28bcc331 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -399,8 +399,8 @@ class Platform {
+     const { output } = this.options;
+     return {
+       images: output.images ? await this.createImages(sourceset) : [],
+-      files: output.files ? await this.createFiles() : [],
+-      html: output.html ? await this.createHtml() : []
++      files: [],
++      html: []
+     };
+   }
+   async createImages(sourceset) {
+@@ -628,19 +628,7 @@ class AndroidPlatform extends Platform {
+ }
+ 
+ const ICONS_OPTIONS$4 = [
+-  { name: "apple-touch-icon-57x57.png", ...opaqueIcon(57) },
+-  { name: "apple-touch-icon-60x60.png", ...opaqueIcon(60) },
+-  { name: "apple-touch-icon-72x72.png", ...opaqueIcon(72) },
+-  { name: "apple-touch-icon-76x76.png", ...opaqueIcon(76) },
+-  { name: "apple-touch-icon-114x114.png", ...opaqueIcon(114) },
+-  { name: "apple-touch-icon-120x120.png", ...opaqueIcon(120) },
+-  { name: "apple-touch-icon-144x144.png", ...opaqueIcon(144) },
+-  { name: "apple-touch-icon-152x152.png", ...opaqueIcon(152) },
+-  { name: "apple-touch-icon-167x167.png", ...opaqueIcon(167) },
+-  { name: "apple-touch-icon-180x180.png", ...opaqueIcon(180) },
+-  { name: "apple-touch-icon-1024x1024.png", ...opaqueIcon(1024) },
+-  { name: "apple-touch-icon.png", ...opaqueIcon(180) },
+-  { name: "apple-touch-icon-precomposed.png", ...opaqueIcon(180) }
++  { name: "apple-touch-icon.png", ...transparentIcon(180) },
+ ];
+ class AppleIconPlatform extends Platform {
+   constructor(options) {
+@@ -740,12 +728,7 @@ class AppleStartupPlatform extends Platform {
+ }
+ 
+ const ICONS_OPTIONS$2 = [
+-  { name: "favicon.ico", ...transparentIcons(16, 24, 32, 48, 64) },
+-  { name: "favicon-16x16.png", ...transparentIcon(16) },
+-  { name: "favicon-32x32.png", ...transparentIcon(32) },
+-  { name: "favicon-48x48.png", ...transparentIcon(48) },
+-  { name: "favicon.svg", ...transparentIcon(1024), optional: true }
+-  // arbitrary size. if more than one svg source is given, the closest to this size will be picked.
++  { name: "favicon.ico", ...transparentIcons(32) },
+ ];
+ class FaviconsPlatform extends Platform {
+   constructor(options) {
+diff --git a/dist/index.mjs b/dist/index.mjs
+index fd29b46fe3fc6d17fc935bb314c78d1dd4eb416d..c37b261b39e3b94185ce1b7bf46a39976973196f 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -389,8 +389,8 @@ class Platform {
+     const { output } = this.options;
+     return {
+       images: output.images ? await this.createImages(sourceset) : [],
+-      files: output.files ? await this.createFiles() : [],
+-      html: output.html ? await this.createHtml() : []
++      files: [],
++      html: []
+     };
+   }
+   async createImages(sourceset) {
+@@ -618,19 +618,7 @@ class AndroidPlatform extends Platform {
+ }
+ 
+ const ICONS_OPTIONS$4 = [
+-  { name: "apple-touch-icon-57x57.png", ...opaqueIcon(57) },
+-  { name: "apple-touch-icon-60x60.png", ...opaqueIcon(60) },
+-  { name: "apple-touch-icon-72x72.png", ...opaqueIcon(72) },
+-  { name: "apple-touch-icon-76x76.png", ...opaqueIcon(76) },
+-  { name: "apple-touch-icon-114x114.png", ...opaqueIcon(114) },
+-  { name: "apple-touch-icon-120x120.png", ...opaqueIcon(120) },
+-  { name: "apple-touch-icon-144x144.png", ...opaqueIcon(144) },
+-  { name: "apple-touch-icon-152x152.png", ...opaqueIcon(152) },
+-  { name: "apple-touch-icon-167x167.png", ...opaqueIcon(167) },
+-  { name: "apple-touch-icon-180x180.png", ...opaqueIcon(180) },
+-  { name: "apple-touch-icon-1024x1024.png", ...opaqueIcon(1024) },
+-  { name: "apple-touch-icon.png", ...opaqueIcon(180) },
+-  { name: "apple-touch-icon-precomposed.png", ...opaqueIcon(180) }
++  { name: "apple-touch-icon.png", ...transparentIcon(180) },
+ ];
+ class AppleIconPlatform extends Platform {
+   constructor(options) {
+@@ -730,12 +718,7 @@ class AppleStartupPlatform extends Platform {
+ }
+ 
+ const ICONS_OPTIONS$2 = [
+-  { name: "favicon.ico", ...transparentIcons(16, 24, 32, 48, 64) },
+-  { name: "favicon-16x16.png", ...transparentIcon(16) },
+-  { name: "favicon-32x32.png", ...transparentIcon(32) },
+-  { name: "favicon-48x48.png", ...transparentIcon(48) },
+-  { name: "favicon.svg", ...transparentIcon(1024), optional: true }
+-  // arbitrary size. if more than one svg source is given, the closest to this size will be picked.
++  { name: "favicon.ico", ...transparentIcons(32) },
+ ];
+ class FaviconsPlatform extends Platform {
+   constructor(options) {

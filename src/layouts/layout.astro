@@ -1,7 +1,5 @@
 ---
 import type { Locale } from '@/utils/i18n';
-import { existsSync } from 'node:fs';
-import { join, resolve } from 'node:path';
 
 import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
 import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
@@ -29,10 +27,6 @@ const locale = getLocale(Astro);
 
 const interUrl = locale === 'pl' ? interLatinExtUrl : interLatinUrl;
 const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
-
-const hasCustomFavicon = existsSync(
-  resolve('.', 'public', Astro.originPathname.split('/').pop() || 'undefined', 'favicon.svg'),
-);
 ---
 
 <html lang={localeCodes[locale]}>
@@ -46,11 +40,7 @@ const hasCustomFavicon = existsSync(
     <link rel="preload" as="font" type="font/woff2" href={nunitoUrl} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={hasCustomFavicon ? join(Astro.originPathname, 'favicon.svg') : '/favicon.svg'}
-    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />

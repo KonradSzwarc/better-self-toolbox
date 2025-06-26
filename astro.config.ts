@@ -1,6 +1,10 @@
 import type { SitemapItem } from '@astrojs/sitemap';
+import type { BaseIntegrationHooks } from 'astro';
+import type { Locale } from './src/utils/i18n/constants';
+import { Buffer } from 'node:buffer';
 import { execSync } from 'node:child_process';
-import fs from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import process from 'node:process';
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
@@ -8,11 +12,12 @@ import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import * as cheerio from 'cheerio';
+import favicons from 'favicons';
 import { globby } from 'globby';
 import { trimEnd } from 'lodash-es';
 import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
-
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 
 const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
@@ -34,6 +39,12 @@ export default defineConfig({
       filter: filterPagesWithContent,
       serialize: serializeSitemap,
     }),
+    {
+      name: 'generate-favicons',
+      hooks: {
+        'astro:build:done': generateFavicons,
+      },
+    },
     playformCompress({
       CSS: false,
       HTML: true,
@@ -79,7 +90,7 @@ async function createToolPagesMaps() {
 
   await Promise.all(
     paths.map(async (path) => {
-      const content = await fs.readFile(path, 'utf8');
+      const content = await readFile(path, 'utf8');
       const frontmatter = content.match(/^---(.+?)---/s)?.[1];
 
       if (!frontmatter) return;
@@ -136,4 +147,59 @@ function serializeSitemap(sitemapItem: SitemapItem) {
   }
 
   return sitemapItem;
+}
+
+/** Generate custom favicons for tools that have them */
+async function generateFavicons({ assets }: Parameters<BaseIntegrationHooks['astro:build:done']>[0]) {
+  const toolUrls = [...(assets.get('/[id]') || []), ...(assets.get('/pl/[id]') || [])];
+  const faviconPaths = await globby(['./public/*/favicon.svg']);
+  const toolToFaviconPath = new Map(faviconPaths.map((path) => [path.split('/').at(-2) ?? '', path]));
+
+  await Promise.all(
+    toolUrls.map(async (url) => {
+      const urlParts = url.pathname.split('/');
+      const toolName = urlParts.at(-1) === 'index.html' && urlParts.at(-2);
+      const toolLocale = locales.includes(urlParts.at(-3) || '') ? (urlParts.at(-3) as Locale) : null;
+      const toolFaviconPath = toolName && toolToFaviconPath.get(toolName);
+
+      if (!toolFaviconPath) return;
+
+      const generateFaviconFormats = async () => {
+        let favicon = await readFile(toolFaviconPath, 'utf8');
+        favicon = favicon.replace('#000', '#9F9FAA');
+
+        const { images } = await favicons(Buffer.from(favicon), {
+          icons: {
+            android: false,
+            appleIcon: true,
+            appleStartup: false,
+            favicons: true,
+            windows: false,
+            yandex: false,
+          },
+        });
+
+        await Promise.all(
+          images.map(async ({ name, contents }) =>
+            writeFile(
+              join(url.pathname.replace('/index.html', ''), name),
+              contents as unknown as NodeJS.ArrayBufferView,
+            ),
+          ),
+        );
+      };
+
+      const updateToolHtml = async () => {
+        const prefix = toolLocale ? `/${toolLocale}/${toolName}` : `/${toolName}`;
+
+        const $ = cheerio.load(await readFile(url.pathname, 'utf8'));
+        $('link[rel="icon"][sizes="32x32"]').attr('href', `${prefix}/favicon.ico`);
+        $('link[rel="icon"][type="image/svg+xml"]').attr('href', `${prefix}/favicon.svg`);
+        $('link[rel="apple-touch-icon"]').attr('href', `${prefix}/apple-touch-icon.png`);
+        await writeFile(url.pathname, $.html());
+      };
+
+      await Promise.all([generateFaviconFormats(), updateToolHtml()]);
+    }),
+  );
 }
