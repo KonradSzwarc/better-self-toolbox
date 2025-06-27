@@ -20,7 +20,8 @@ import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 
-const site = process.env.ASTRO_SITE?.trim() || 'http://localhost:4321';
+const isProd = Boolean(process.env.ASTRO_SITE);
+const site = isProd ? process.env.ASTRO_SITE : 'http://localhost:4321';
 const toolPagesMaps = await createToolPagesMaps();
 
 export default defineConfig({
@@ -31,28 +32,30 @@ export default defineConfig({
     preact({
       compat: true,
     }),
-    sitemap({
-      i18n: {
-        defaultLocale,
-        locales: localeCodes,
-      },
-      filter: filterPagesWithContent,
-      serialize: serializeSitemap,
-    }),
     {
       name: 'generate-favicons',
       hooks: {
         'astro:build:done': generateFavicons,
       },
     },
-    playformCompress({
-      CSS: false,
-      HTML: true,
-      Image: false,
-      JavaScript: false,
-      SVG: false,
-    }),
-  ],
+    isProd &&
+      sitemap({
+        i18n: {
+          defaultLocale,
+          locales: localeCodes,
+        },
+        filter: filterPagesWithContent,
+        serialize: serializeSitemap,
+      }),
+    isProd &&
+      playformCompress({
+        CSS: false,
+        HTML: true,
+        Image: false,
+        JavaScript: false,
+        SVG: false,
+      }),
+  ].filter(Boolean),
 
   vite: {
     plugins: [
