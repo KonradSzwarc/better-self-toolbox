@@ -1,6 +1,5 @@
 ---
 import { execSync } from 'node:child_process';
-import { stat } from 'node:fs/promises';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry, render } from 'astro:content';
 import type { Locale } from '@/utils/i18n';
@@ -37,7 +36,9 @@ for (const locale of locales) {
   }
 }
 
-const { filePath } = tool;
+const getGitDate = (filePath: string | undefined, fn: (path: string) => string) => {
+  return filePath ? new Date(execSync(fn(filePath)).toString()) : null;
+};
 ---
 
 <Layout
@@ -46,8 +47,8 @@ const { filePath } = tool;
   noIndex={!tool.body}
   paths={paths}
   article={{
-    publishedAt: filePath ? new Date(await stat(filePath).then((stats) => stats.birthtime.toUTCString())) : null,
-    updatedAt: filePath ? new Date(execSync(`git log -1 --pretty="format:%cI" "${tool.filePath}"`).toString()) : null,
+    publishedAt: getGitDate(tool.filePath, (path) => `git log --follow --pretty="format:%cI" "${path}" | tail -1`),
+    updatedAt: getGitDate(tool.filePath, (path) => `git log -1 --pretty="format:%cI" "${path}"`),
   }}
 >
   <main class="container mx-auto grid place-items-center px-4 py-10">
