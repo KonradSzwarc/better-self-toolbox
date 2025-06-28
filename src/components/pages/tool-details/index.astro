@@ -1,5 +1,6 @@
 ---
-import { execSync } from 'node:child_process';
+import cp from 'node:child_process';
+import util from 'node:util';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry, render } from 'astro:content';
 import type { Locale } from '@/utils/i18n';
@@ -35,10 +36,15 @@ for (const locale of locales) {
     paths[locale] = localizedPath(`/${omitLocale(entry.data.path ?? entry.id)}`, locale);
   }
 }
-
-const getGitDate = (filePath: string | undefined, fn: (path: string) => string) => {
-  return filePath ? new Date(execSync(fn(filePath)).toString()) : null;
+const exec = util.promisify(cp.exec);
+const getGitDate = async (filePath: string | undefined, fn: (path: string) => string) => {
+  return filePath ? new Date(await exec(fn(filePath)).then((r) => r.stdout)) : null;
 };
+
+const [publishedAt, updatedAt] = await Promise.all([
+  getGitDate(tool.filePath, (path) => `git log --follow --pretty="format:%cI" "${path}" | tail -1`),
+  getGitDate(tool.filePath, (path) => `git log -1 --pretty="format:%cI" "${path}"`),
+]);
 ---
 
 <Layout
@@ -46,10 +52,7 @@ const getGitDate = (filePath: string | undefined, fn: (path: string) => string) 
   description={tool.data.seo?.description ?? tool.data.summary}
   noIndex={!tool.body}
   paths={paths}
-  article={{
-    publishedAt: getGitDate(tool.filePath, (path) => `git log --follow --pretty="format:%cI" "${path}" | tail -1`),
-    updatedAt: getGitDate(tool.filePath, (path) => `git log -1 --pretty="format:%cI" "${path}"`),
-  }}
+  article={{ publishedAt, updatedAt }}
 >
   <main class="container mx-auto grid place-items-center px-4 py-10">
     <nav class="mb-8 w-full max-w-prose">
