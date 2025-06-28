@@ -20,13 +20,10 @@ interface Props {
   description: string;
   noIndex?: boolean;
   paths?: Partial<Record<Locale, string>>;
-  article?: {
-    publishedAt?: Date | null;
-    updatedAt?: Date | null;
-  };
+  type?: 'article' | 'website';
 }
 
-const { title, description, noIndex, paths, article } = Astro.props;
+const { title, description, noIndex, paths, type = 'website' } = Astro.props;
 
 const locale = getLocale(Astro);
 
@@ -47,9 +44,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`/og-${locale}.png`} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content={article ? 'article' : 'website'} />
-    {article?.publishedAt && <meta property="article:published_time" content={article.publishedAt.toISOString()} />}
-    {article?.updatedAt && <meta property="article:modified_time" content={article.updatedAt.toISOString()} />}
+    <meta property="og:type" content={type} />
     <link rel="preload" as="font" type="font/woff2" href={nunitoUrl} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />

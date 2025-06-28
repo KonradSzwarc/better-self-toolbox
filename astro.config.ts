@@ -2,7 +2,6 @@ import type { SitemapItem } from '@astrojs/sitemap';
 import type { BaseIntegrationHooks } from 'astro';
 import type { Locale } from './src/utils/i18n/constants';
 import { Buffer } from 'node:buffer';
-import { execSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
@@ -132,9 +131,6 @@ function filterPagesWithContent(pageUrl: string) {
 async function serializeSitemap(sitemapItem: SitemapItem) {
   const filePath = toolPagesMaps.urlToFilePath.get(trimEnd(sitemapItem.url, '/'));
   if (!filePath) return sitemapItem;
-
-  const lastModified = execSync(`git log -1 --pretty="format:%cI" "${filePath}"`);
-  sitemapItem.lastmod = new Date(lastModified.toString()).toISOString();
 
   const links = locales.flatMap((locale) => {
     const path = filePath.replace(new RegExp(`/${regexLocales}/`), `/${locale}/`);
