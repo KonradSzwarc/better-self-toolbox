@@ -10,6 +10,12 @@ const tools = defineCollection({
     summary: z.string(),
     synonyms: z.array(z.string()).nullish(),
     tags: z.array(reference('tags')),
+    seo: z
+      .object({
+        title: z.string().nullish(),
+        description: z.string().nullish(),
+      })
+      .nullish(),
   }),
 });
 
