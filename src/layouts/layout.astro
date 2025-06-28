@@ -10,6 +10,7 @@ import LanguageSwitcher from '@/components/language-switcher.astro';
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
 import { getLocale, localeCodes } from '@/utils/i18n';
+
 import '@fontsource-variable/inter';
 import '@fontsource-variable/nunito';
 import '@/styles/global.css';
@@ -19,14 +20,19 @@ interface Props {
   description: string;
   noIndex?: boolean;
   paths?: Partial<Record<Locale, string>>;
+  article?: {
+    publishedAt?: Date | null;
+    updatedAt?: Date | null;
+  };
 }
 
-const { title, description, noIndex, paths } = Astro.props;
+const { title, description, noIndex, paths, article } = Astro.props;
 
 const locale = getLocale(Astro);
 
 const interUrl = locale === 'pl' ? interLatinExtUrl : interLatinUrl;
 const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <html lang={localeCodes[locale]}>
@@ -37,13 +43,20 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
     {noIndex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`/og-${locale}.png`} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    {article?.publishedAt && <meta property="article:published_time" content={article.publishedAt.toISOString()} />}
+    {article?.updatedAt && <meta property="article:modified_time" content={article.updatedAt.toISOString()} />}
     <link rel="preload" as="font" type="font/woff2" href={nunitoUrl} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interUrl} crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
+    <link rel="canonical" href={canonicalUrl} />
     <style>
       :root {
         --font-heading: 'Nunito Variable';

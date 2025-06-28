@@ -1,13 +1,15 @@
 ---
+import { execSync } from 'node:child_process';
 import type { CollectionEntry } from 'astro:content';
-import type { Locale } from '@/utils/i18n';
 import { getCollection, getEntry, render } from 'astro:content';
-import IconArrowBack from '~icons/mdi/arrow-back';
+import type { Locale } from '@/utils/i18n';
 import Layout from '@/layouts/layout.astro';
 import { getLocale, getTranslations, locales, localizedPath, omitLocale, prependLocale } from '@/utils/i18n';
+import IconArrowBack from '~icons/mdi/arrow-back';
 import Anchor from './anchor.astro';
 import H2 from './h2.astro';
 import H3 from './h3.astro';
+import { stat } from 'node:fs/promises';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
@@ -34,9 +36,20 @@ for (const locale of locales) {
     paths[locale] = localizedPath(`/${omitLocale(entry.data.path ?? entry.id)}`, locale);
   }
 }
+
+const { filePath } = tool;
 ---
 
-<Layout title={tool.data.name} description={tool.data.summary} noIndex={!tool.body} paths={paths}>
+<Layout
+  title={tool.data.name}
+  description={tool.data.summary}
+  noIndex={!tool.body}
+  paths={paths}
+  article={{
+    publishedAt: filePath ? new Date(await stat(filePath).then((stats) => stats.birthtime.toUTCString())) : null,
+    updatedAt: filePath ? new Date(execSync(`git log -1 --pretty="format:%cI" "${tool.filePath}"`).toString()) : null,
+  }}
+>
   <main class="container mx-auto grid place-items-center px-4 py-10">
     <nav class="mb-8 w-full max-w-prose">
       <a

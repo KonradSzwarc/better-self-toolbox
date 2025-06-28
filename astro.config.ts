@@ -2,7 +2,6 @@ import type { SitemapItem } from '@astrojs/sitemap';
 import type { BaseIntegrationHooks } from 'astro';
 import type { Locale } from './src/utils/i18n/constants';
 import { Buffer } from 'node:buffer';
-import { execSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
@@ -19,6 +18,7 @@ import { trimEnd } from 'lodash-es';
 import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
+import { generateToolOpenGraph } from './src/utils/og';
 
 const isProd = Boolean(process.env.ASTRO_SITE);
 const site = isProd ? process.env.ASTRO_SITE : 'http://localhost:4321';
@@ -33,9 +33,9 @@ export default defineConfig({
       compat: true,
     }),
     {
-      name: 'generate-favicons',
+      name: 'generate-assets',
       hooks: {
-        'astro:build:done': generateFavicons,
+        'astro:build:done': generateAssets,
       },
     },
     isProd &&
@@ -128,12 +128,13 @@ function filterPagesWithContent(pageUrl: string) {
  * - Last modified date to tool pages
  * - Links to alternate versions (languages) but only if they have content
  */
-function serializeSitemap(sitemapItem: SitemapItem) {
+async function serializeSitemap(sitemapItem: SitemapItem) {
   const filePath = toolPagesMaps.urlToFilePath.get(trimEnd(sitemapItem.url, '/'));
   if (!filePath) return sitemapItem;
 
-  const lastModified = execSync(`git log -1 --pretty="format:%cI" "${filePath}"`);
-  sitemapItem.lastmod = new Date(lastModified.toString()).toISOString();
+  const $ = cheerio.load(await readFile(filePath, 'utf8'));
+
+  sitemapItem.lastmod = $('meta[property="article:modified_time"]').attr('content');
 
   const links = locales.flatMap((locale) => {
     const path = filePath.replace(new RegExp(`/${regexLocales}/`), `/${locale}/`);
@@ -152,20 +153,22 @@ function serializeSitemap(sitemapItem: SitemapItem) {
   return sitemapItem;
 }
 
-/** Generate custom favicons for tools that have them */
-async function generateFavicons({ assets }: Parameters<BaseIntegrationHooks['astro:build:done']>[0]) {
+/** Generate custom assets for tools that have favicons */
+async function generateAssets({ assets }: Parameters<BaseIntegrationHooks['astro:build:done']>[0]) {
   const toolUrls = [...(assets.get('/[id]') || []), ...(assets.get('/pl/[id]') || [])];
   const faviconPaths = await globby(['./public/*/favicon.svg']);
   const toolToFaviconPath = new Map(faviconPaths.map((path) => [path.split('/').at(-2) ?? '', path]));
 
   await Promise.all(
-    toolUrls.map(async (url) => {
-      const urlParts = url.pathname.split('/');
+    toolUrls.map(async (toolUrl) => {
+      const urlParts = toolUrl.pathname.split('/');
       const toolName = urlParts.at(-1) === 'index.html' && urlParts.at(-2);
       const toolLocale = locales.includes(urlParts.at(-3) || '') ? (urlParts.at(-3) as Locale) : null;
       const toolFaviconPath = toolName && toolToFaviconPath.get(toolName);
 
       if (!toolFaviconPath) return;
+
+      const $ = cheerio.load(await readFile(toolUrl.pathname, 'utf8'));
 
       const generateFaviconFormats = async () => {
         let favicon = await readFile(toolFaviconPath, 'utf8');
@@ -184,25 +187,32 @@ async function generateFavicons({ assets }: Parameters<BaseIntegrationHooks['ast
 
         await Promise.all(
           images.map(async ({ name, contents }) =>
-            writeFile(
-              join(url.pathname.replace('/index.html', ''), name),
-              contents as unknown as NodeJS.ArrayBufferView,
-            ),
+            writeFile(join(toolUrl.pathname.replace('/index.html', ''), name), contents),
           ),
         );
+      };
+
+      const generateOgImage = async () => {
+        const ogImage = await generateToolOpenGraph({
+          title: $('title').text(),
+          description: $('meta[name="description"]').attr('content')!,
+          imagePath: toolFaviconPath,
+        });
+        await writeFile(toolUrl.pathname.replace('/index.html', '/og.png'), ogImage.body!);
       };
 
       const updateToolHtml = async () => {
         const prefix = toolLocale ? `/${toolLocale}/${toolName}` : `/${toolName}`;
 
-        const $ = cheerio.load(await readFile(url.pathname, 'utf8'));
         $('link[rel="icon"][sizes="32x32"]').attr('href', `${prefix}/favicon.ico`);
         $('link[rel="icon"][type="image/svg+xml"]').attr('href', `${prefix}/favicon.svg`);
         $('link[rel="apple-touch-icon"]').attr('href', `${prefix}/apple-touch-icon.png`);
-        await writeFile(url.pathname, $.html());
+        $('meta[property="og:image"]').attr('content', `${prefix}/og.png`);
+
+        await writeFile(toolUrl.pathname, $.html());
       };
 
-      await Promise.all([generateFaviconFormats(), updateToolHtml()]);
+      await Promise.all([generateFaviconFormats(), generateOgImage(), updateToolHtml()]);
     }),
   );
 }
