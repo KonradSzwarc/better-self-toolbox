@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import MdiLinkVariant from '~icons/mdi/link-variant';
-import { getLocale, getTranslations } from '@/utils/i18n';
+import { getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 
 export interface Props extends HTMLAttributes<'h2' | 'h3'> {
@@ -10,11 +10,10 @@ export interface Props extends HTMLAttributes<'h2' | 'h3'> {
 
 const { as: Component, id, class: className, ...props } = Astro.props;
 
-const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'pages.tool_details');
 
 const isFootnoteHeading = id === 'footnote-label';
-const footnoteLabel = t('pages.tool_details.footnotes');
+const footnoteLabel = t('footnotes');
 const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('default');
 ---
 
@@ -27,6 +26,6 @@ const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('defa
     class="anchor-link inline-block pb-0.5 align-middle text-foreground opacity-40 group-hover:opacity-40 hover-supported:opacity-0"
   >
     <MdiLinkVariant width="1em" height="1em" aria-hidden="true" />
-    <span class="sr-only">{t('components.mdx.heading_with_anchor.anchor_label').replace('{name}', label)}</span>
+    <span class="sr-only">{t('anchor_label', { name: label })}</span>
   </a>
 </div>

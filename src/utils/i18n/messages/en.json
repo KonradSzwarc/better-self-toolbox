@@ -1,26 +1,48 @@
 {
-  "components.language_switcher.english": "English",
-  "components.language_switcher.polish": "Polish",
-  "components.language_switcher.label": "Change language",
-  "components.theme_switcher.label": "Change theme",
-  "components.theme_switcher.light": "Light",
-  "components.theme_switcher.dark": "Dark",
-  "components.theme_switcher.system": "System",
-  "components.mdx.heading_with_anchor.anchor_label": "Section \"{name}\"",
-  "components.mdx.likert_table.total": "Result",
-  "pages.tools_list.title": "Better Self Toolbox",
-  "pages.tools_list.description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
-  "pages.tools_list.seo.title": "Better Self Toolbox: Simple Tools for Personal Development",
-  "pages.tools_list.seo.description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully. Choose from over 150 practical tools and improve your life.",
-  "pages.tools_list.search": "Search for tools...",
-  "pages.tools_list.all_tag": "All",
-  "pages.tools_list.tag_filters_label": "Filter by category",
-  "pages.tool_details.category": "Category",
-  "pages.tool_details.also_known_as": "Known as",
-  "pages.tool_details.back": "Back to list",
-  "pages.tool_details.footnotes": "Footnotes",
-  "pages.tool_details.footnote_back_label": "Back to reference {name}",
-  "pages.404.title": "Page not found",
-  "pages.404.description": "The page you are looking for does not exist. Check if the page address is correct or go back to the homepage.",
-  "pages.404.back": "Back to homepage"
+  "components": {
+    "language_switcher": {
+      "english": "English",
+      "polish": "Polish",
+      "label": "Change language"
+    },
+    "theme_switcher": {
+      "label": "Change theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "mdx": {
+      "likert_table": {
+        "total": "Result"
+      }
+    }
+  },
+  "pages": {
+    "tools_list": {
+      "title": "Better Self Toolbox",
+      "description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully.",
+      "seo": {
+        "title": "Better Self Toolbox: Simple Tools for Personal Development",
+        "description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully. Choose from over 150 practical tools and improve your life."
+      },
+      "search": "Search for tools...",
+      "all_tag": "All",
+      "tag_filters_label": "Filter by category",
+      "no_results_for_search": "No results for given search phrase",
+      "no_results_for_search_and_tag": "No results for given search phrase and category"
+    },
+    "tool_details": {
+      "category": "Category",
+      "also_known_as": "Known as",
+      "back": "Back to list",
+      "footnotes": "Footnotes",
+      "footnote_back_label": "Back to reference {{name}}",
+      "anchor_label": "Section {{name}}"
+    },
+    "404": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist. Check if the page address is correct or go back to the homepage.",
+      "back": "Back to homepage"
+    }
+  }
 }

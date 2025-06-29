@@ -1,5 +1,5 @@
 ---
-import { getLocale, getTranslations } from '@/utils/i18n';
+import { getTranslations } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import { ThemeSwitcherPreact } from './theme-switcher.preact';
 
@@ -9,17 +9,16 @@ interface Props {
 
 const { class: className } = Astro.props;
 
-const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'components.theme_switcher');
 ---
 
 <ThemeSwitcherPreact
   client:only="preact"
-  label={t('components.theme_switcher.label')}
+  label={t('label')}
   labels={{
-    light: t('components.theme_switcher.light'),
-    dark: t('components.theme_switcher.dark'),
-    system: t('components.theme_switcher.system'),
+    light: t('light'),
+    dark: t('dark'),
+    system: t('system'),
   }}
   className={className}
 >

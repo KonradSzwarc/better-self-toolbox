@@ -1,14 +1,13 @@
 ---
 import type { LikertTableProps } from './likert-table.preact';
-import { getLocale, getTranslations } from '@/utils/i18n';
+import { getTranslations } from '@/utils/i18n';
 import { LikertTablePreact } from './likert-table.preact';
 
 interface Props extends Omit<LikertTableProps, 'totalLabel'> {}
 
 const { items, max } = Astro.props;
 
-const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'components.mdx.likert_table');
 ---
 
-<LikertTablePreact client:load items={items} max={max} totalLabel={t('components.mdx.likert_table.total')} />
+<LikertTablePreact client:load items={items} max={max} totalLabel={t('total')} />

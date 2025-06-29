@@ -4,7 +4,7 @@ import { ToolsGridPreact } from './tools-grid.preact';
 
 interface Props extends ToolsGridProps {}
 
-const { tools, className } = Astro.props;
+const { tools, className, i18n } = Astro.props;
 ---
 
 <script is:inline>
@@ -12,4 +12,4 @@ const { tools, className } = Astro.props;
   (params.has('search') || params.has('tag')) &&
     document.querySelector('[data-tools-section]')?.classList.add('hidden');
 </script>
-<ToolsGridPreact client:load tools={tools} className={className} />
+<ToolsGridPreact client:load tools={tools} className={className} i18n={i18n} />

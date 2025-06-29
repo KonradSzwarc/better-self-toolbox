@@ -12,18 +12,18 @@ interface Props {
 const { class: className, paths } = Astro.props;
 
 const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'components.language_switcher');
 const pathname = omitLocale(Astro.url.pathname);
 
 const languages = {
   en: {
     flag: '🇬🇧',
-    label: t('components.language_switcher.english'),
+    label: t('english'),
     path: paths?.en ?? localizedPath(pathname, 'en'),
   },
   pl: {
     flag: '🇵🇱',
-    label: t('components.language_switcher.polish'),
+    label: t('polish'),
     path: paths?.pl ?? localizedPath(pathname, 'pl'),
   },
 } satisfies Record<Locale, object>;
@@ -31,7 +31,7 @@ const languages = {
 
 <LanguageSwitcherPreact
   client:only="preact"
-  label={t('components.language_switcher.label')}
+  label={t('label')}
   value={languages[locale].flag}
   languages={languages}
   className={className}

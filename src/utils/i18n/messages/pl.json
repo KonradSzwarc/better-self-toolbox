@@ -1,26 +1,48 @@
 {
-  "components.language_switcher.english": "Angielski",
-  "components.language_switcher.polish": "Polski",
-  "components.language_switcher.label": "Zmień język",
-  "components.theme_switcher.label": "Zmień motyw",
-  "components.theme_switcher.light": "Jasny",
-  "components.theme_switcher.dark": "Ciemny",
-  "components.theme_switcher.system": "Systemowy",
-  "components.mdx.heading_with_anchor.anchor_label": "Sekcja \"{name}\"",
-  "components.mdx.likert_table.total": "Wynik",
-  "pages.tools_list.title": "Better Self Toolbox",
-  "pages.tools_list.description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój.",
-  "pages.tools_list.seo.title": "Better Self Toolbox: Twoje narzędzia do rozwoju osobistego",
-  "pages.tools_list.seo.description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój. Wybieraj z ponad 150 sprawdzonych narzędzi.",
-  "pages.tools_list.search": "Wyszukaj narzędzia...",
-  "pages.tools_list.all_tag": "Wszystkie",
-  "pages.tools_list.tag_filters_label": "Filtruj po kategorii",
-  "pages.tool_details.category": "Kategoria",
-  "pages.tool_details.also_known_as": "Inne nazwy",
-  "pages.tool_details.back": "Powrót do listy",
-  "pages.tool_details.footnotes": "Przypisy",
-  "pages.tool_details.footnote_back_label": "Powrót do odnośnika {name}",
-  "pages.404.title": "Nie znaleziono strony",
-  "pages.404.description": "Strona o podanym adresie nie została odnaleziona. Sprawdź, czy podany adres strony jest poprawny lub wróć do strony głównej.",
-  "pages.404.back": "Wróć do strony głównej"
+  "components": {
+    "language_switcher": {
+      "english": "Angielski",
+      "polish": "Polski",
+      "label": "Zmień język"
+    },
+    "theme_switcher": {
+      "label": "Zmień motyw",
+      "light": "Jasny",
+      "dark": "Ciemny",
+      "system": "Systemowy"
+    },
+    "mdx": {
+      "likert_table": {
+        "total": "Wynik"
+      }
+    }
+  },
+  "pages": {
+    "tools_list": {
+      "title": "Better Self Toolbox",
+      "description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój.",
+      "seo": {
+        "title": "Better Self Toolbox: Twoje narzędzia do rozwoju osobistego",
+        "description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój. Wybieraj z ponad 150 sprawdzonych narzędzi."
+      },
+      "search": "Wyszukaj narzędzia...",
+      "all_tag": "Wszystkie",
+      "tag_filters_label": "Filtruj po kategorii",
+      "no_results_for_search": "Brak wyników dla wpisanej frazy",
+      "no_results_for_search_and_tag": "Brak wyników dla wpisanej frazy i wybranej kategorii"
+    },
+    "tool_details": {
+      "category": "Kategoria",
+      "also_known_as": "Inne nazwy",
+      "back": "Powrót do listy",
+      "footnotes": "Przypisy",
+      "footnote_back_label": "Powrót do odnośnika {{name}}",
+      "anchor_label": "Sekcja {{name}}"
+    },
+    "404": {
+      "title": "Nie znaleziono strony",
+      "description": "Strona o podanym adresie nie została odnaleziona. Sprawdź, czy podany adres strony jest poprawny lub wróć do strony głównej.",
+      "back": "Wróć do strony głównej"
+    }
+  }
 }

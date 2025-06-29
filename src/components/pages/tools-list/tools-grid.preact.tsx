@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import { useLayoutEffect, useMemo, useRef } from 'preact/hooks';
+import { useEffect, useMemo, useRef } from 'preact/hooks';
 import MdiCheckCircleOutline from '~icons/mdi/check-circle-outline';
 import { useIsClient } from '@/hooks/use-is-client';
 import { useSearchParam } from '@/hooks/use-search-param';
@@ -19,25 +19,31 @@ export interface ToolsGridProps {
       name: string;
     }[];
   }[];
+  i18n: {
+    noResultsForSearch: string;
+    noResultsForSearchAndTag: string;
+  };
 }
 
-export function ToolsGridPreact({ tools, className }: ToolsGridProps) {
+export function ToolsGridPreact({ tools, className, i18n }: ToolsGridProps) {
   const isClient = useIsClient();
   const listRef = useRef<HTMLUListElement>(null);
   const [search] = useSearchParam({ name: 'search' });
   const [tag] = useSearchParam({ name: 'tag' });
-  const results = useSearch(tools, search, tag);
+  const searchResults = useSearch(tools, search, tag);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     listRef.current?.closest('[data-tools-section]')?.classList.remove('hidden');
   }, []);
 
+  const results = isClient ? searchResults : tools.toSorted((a, b) => a.name.localeCompare(b.name));
+
+  if (results.length === 0) {
+    return <div className="text-center">{tag ? i18n.noResultsForSearchAndTag : i18n.noResultsForSearch}</div>;
+  }
+
   return (
-    <ul
-      ref={listRef}
-      key={isClient ? 'client' : 'server'}
-      className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}
-    >
+    <ul ref={listRef} className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
       {results.map((tool) => (
         <li key={tool.id} className="group flex content-auto">
           <a href={tool.url} className="flex w-full flex-col border px-4 py-3">

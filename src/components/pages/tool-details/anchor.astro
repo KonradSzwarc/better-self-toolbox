@@ -1,14 +1,13 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import MdiUndoVariant from '~icons/mdi/undo-variant';
-import { getLocale, getTranslations } from '@/utils/i18n';
+import { getTranslations } from '@/utils/i18n';
 
 export interface Props extends HTMLAttributes<'a'> {}
 
 const { href, ...props } = Astro.props;
 
-const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'pages.tool_details');
 
 function isHrefExternal(href?: string) {
   if (!href || !Astro.site) return false;
@@ -23,10 +22,7 @@ if (isExternal) {
 
 const isFootnoteBackref = typeof props['data-footnote-backref'] === 'string';
 if (isFootnoteBackref) {
-  props['aria-label'] = t('pages.tool_details.footnote_back_label').replace(
-    '{name}',
-    props['aria-label']?.split(' ').pop() ?? '',
-  );
+  props['aria-label'] = t('footnote_back_label', { name: props['aria-label']?.split(' ').pop() ?? '' });
 }
 ---
 

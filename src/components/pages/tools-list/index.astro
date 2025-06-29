@@ -1,20 +1,14 @@
 ---
-import type { Locale } from '@/utils/i18n';
 import { getCollection } from 'astro:content';
 import IconToolbox from '~icons/mdi/toolbox';
 import Layout from '@/layouts/layout.astro';
-import { entriesForLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
+import { entriesForLocale, getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
 import SearchInput from './search-input.astro';
 import TagFilters from './tag-filters.astro';
 import ToolsGrid from './tools-grid.astro';
 
-interface Props {
-  locale: Locale;
-}
-
-const { locale } = Astro.props;
-
-const t = getTranslations(locale);
+const locale = getLocale(Astro);
+const t = getTranslations(Astro, 'pages.tools_list');
 
 const tagsCollection = await getCollection('tags', entriesForLocale(locale));
 const toolsCollection = await getCollection('tools', entriesForLocale(locale));
@@ -37,26 +31,27 @@ const tools = toolsCollection.map((tool) => ({
 }));
 ---
 
-<Layout title={t('pages.tools_list.seo.title')} description={t('pages.tools_list.seo.description')}>
+<Layout title={t('seo.title')} description={t('seo.description')}>
   <main class="container mx-auto grid place-items-center px-4 pb-10">
     <section class="flex flex-col items-center p-10 text-center">
       <IconToolbox className="size-36" />
-      <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('pages.tools_list.title')}</h1>
-      <h2 class="max-w-2xl text-xl text-balance">{t('pages.tools_list.description')}</h2>
+      <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('title')}</h1>
+      <h2 class="max-w-2xl text-xl text-balance">{t('description')}</h2>
     </section>
 
     <section class="mt-4 mb-12 flex max-w-4xl flex-col items-center">
-      <SearchInput className="mb-4 w-full max-w-xl" placeholder={t('pages.tools_list.search')} />
-      <TagFilters
-        tags={tags}
-        className="mt-4"
-        label={t('pages.tools_list.tag_filters_label')}
-        allTagLabel={t('pages.tools_list.all_tag')}
-      />
+      <SearchInput className="mb-4 w-full max-w-xl" placeholder={t('search')} />
+      <TagFilters tags={tags} className="mt-4" label={t('tag_filters_label')} allTagLabel={t('all_tag')} />
     </section>
 
     <section data-tools-section class="flex flex-col items-center">
-      <ToolsGrid tools={tools} />
+      <ToolsGrid
+        tools={tools}
+        i18n={{
+          noResultsForSearch: t('no_results_for_search'),
+          noResultsForSearchAndTag: t('no_results_for_search_and_tag'),
+        }}
+      />
     </section>
   </main>
 </Layout>

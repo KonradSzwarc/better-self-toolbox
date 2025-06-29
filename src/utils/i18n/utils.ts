@@ -1,12 +1,21 @@
 import type { AstroGlobal } from 'astro';
 import type { CollectionEntry, DataEntryMap } from 'astro:content';
+import type { DefaultNamespace, KeyPrefix } from 'i18next';
 import type { Locale } from './constants';
-import type { MessageKey } from './messages';
 
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import i18next from 'i18next';
 import { trimEnd } from 'lodash-es';
 import { defaultLocale, locales, regexLocales } from './constants';
 import { messages } from './messages';
+
+i18next.init({
+  fallbackLng: defaultLocale,
+  resources: {
+    en: { translation: messages.en },
+    pl: { translation: messages.pl },
+  },
+});
 
 export function getLocale(astro: AstroGlobal): Locale {
   const locale = astro.currentLocale as Locale;
@@ -14,8 +23,11 @@ export function getLocale(astro: AstroGlobal): Locale {
   return locales.includes(locale) ? locale : defaultLocale;
 }
 
-export function getTranslations(locale: Locale): (key: MessageKey) => string {
-  return (key: MessageKey) => messages[locale][key];
+export function getTranslations<TKPrefix extends KeyPrefix<DefaultNamespace> = undefined>(
+  astro: AstroGlobal,
+  key?: TKPrefix,
+) {
+  return i18next.getFixedT(getLocale(astro), 'translation', key);
 }
 
 export function entriesForLocale(locale: Locale) {

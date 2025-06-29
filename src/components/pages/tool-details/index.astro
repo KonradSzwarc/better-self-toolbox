@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection, getEntry, render } from 'astro:content';
 import type { Locale } from '@/utils/i18n';
+import { getCollection, getEntry, render } from 'astro:content';
+import IconArrowBack from '~icons/mdi/arrow-back';
 import Layout from '@/layouts/layout.astro';
 import { getLocale, getTranslations, locales, localizedPath, omitLocale, prependLocale } from '@/utils/i18n';
-import IconArrowBack from '~icons/mdi/arrow-back';
 import Anchor from './anchor.astro';
 import H2 from './h2.astro';
 import H3 from './h3.astro';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const locale = getLocale(Astro);
-const t = getTranslations(locale);
+const t = getTranslations(Astro, 'pages.tool_details');
 
 const { tool } = Astro.props;
 
@@ -50,7 +50,7 @@ for (const locale of locales) {
         class="flex items-center gap-1 text-sm font-medium text-foreground/75 transition hover:text-foreground"
       >
         <IconArrowBack className="size-4" />
-        {t('pages.tool_details.back')}
+        {t('back')}
       </a>
     </nav>
     <article
@@ -61,7 +61,7 @@ for (const locale of locales) {
         <p class="mt-4 text-xl">{tool.data.summary}</p>
         <dl class="space-y-2">
           <div class="flex gap-1.5">
-            <dt class="mt-0 font-semibold text-nowrap">{t('pages.tool_details.category')}:</dt>
+            <dt class="mt-0 font-semibold text-nowrap">{t('category')}:</dt>
             <dd class="mt-0 pl-0">
               {toSortedList(tags.map((tag) => tag.data.name))}
             </dd>
@@ -69,7 +69,7 @@ for (const locale of locales) {
           {
             tool.data.synonyms && (
               <div class="flex gap-1.5">
-                <dt class="mt-0 font-semibold text-nowrap">{t('pages.tool_details.also_known_as')}:</dt>
+                <dt class="mt-0 font-semibold text-nowrap">{t('also_known_as')}:</dt>
                 <dd class="mt-0 pl-0">{toSortedList(tool.data.synonyms)}</dd>
               </div>
             )
