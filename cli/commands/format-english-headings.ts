@@ -44,7 +44,9 @@ async function capitalizeHeadingsInFile(filePath: string) {
           return line;
         }
 
-        const capitalizedHeading = title(headingText);
+        const capitalizedHeading = title(headingText, {
+          special: ['KPI', 'KPIs'],
+        });
 
         return prefix + capitalizedHeading;
       }
