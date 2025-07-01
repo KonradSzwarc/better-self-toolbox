@@ -5,6 +5,9 @@ import title from 'title';
 
 const directoryPath = 'src/data/tools/en';
 
+const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const articles = ['A', 'An', 'The'];
+
 export async function formatEnglishHeadingsCommand() {
   console.log('Starting to process .mdx files...');
 
@@ -45,7 +48,7 @@ async function capitalizeHeadingsInFile(filePath: string) {
         }
 
         const capitalizedHeading = title(headingText, {
-          special: ['KPI', 'KPIs'],
+          special: ['KPI', 'KPIs', ...numbers.flatMap((number) => articles.map((article) => `${number}. ${article}`))],
         });
 
         return prefix + capitalizedHeading;
