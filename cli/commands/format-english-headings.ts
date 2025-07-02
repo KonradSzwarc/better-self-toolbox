@@ -48,7 +48,12 @@ async function capitalizeHeadingsInFile(filePath: string) {
         }
 
         const capitalizedHeading = title(headingText, {
-          special: ['KPI', 'KPIs', ...numbers.flatMap((number) => articles.map((article) => `${number}. ${article}`))],
+          special: [
+            'KPI',
+            'KPIs',
+            'PMR',
+            ...numbers.flatMap((number) => articles.map((article) => `${number}. ${article}`)),
+          ],
         });
 
         return prefix + capitalizedHeading;
