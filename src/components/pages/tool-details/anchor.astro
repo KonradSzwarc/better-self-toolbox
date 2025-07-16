@@ -1,20 +1,18 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import MdiUndoVariant from '~icons/mdi/undo-variant';
-import { getTranslations } from '@/utils/i18n';
+import { getLocale, getTranslations } from '@/utils/i18n';
+import { getHrefForMdxTool } from './anchor.utils';
 
 export interface Props extends HTMLAttributes<'a'> {}
 
-const { href, ...props } = Astro.props;
+const { href: _href, ...props } = Astro.props;
+let href = _href?.toString();
 
+const locale = getLocale(Astro);
 const t = getTranslations(Astro, 'pages.tool_details');
 
-function isHrefExternal(href?: string) {
-  if (!href || !Astro.site) return false;
-  return href.startsWith('http') && !href.includes(Astro.site.href);
-}
-
-const isExternal = isHrefExternal(href?.toString());
+const isExternal = href && Astro.site && href.startsWith('http') && !href.includes(Astro.site.href);
 if (isExternal) {
   props.target = '_blank';
   props.rel = 'noopener noreferrer nofollow';
@@ -23,6 +21,10 @@ if (isExternal) {
 const isFootnoteBackref = typeof props['data-footnote-backref'] === 'string';
 if (isFootnoteBackref) {
   props['aria-label'] = t('footnote_back_label', { name: props['aria-label']?.split(' ').pop() ?? '' });
+}
+
+if (href?.endsWith('.mdx')) {
+  href = await getHrefForMdxTool(href, locale);
 }
 ---
 
