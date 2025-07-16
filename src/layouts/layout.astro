@@ -1,12 +1,9 @@
 ---
-import type { Locale } from '@/utils/i18n';
-
 import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
 import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
 
-import LanguageSwitcher from '@/components/language-switcher.astro';
 import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
 import { getLocale, localeCodes } from '@/utils/i18n';
@@ -18,12 +15,10 @@ import '@/styles/global.css';
 interface Props {
   title: string;
   description: string;
-  noIndex?: boolean;
-  paths?: Partial<Record<Locale, string>>;
   type?: 'article' | 'website';
 }
 
-const { title, description, noIndex, paths, type = 'website' } = Astro.props;
+const { title, description, type = 'website' } = Astro.props;
 
 const locale = getLocale(Astro);
 
@@ -37,7 +32,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    {noIndex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -62,8 +56,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
   </head>
   <body>
     <div class="relative flex h-0 w-full justify-end">
-      <LanguageSwitcher class="absolute top-4 right-4" paths={paths} />
-      <ThemeSwitcher class="absolute top-4 right-16" />
+      <ThemeSwitcher class="absolute top-4 right-4" />
     </div>
     <slot />
   </body>

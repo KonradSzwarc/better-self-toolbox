@@ -1,10 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import type { Locale } from '@/utils/i18n';
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import IconArrowBack from '~icons/mdi/arrow-back';
 import Layout from '@/layouts/layout.astro';
-import { getLocale, getTranslations, locales, localizedPath, omitLocale, prependLocale } from '@/utils/i18n';
+import { getLocale, getTranslations, localizedPath, prependLocale } from '@/utils/i18n';
 import Anchor from './anchor.astro';
 import Blockquote from './blockquote.astro';
 import H2 from './h2.astro';
@@ -26,25 +25,11 @@ const { Content } = await render(tool);
 function toSortedList(items: string[]) {
   return items.toSorted((a, b) => a.localeCompare(b)).join(', ');
 }
-
-const paths = {} as Record<Locale, string>;
-
-for (const locale of locales) {
-  const entry = await getEntry('tools', `${locale}/${omitLocale(tool.id)}`);
-
-  if (entry?.data.status === 'published') {
-    paths[locale] = localizedPath(`/${omitLocale(entry.data.path ?? entry.id)}`, locale);
-  } else {
-    paths[locale] = localizedPath('/', locale);
-  }
-}
 ---
 
 <Layout
   title={tool.data.seo?.title ?? tool.data.name}
   description={tool.data.seo?.description ?? tool.data.summary}
-  noIndex={tool.data.status !== 'published'}
-  paths={paths}
   type="article"
 >
   <main class="container mx-auto grid place-items-center px-4 py-10">

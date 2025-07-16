@@ -18,6 +18,7 @@ import Icons from 'unplugin-icons/vite';
 import { parse } from 'yaml';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 import { generateToolOpenGraph } from './src/utils/og';
+import { isPublished } from './src/utils/tools/is-published';
 
 const site = import.meta.env.ASTRO_SITE ?? 'http://localhost:4321';
 const toolPagesMaps = await createToolPagesMaps();
@@ -99,7 +100,7 @@ async function createToolPagesMaps() {
 
       const data = parse(frontmatter);
 
-      if (data.status !== 'published') return;
+      if (!isPublished(data)) return;
 
       const url = [site, locale === defaultLocale ? null : locale, data.path || fileName].filter(Boolean).join('/');
 
