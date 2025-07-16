@@ -1,6 +1,5 @@
 import Fuse from 'fuse.js';
 import { useEffect, useMemo, useRef } from 'preact/hooks';
-import MdiCheckCircleOutline from '~icons/mdi/check-circle-outline';
 import { useIsClient } from '@/hooks/use-is-client';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
@@ -13,7 +12,6 @@ export interface ToolsGridProps {
     summary: string;
     synonyms: string[];
     url: string;
-    hasContent: boolean;
     tags: {
       id: string;
       name: string;
@@ -55,22 +53,11 @@ export function ToolsGridPreact({ tools, className, i18n }: ToolsGridProps) {
                   {tag.name}
                 </li>
               ))}
-              <StatusIcon hasContent={tool.hasContent} />
             </ul>
           </a>
         </li>
       ))}
     </ul>
-  );
-}
-
-function StatusIcon({ hasContent }: { hasContent: boolean }) {
-  if (!hasContent) return null;
-
-  return (
-    <li className="ml-auto">
-      <MdiCheckCircleOutline className="size-5" aria-hidden />
-    </li>
   );
 }
 

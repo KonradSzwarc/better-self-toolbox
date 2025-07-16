@@ -27,12 +27,15 @@ function toSortedList(items: string[]) {
   return items.toSorted((a, b) => a.localeCompare(b)).join(', ');
 }
 
-const paths: Partial<Record<Locale, string>> = {};
+const paths = {} as Record<Locale, string>;
 
 for (const locale of locales) {
   const entry = await getEntry('tools', `${locale}/${omitLocale(tool.id)}`);
-  if (entry) {
+
+  if (entry?.data.status === 'published') {
     paths[locale] = localizedPath(`/${omitLocale(entry.data.path ?? entry.id)}`, locale);
+  } else {
+    paths[locale] = localizedPath('/', locale);
   }
 }
 ---
@@ -40,7 +43,7 @@ for (const locale of locales) {
 <Layout
   title={tool.data.seo?.title ?? tool.data.name}
   description={tool.data.seo?.description ?? tool.data.summary}
-  noIndex={!tool.body}
+  noIndex={tool.data.status !== 'published'}
   paths={paths}
   type="article"
 >

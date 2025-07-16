@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import IconToolbox from '~icons/mdi/toolbox';
 import Layout from '@/layouts/layout.astro';
 import { entriesForLocale, getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
+import { publishedToolsForLocale } from '@/utils/tools';
 import SearchInput from './search-input.astro';
 import TagFilters from './tag-filters.astro';
 import ToolsGrid from './tools-grid.astro';
@@ -11,7 +12,7 @@ const locale = getLocale(Astro);
 const t = getTranslations(Astro, 'pages.tools_list');
 
 const tagsCollection = await getCollection('tags', entriesForLocale(locale));
-const toolsCollection = await getCollection('tools', entriesForLocale(locale));
+const toolsCollection = await getCollection('tools', publishedToolsForLocale(locale));
 
 const tags = tagsCollection.map((tag) => ({
   id: omitLocale(tag.id),
@@ -26,7 +27,6 @@ const tools = toolsCollection.map((tool) => ({
   summary: tool.data.summary,
   synonyms: tool.data.synonyms || [],
   url: localizedPath(`/${omitLocale(tool.data.path ?? tool.id)}`, locale),
-  hasContent: Boolean(tool.body),
   tags: tool.data.tags.map((tag) => tagsMap.get(tag.id)).filter(Boolean),
 }));
 ---

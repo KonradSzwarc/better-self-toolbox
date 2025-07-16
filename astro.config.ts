@@ -4,7 +4,6 @@ import type { Locale } from './src/utils/i18n/constants';
 import { Buffer } from 'node:buffer';
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import process from 'node:process';
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
@@ -20,8 +19,7 @@ import { parse } from 'yaml';
 import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i18n/constants';
 import { generateToolOpenGraph } from './src/utils/og';
 
-const isProd = Boolean(process.env.ASTRO_SITE);
-const site = isProd ? process.env.ASTRO_SITE : 'http://localhost:4321';
+const site = import.meta.env.ASTRO_SITE ?? 'http://localhost:4321';
 const toolPagesMaps = await createToolPagesMaps();
 
 export default defineConfig({
@@ -38,24 +36,21 @@ export default defineConfig({
         'astro:build:done': generateAssets,
       },
     },
-    isProd &&
-      sitemap({
-        i18n: {
-          defaultLocale,
-          locales: localeCodes,
-        },
-        filter: filterPagesWithContent,
-        serialize: serializeSitemap,
-      }),
-    isProd &&
-      playformCompress({
-        CSS: false,
-        HTML: true,
-        Image: false,
-        JavaScript: false,
-        SVG: false,
-      }),
-  ].filter(Boolean),
+    sitemap({
+      i18n: {
+        defaultLocale,
+        locales: localeCodes,
+      },
+      serialize: serializeSitemap,
+    }),
+    playformCompress({
+      CSS: false,
+      HTML: true,
+      Image: false,
+      JavaScript: false,
+      SVG: false,
+    }),
+  ],
 
   vite: {
     plugins: [
@@ -89,7 +84,6 @@ async function createToolPagesMaps() {
 
   const urlToFilePath = new Map<string, string>();
   const filePathToUrl = new Map<string, string>();
-  const filePathToContent = new Map<string, string>();
 
   await Promise.all(
     paths.map(async (path) => {
@@ -104,29 +98,21 @@ async function createToolPagesMaps() {
       if (!locale || !fileName) return;
 
       const data = parse(frontmatter);
+
+      if (data.status !== 'published') return;
+
       const url = [site, locale === defaultLocale ? null : locale, data.path || fileName].filter(Boolean).join('/');
 
       urlToFilePath.set(url, path);
       filePathToUrl.set(path, url);
-      filePathToContent.set(path, content.replace(/^---.+---/s, '').trim());
     }),
   );
 
-  return { urlToFilePath, filePathToUrl, filePathToContent };
+  return { urlToFilePath, filePathToUrl };
 }
-
-/** Filter out pages without content from the sitemap */
-function filterPagesWithContent(pageUrl: string) {
-  const filePath = toolPagesMaps.urlToFilePath.get(trimEnd(pageUrl, '/'));
-  if (!filePath) return true;
-
-  return Boolean(toolPagesMaps.filePathToContent.get(filePath));
-}
-
 /**
  * Add metadata to sitemap items
- * - Last modified date to tool pages
- * - Links to alternate versions (languages) but only if they have content
+ * - Links to alternate versions (languages) but only if they are published
  */
 async function serializeSitemap(sitemapItem: SitemapItem) {
   const filePath = toolPagesMaps.urlToFilePath.get(trimEnd(sitemapItem.url, '/'));
@@ -134,10 +120,9 @@ async function serializeSitemap(sitemapItem: SitemapItem) {
 
   const links = locales.flatMap((locale) => {
     const path = filePath.replace(new RegExp(`/${regexLocales}/`), `/${locale}/`);
-    const content = toolPagesMaps.filePathToContent.get(path);
     const url = toolPagesMaps.filePathToUrl.get(path);
 
-    if (!content || !url) return [];
+    if (!url) return [];
 
     return [{ url, lang: localeCodes[locale] }];
   });

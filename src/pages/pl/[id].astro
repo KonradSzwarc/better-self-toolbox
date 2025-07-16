@@ -1,10 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import ToolDetails from '@/components/pages/tool-details/index.astro';
-import { entriesForLocale, omitLocale } from '@/utils/i18n';
+import { omitLocale } from '@/utils/i18n';
+import { publishedToolsForLocale } from '@/utils/tools';
 
 export async function getStaticPaths() {
-  const tools = await getCollection('tools', entriesForLocale('pl'));
+  const tools = await getCollection('tools', publishedToolsForLocale('pl'));
 
   return tools.map((tool) => ({
     params: { id: omitLocale(tool.data.path ?? tool.id) },
