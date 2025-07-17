@@ -100,7 +100,7 @@ export async function generateToolOpenGraph({
                   type: 'div',
                   props: {
                     tw: 'pl-4 text-3xl',
-                    children: 'Better-Self Toolbox',
+                    children: 'Better Self Toolbox',
                   },
                 },
               ],

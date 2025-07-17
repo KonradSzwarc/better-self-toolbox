@@ -33,12 +33,6 @@
   * {
     @apply border-border;
   }
-  a,
-  input,
-  button,
-  div[role='menuitem'] {
-    @apply focus-visible:field-outline;
-  }
 }
 
 @layer utilities {
@@ -55,8 +49,14 @@
   content-visibility: auto;
 }
 
-@utility field-outline {
-  @apply outline-3 -outline-offset-3 outline-sky-600 dark:outline-sky-400;
+@utility focus-outline {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+@utility transition-optimized {
+  transition-property: transform, translate, scale, rotate, color, background-color, border-color, fill, opacity;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
 
 @custom-variant hover-supported {

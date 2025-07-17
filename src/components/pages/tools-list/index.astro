@@ -32,14 +32,24 @@ const tools = toolsCollection.map((tool) => ({
 ---
 
 <Layout title={t('seo.title')} description={t('seo.description')}>
-  <main class="container mx-auto grid place-items-center px-4 pb-10">
+  <main class="container mx-auto grid place-items-center px-4 pb-10 md:pt-8">
     <section class="flex flex-col items-center p-10 text-center">
-      <IconToolbox className="size-36" />
-      <h1 class="mb-4 font-heading text-4xl font-black tracking-widest uppercase">{t('title')}</h1>
-      <h2 class="max-w-2xl text-xl text-balance">{t('description')}</h2>
+      <div class="mb-6 flex items-center justify-center">
+        <div
+          class="rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-4 shadow-xl shadow-blue-500/25 dark:shadow-blue-400/20"
+        >
+          <IconToolbox className="size-16 text-white" />
+        </div>
+      </div>
+      <h1 class="mb-4 font-heading text-4xl leading-tight font-black text-gray-900 md:text-5xl dark:text-white">
+        {t('title')}
+      </h1>
+      <h2 class="max-w-2xl text-lg leading-relaxed text-balance text-gray-700 md:text-xl dark:text-gray-200">
+        {t('description')}
+      </h2>
     </section>
 
-    <section class="mt-4 mb-12 flex max-w-4xl flex-col items-center">
+    <section class="mt-4 mb-12 flex max-w-5xl flex-col items-center">
       <SearchInput className="mb-4 w-full max-w-xl" placeholder={t('search')} />
       <TagFilters tags={tags} className="mt-4" label={t('tag_filters_label')} allTagLabel={t('all_tag')} />
     </section>

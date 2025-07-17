@@ -22,5 +22,12 @@ const t = getTranslations(Astro, 'components.theme_switcher');
   }}
   className={className}
 >
-  <div slot="fallback" class={cn('size-8 border', className)}></div>
+  <div
+    slot="fallback"
+    class={cn(
+      'size-12 rounded-2xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800',
+      className,
+    )}
+  >
+  </div>
 </ThemeSwitcherPreact>
