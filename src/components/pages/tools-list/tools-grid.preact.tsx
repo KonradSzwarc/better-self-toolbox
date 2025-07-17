@@ -1,22 +1,14 @@
+import type { ToolsGridItemProps } from './tools-grid-item.preact';
 import Fuse from 'fuse.js';
 import { useEffect, useMemo, useRef } from 'preact/hooks';
 import { useIsClient } from '@/hooks/use-is-client';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
+import { ToolsGridItemPreact } from './tools-grid-item.preact';
 
 export interface ToolsGridProps {
   className?: string;
-  tools: {
-    id: string;
-    name: string;
-    summary: string;
-    synonyms: string[];
-    url: string;
-    tags: {
-      id: string;
-      name: string;
-    }[];
-  }[];
+  tools: ToolsGridItemProps['tool'][];
   i18n: {
     noResultsForSearch: string;
     noResultsForSearchAndTag: string;
@@ -43,19 +35,7 @@ export function ToolsGridPreact({ tools, className, i18n }: ToolsGridProps) {
   return (
     <ul ref={listRef} className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
       {results.map((tool) => (
-        <li key={tool.id} className="group flex content-auto">
-          <a href={tool.url} className="flex w-full flex-col border px-4 py-3">
-            <h3 className="font-heading text-xl font-black group-hover:underline">{tool.name}</h3>
-            <p className="text-pretty">{tool.summary}</p>
-            <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
-              {tool.tags.map((tag) => (
-                <li key={tag.id} className="w-fit bg-zinc-200 px-2 py-0.5 text-xs font-medium dark:bg-zinc-700">
-                  {tag.name}
-                </li>
-              ))}
-            </ul>
-          </a>
-        </li>
+        <ToolsGridItemPreact key={tool.id} tool={tool} />
       ))}
     </ul>
   );
