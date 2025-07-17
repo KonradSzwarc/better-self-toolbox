@@ -1,0 +1,156 @@
+<svg viewBox="0 0 880 592" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1.5" y="377.5" width="61" height="213" rx="6.5" stroke="currentColor" stroke-width="3" />
+  <rect x="1.5" y="113.5" width="61" height="213" rx="6.5" stroke="currentColor" stroke-width="3" />
+  <rect
+    x="470.5"
+    y="1.5"
+    width="61"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 470.5 1.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <rect
+    x="470.5"
+    y="113.5"
+    width="213"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 470.5 113.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <rect
+    x="470.5"
+    y="377.5"
+    width="213"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 470.5 377.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <rect
+    x="878.5"
+    y="377.5"
+    width="213"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 878.5 377.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <rect
+    x="878.5"
+    y="113.5"
+    width="213"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 878.5 113.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <rect
+    x="878.5"
+    y="1.5"
+    width="61"
+    height="357"
+    rx="6.5"
+    transform="rotate(90 878.5 1.5)"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <text
+    transform="translate(15 579) rotate(-90)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="28"
+    font-weight="600"
+    letter-spacing="0em"
+  >
+    <tspan x="0.472656" y="27.1818">Not Important</tspan>
+  </text>
+  <text
+    transform="translate(15 287) rotate(-90)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="28"
+    font-weight="600"
+    letter-spacing="0em"
+  >
+    <tspan x="0.158203" y="27.1818">Important</tspan>
+  </text>
+  <text
+    transform="translate(245 15)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="28"
+    font-weight="600"
+    letter-spacing="0em"
+  >
+    <tspan x="0.0976562" y="27.1818">Urgent</tspan>
+  </text>
+  <text
+    transform="translate(255 156)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="48"
+    font-weight="900"
+    letter-spacing="0em"
+  >
+    <tspan x="13" y="49.4545">🔥</tspan>
+    <tspan x="0.296875" y="113.455">DO</tspan>
+  </text>
+  <text
+    transform="translate(609 156)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="48"
+    font-weight="900"
+    letter-spacing="0em"
+  >
+    <tspan x="66.5" y="49.4545">📅</tspan>
+    <tspan x="0.0078125" y="113.455">DECIDE</tspan>
+  </text>
+  <text
+    transform="translate(164 420)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="48"
+    font-weight="900"
+    letter-spacing="0em"
+  >
+    <tspan x="103.5" y="49.4545">📲</tspan>
+    <tspan x="0.0234375" y="113.455">DELEGATE</tspan>
+  </text>
+  <text
+    transform="translate(607 420)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="48"
+    font-weight="900"
+    letter-spacing="0em"
+  >
+    <tspan x="69" y="49.4545">🚫</tspan>
+    <tspan x="0.421875" y="113.455">DELETE</tspan>
+  </text>
+  <text
+    transform="translate(625 15)"
+    fill="currentColor"
+    xml:space="preserve"
+    style="white-space: pre"
+    font-size="28"
+    font-weight="600"
+    letter-spacing="0em"
+  >
+    <tspan x="0.412109" y="27.1818">Not Urgent</tspan>
+  </text>
+</svg>
