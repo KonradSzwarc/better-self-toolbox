@@ -33,18 +33,11 @@
   * {
     @apply border-border;
   }
-  html {
-    @apply scroll-smooth;
-    @apply lg:mr-0 lg:ml-[calc(100vw-100%)]; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
-  }
-  body {
-    @apply bg-background font-body text-foreground antialiased;
-  }
   a,
   input,
   button,
   div[role='menuitem'] {
-    @apply focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-sky-600 focus-visible:dark:outline-sky-400;
+    @apply focus-visible:field-outline;
   }
 }
 
@@ -60,6 +53,10 @@
 
 @utility content-auto {
   content-visibility: auto;
+}
+
+@utility field-outline {
+  @apply outline-3 -outline-offset-3 outline-sky-600 dark:outline-sky-400;
 }
 
 @custom-variant hover-supported {

@@ -27,7 +27,8 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<html lang={localeCodes[locale]}>
+<!-- https://aykevl.nl/2014/09/fix-jumping-scrollbar  -->
+<html lang={localeCodes[locale]} class="scroll-smooth lg:mr-0 lg:ml-[calc(100vw-100%)]">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -54,7 +55,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     </style>
     <ThemeScript />
   </head>
-  <body>
+  <body class="bg-background font-body text-foreground antialiased">
     <div class="relative flex h-0 w-full justify-end">
       <ThemeSwitcher class="absolute top-4 right-4" />
     </div>
