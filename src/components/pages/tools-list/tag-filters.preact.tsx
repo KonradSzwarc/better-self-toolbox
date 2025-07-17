@@ -45,9 +45,9 @@ function TagFilter({ id, name }: TagFilterProps) {
       className={cn(
         'cursor-pointer rounded-full border-0 bg-gray-100 px-4 py-2.5 text-sm font-medium text-text-secondary transition-optimized duration-200 select-none focus:focus-outline',
         'data-[state=unchecked]:hover:scale-105 data-[state=unchecked]:hover:bg-gray-200',
-        'data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-500 data-[state=checked]:to-indigo-600 data-[state=checked]:text-white data-[state=checked]:shadow-lg data-[state=checked]:shadow-blue-500/25',
+        'data-[state=checked]:bg-gradient-to-r data-[state=checked]:gradient-primary data-[state=checked]:text-white data-[state=checked]:shadow-lg data-[state=checked]:shadow-blue-500/25',
         'dark:bg-gray-800 dark:data-[state=unchecked]:hover:bg-gray-700',
-        'dark:data-[state=checked]:from-blue-600 dark:data-[state=checked]:to-indigo-700 dark:data-[state=checked]:shadow-blue-400/20',
+        'dark:data-[state=checked]:shadow-blue-400/20',
       )}
     >
       {name}

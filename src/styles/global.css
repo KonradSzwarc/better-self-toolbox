@@ -74,6 +74,10 @@
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
 
+@utility gradient-primary {
+  @apply from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700;
+}
+
 @custom-variant hover-supported {
   @media (hover: hover) {
     @slot;
