@@ -28,7 +28,7 @@ export function LikertTablePreact({ totalLabel, max, items }: LikertTableProps) 
         />
       ))}
       <p class="border-x border-b font-bold">
-        {totalLabel} (${MIN_VALUE}-{max})
+        {totalLabel} ({MIN_VALUE}-{max})
       </p>
       <p class="border-r border-b text-center font-bold">
         {round(
