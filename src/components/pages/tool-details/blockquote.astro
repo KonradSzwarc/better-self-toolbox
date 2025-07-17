@@ -1,18 +1,21 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { cn } from '@/utils/styles';
 
 export interface Props extends HTMLAttributes<'blockquote'> {}
+
+const { class: className, ...props } = Astro.props;
 
 const content = await Astro.slots.render('default');
 const hasQuotationMarks = content.includes('“') || content.includes('”');
 ---
 
-<blockquote data-quotation={!hasQuotationMarks} {...Astro.props}>
+<blockquote class={cn(hasQuotationMarks && 'no-quotation', className)} {...props}>
   <slot />
 </blockquote>
 
 <style>
-  blockquote[data-quotation='false'] {
+  .no-quotation {
     > p:first-child::before,
     > p:last-child::after {
       content: none;

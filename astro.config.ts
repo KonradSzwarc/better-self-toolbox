@@ -46,7 +46,11 @@ export default defineConfig({
     }),
     playformCompress({
       CSS: false,
-      HTML: true,
+      HTML: {
+        'html-minifier-terser': {
+          minifyCSS: false,
+        },
+      },
       Image: false,
       JavaScript: false,
       SVG: false,
