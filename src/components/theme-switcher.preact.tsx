@@ -50,7 +50,7 @@ export function ThemeSwitcherPreact({ label, labels, className }: Props) {
           ) : theme === 'dark' ? (
             <IconMoon className="size-5 text-indigo-500 dark:text-indigo-400" />
           ) : (
-            <IconComputer className="size-5 text-gray-600 dark:text-gray-400" />
+            <IconComputer className="size-5 text-text-tertiary" />
           )}
         </button>
       </DropdownMenu.Trigger>
@@ -81,7 +81,7 @@ export function ThemeSwitcherPreact({ label, labels, className }: Props) {
               icon={IconComputer}
               onClick={changeTheme('system')}
               isSelected={theme === 'system'}
-              colorClass="text-gray-600 dark:text-gray-400"
+              colorClass="text-text-tertiary"
             />
           </div>
         </DropdownMenu.Content>
@@ -105,7 +105,7 @@ function DropdownItem({ label, icon: Icon, onClick, isSelected, colorClass }: Dr
         'group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 focus:outline-none',
         isSelected
           ? 'cursor-default bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300'
-          : 'cursor-pointer text-gray-700 hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:bg-gray-700',
+          : 'cursor-pointer text-text-secondary hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700',
       )}
       onClick={onClick}
     >

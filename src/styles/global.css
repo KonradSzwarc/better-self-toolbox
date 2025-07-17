@@ -10,6 +10,11 @@
   --background: var(--color-white);
   --foreground: var(--color-zinc-950);
   --border: var(--color-zinc-950);
+
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-700);
+  --text-tertiary: var(--color-gray-600);
+  --text-placeholder: var(--color-gray-500);
 }
 
 .dark {
@@ -18,6 +23,11 @@
   --background: var(--color-zinc-950);
   --foreground: var(--color-white);
   --border: var(--color-white);
+
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-200);
+  --text-tertiary: var(--color-gray-300);
+  --text-placeholder: var(--color-gray-400);
 }
 
 @theme inline {
@@ -27,6 +37,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-placeholder: var(--text-placeholder);
 }
 
 @layer base {
@@ -54,7 +69,7 @@
 }
 
 @utility transition-optimized {
-  transition-property: transform, translate, scale, rotate, color, background-color, border-color, fill, opacity;
+  transition-property: transform, translate, scale, rotate, background-color, border-color, fill, opacity;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }

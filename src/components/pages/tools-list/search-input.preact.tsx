@@ -13,14 +13,14 @@ export function SearchInputPreact({ className, placeholder }: SearchInputProps) 
   return (
     <div className={cn('relative w-full', className)}>
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-        <IconSearch className="size-5 text-gray-400 dark:text-gray-500" />
+        <IconSearch className="size-5 text-text-placeholder" />
       </div>
       <input
         type="search"
         value={search}
         onInput={(e) => changeSearch(e.currentTarget.value)}
         placeholder={placeholder}
-        className="w-full rounded-2xl border-1 border-gray-200 bg-gray-100 py-4 pr-4 pl-12 text-gray-900 transition-optimized duration-200 placeholder:text-gray-500 focus:focus-outline dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
+        className="w-full rounded-2xl border-1 border-gray-200 bg-gray-100 py-4 pr-4 pl-12 text-text-primary transition-optimized duration-200 placeholder:text-text-placeholder focus:focus-outline dark:border-gray-700 dark:bg-gray-800"
       />
     </div>
   );
