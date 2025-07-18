@@ -48,7 +48,7 @@ export default defineConfig({
       CSS: false,
       HTML: {
         'html-minifier-terser': {
-          minifyCSS: false,
+          removeComments: true,
         },
       },
       Image: false,

@@ -1,6 +1,5 @@
 ---
 import { getTranslations } from '@/utils/i18n';
-import { cn } from '@/utils/styles';
 import { ThemeSwitcherPreact } from './theme-switcher.preact';
 
 interface Props {
@@ -21,13 +20,4 @@ const t = getTranslations(Astro, 'components.theme_switcher');
     system: t('system'),
   }}
   className={className}
->
-  <div
-    slot="fallback"
-    class={cn(
-      'size-12 rounded-2xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800',
-      className,
-    )}
-  >
-  </div>
-</ThemeSwitcherPreact>
+/>

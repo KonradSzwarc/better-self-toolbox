@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import MdiLinkVariant from '~icons/mdi/link-variant';
 import { getTranslations } from '@/utils/i18n';
 
 export interface Props extends HTMLAttributes<'h2' | 'h3'> {
@@ -21,7 +20,9 @@ const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('defa
     {isFootnoteHeading ? footnoteLabel : <slot />}
   </Component>
   <a href={`#${id}`}>
-    <MdiLinkVariant width="1em" height="1em" aria-hidden="true" />
+    <svg width="1em" height="1em" viewBox="0 0 24 24">
+      <use href="#link-icon"></use>
+    </svg>
     <span class="sr-only">{t('anchor_label', { name: label })}</span>
   </a>
 </div>

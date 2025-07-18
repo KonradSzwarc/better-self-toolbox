@@ -8,6 +8,7 @@ import Anchor from './anchor.astro';
 import Blockquote from './blockquote.astro';
 import H2 from './h2.astro';
 import H3 from './h3.astro';
+import HeadingWithAnchorIcon from './heading-with-anchor-icon.astro';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
@@ -32,6 +33,7 @@ function toSortedList(items: string[]) {
   description={tool.data.seo?.description ?? tool.data.summary}
   type="article"
 >
+  <HeadingWithAnchorIcon />
   <main>
     <nav class="mb-8 w-full">
       <a href={localizedPath('/', locale)} class="flex items-center gap-1 text-sm font-medium">
