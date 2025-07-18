@@ -30,20 +30,15 @@ export function LanguageSwitcherPreact({ label, value, languages, className }: P
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          align="end"
-          sideOffset={8}
-          alignOffset={-16}
-          className="grid border bg-background shadow-sm"
-        >
+        <DropdownMenu.Content align="end" sideOffset={8} alignOffset={-16} className="grid border shadow-sm">
           {Object.values(languages).map(({ flag, label, path }, i, arr) => (
             <Fragment key={label}>
-              <DropdownMenu.Item asChild className="block min-w-20 p-2 whitespace-nowrap text-foreground">
+              <DropdownMenu.Item asChild className="block min-w-20 p-2 whitespace-nowrap">
                 <a href={path}>
                   {flag} {label}
                 </a>
               </DropdownMenu.Item>
-              {i < arr.length - 1 && <DropdownMenu.Separator className="h-px bg-border" />}
+              {i < arr.length - 1 && <DropdownMenu.Separator className="h-px" />}
             </Fragment>
           ))}
         </DropdownMenu.Content>

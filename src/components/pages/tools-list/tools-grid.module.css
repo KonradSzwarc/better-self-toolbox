@@ -1,0 +1,77 @@
+@reference '@/styles/global.css';
+
+@layer components {
+  .list {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .item {
+    @apply relative flex rounded-2xl border shadow-md transition-[border,shadow,translate] duration-200 hover:-translate-y-1 hover:shadow-2xl has-focus-visible:focus-outline;
+    @apply bg-white dark:bg-gray-800;
+    @apply border-gray-200/60 dark:border-gray-700/60;
+
+    content-visibility: auto;
+
+    &::after {
+      @apply absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 transition-opacity duration-300 content-[''];
+    }
+
+    &:hover {
+      @apply border-blue-200 dark:border-blue-600/50;
+      @apply shadow-blue-500/15 dark:shadow-blue-400/15;
+      @apply after:from-blue-50/50 after:to-indigo-50/50 dark:after:from-blue-950/20 dark:after:to-indigo-950/20;
+
+      &::after {
+        @apply opacity-100;
+      }
+
+      .name {
+        @apply text-blue-600 dark:text-blue-400;
+      }
+
+      .tag {
+        @apply border-blue-200 dark:border-blue-600/50;
+        @apply bg-blue-50 dark:bg-blue-950/20;
+        @apply text-blue-600 dark:text-blue-400;
+      }
+    }
+  }
+
+  .link {
+    @apply z-10 flex w-full flex-col px-6 py-5;
+  }
+
+  .name {
+    @apply mb-2 font-heading text-xl leading-tight font-extrabold transition-colors duration-200;
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .summary {
+    @apply flex-grow text-sm leading-relaxed text-pretty text-tertiary;
+  }
+
+  .tags {
+    @apply mt-auto flex flex-wrap gap-1.5 pt-6;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border-1 px-2.5 py-1 text-xs font-medium transition-colors duration-200;
+    @apply text-gray-700 dark:text-gray-300;
+    @apply bg-gray-100 dark:bg-gray-700;
+    @apply border-gray-200 dark:border-gray-600;
+  }
+
+  .noResults {
+    @apply flex flex-col items-center justify-center py-12 text-center;
+
+    p:first-child {
+      @apply text-lg font-medium;
+      @apply text-gray-900 dark:text-white;
+    }
+
+    p:last-child {
+      @apply mt-2 text-sm;
+      @apply text-gray-500 dark:text-gray-400;
+    }
+  }
+}

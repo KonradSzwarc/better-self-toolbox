@@ -1,16 +1,17 @@
 ---
+import '@/styles/global.css';
+
+import '@fontsource-variable/inter';
+import '@fontsource-variable/nunito';
+
 import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
 import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
 
-import ThemeScript from '@/components/theme-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
+import ThemeSwitcherScript from '@/components/theme-switcher-script.astro';
 import { getLocale, localeCodes } from '@/utils/i18n';
-
-import '@fontsource-variable/inter';
-import '@fontsource-variable/nunito';
-import '@/styles/global.css';
 
 interface Props {
   title: string;
@@ -53,9 +54,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
         --font-body: 'Inter Variable';
       }
     </style>
-    <ThemeScript />
+    <ThemeSwitcherScript />
   </head>
-  <body class="bg-background font-body text-foreground antialiased">
+  <body class="bg-white font-body text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
     <div class="relative flex h-0 w-full justify-end">
       <ThemeSwitcher class="absolute top-4 right-4" />
     </div>

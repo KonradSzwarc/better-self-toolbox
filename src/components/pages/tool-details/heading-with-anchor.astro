@@ -2,13 +2,12 @@
 import type { HTMLAttributes } from 'astro/types';
 import MdiLinkVariant from '~icons/mdi/link-variant';
 import { getTranslations } from '@/utils/i18n';
-import { cn } from '@/utils/styles';
 
 export interface Props extends HTMLAttributes<'h2' | 'h3'> {
   as: 'h2' | 'h3';
 }
 
-const { as: Component, id, class: className, ...props } = Astro.props;
+const { as: Component, id, ...props } = Astro.props;
 
 const t = getTranslations(Astro, 'pages.tool_details');
 
@@ -17,15 +16,28 @@ const footnoteLabel = t('footnotes');
 const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('default');
 ---
 
-<div class={cn('heading-wrapper group', '[&+ol]:mt-0')} {...props}>
-  <Component id={id} class={cn('mt-0 mr-[0.25em] mb-0 inline scroll-mt-6 text-[length:inherit]', className)} {...props}>
+<div {...props}>
+  <Component id={id} {...props}>
     {isFootnoteHeading ? footnoteLabel : <slot />}
   </Component>
-  <a
-    href={`#${id}`}
-    class="anchor-link inline-block pb-0.5 align-middle text-foreground opacity-40 group-hover:opacity-40 hover-supported:opacity-0"
-  >
+  <a href={`#${id}`}>
     <MdiLinkVariant width="1em" height="1em" aria-hidden="true" />
     <span class="sr-only">{t('anchor_label', { name: label })}</span>
   </a>
 </div>
+
+<style>
+  @reference '@/styles/global.css';
+
+  div:hover a {
+    @apply opacity-40;
+  }
+
+  a {
+    @apply inline-block pb-0.5 align-middle opacity-40 transition-opacity duration-200;
+
+    @media (hover: hover) {
+      @apply opacity-0;
+    }
+  }
+</style>

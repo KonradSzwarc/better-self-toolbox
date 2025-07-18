@@ -17,7 +17,7 @@ export function LikertTablePreact({ totalLabel, max, items }: LikertTableProps) 
   const [values, setValues] = useState<number[]>(items.map(() => 0));
 
   return (
-    <div class="grid grid-cols-[1fr_80px] border-t text-foreground [&_p]:m-0 [&_p]:p-2">
+    <div class="grid grid-cols-[1fr_80px] border-t [&_p]:m-0 [&_p]:p-2">
       {items.map((item, i) => (
         <LikertTableItem
           key={item.label}

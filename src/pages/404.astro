@@ -7,17 +7,45 @@ const t = getTranslations(Astro, 'pages.404');
 ---
 
 <Layout title={t('title')} description={t('description')}>
-  <main class="flex min-h-dvh flex-col items-center justify-center px-4 text-center md:pb-[10vh]">
-    <div class="max-w-prose text-balance">
-      <h1 class="mb-4 font-heading text-7xl font-bold text-foreground">404</h1>
-      <h2 class="mb-2 font-heading text-3xl font-bold text-foreground">{t('title')}</h2>
-      <p class="mb-12 font-body text-lg text-foreground">{t('description')}</p>
-      <a
-        href={localizedPath('/', locale)}
-        class="inline-block rounded bg-foreground px-6 py-3 font-semibold text-background"
-      >
+  <main>
+    <div>
+      <h1>404</h1>
+      <h2>{t('title')}</h2>
+      <p>{t('description')}</p>
+      <a href={localizedPath('/', locale)}>
         {t('back')}
       </a>
     </div>
   </main>
 </Layout>
+
+<style>
+  @reference '@/styles/global.css';
+
+  main {
+    @apply flex min-h-dvh flex-col items-center justify-center px-4 text-center md:pb-[10vh];
+  }
+
+  div {
+    @apply max-w-prose text-balance;
+  }
+
+  h1 {
+    @apply mb-4 font-heading text-7xl font-extrabold text-primary;
+  }
+
+  h2 {
+    @apply mb-2 font-heading text-3xl font-bold text-primary;
+  }
+
+  p {
+    @apply mb-12 font-body text-lg text-secondary;
+  }
+
+  a {
+    @apply inline-block rounded px-6 py-3 font-semibold transition-[scale,background-color] duration-200 hover:scale-105 focus-visible:focus-outline;
+    @apply text-white dark:text-gray-900;
+    @apply bg-gray-900 dark:bg-white;
+    @apply hover:bg-gray-800 dark:hover:bg-gray-100;
+  }
+</style>

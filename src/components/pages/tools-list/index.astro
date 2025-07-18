@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import IconToolbox from '~icons/mdi/toolbox';
 import Layout from '@/layouts/layout.astro';
 import { entriesForLocale, getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
+import { cn } from '@/utils/styles';
 import { publishedToolsForLocale } from '@/utils/tools';
 import SearchInput from './search-input.astro';
 import TagFilters from './tag-filters.astro';
@@ -17,7 +18,6 @@ const toolsCollection = await getCollection('tools', publishedToolsForLocale(loc
 const tags = tagsCollection.map((tag) => ({
   id: omitLocale(tag.id),
   name: tag.data.name,
-  summary: tag.data.summary,
 }));
 const tagsMap = new Map(tags.map((tag) => [tag.id, tag]));
 
@@ -34,19 +34,11 @@ const tools = toolsCollection.map((tool) => ({
 <Layout title={t('seo.title')} description={t('seo.description')}>
   <main class="container mx-auto grid place-items-center px-4 pt-8 pb-10">
     <section class="flex flex-col items-center px-4 py-6 text-center md:px-10">
-      <div class="mb-6 flex items-center justify-center">
-        <div
-          class="rounded-2xl bg-gradient-to-br gradient-primary p-4 shadow-xl shadow-blue-500/25 dark:shadow-blue-400/20"
-        >
-          <IconToolbox className="size-16 text-white" />
-        </div>
+      <div class={cn('logoBox', 'mb-6')}>
+        <IconToolbox className="size-16 text-white" />
       </div>
-      <h1 class="mb-4 font-heading text-4xl leading-tight font-black text-text-primary md:text-5xl">
-        {t('title')}
-      </h1>
-      <h2 class="max-w-2xl text-lg leading-relaxed text-balance text-text-secondary md:text-xl">
-        {t('description')}
-      </h2>
+      <h1 class="mb-4">{t('title')}</h1>
+      <h2>{t('description')}</h2>
     </section>
 
     <section class="mt-4 mb-12 flex max-w-5xl flex-col items-center">
@@ -65,3 +57,20 @@ const tools = toolsCollection.map((tool) => ({
     </section>
   </main>
 </Layout>
+
+<style>
+  @reference '@/styles/global.css';
+
+  h1 {
+    @apply font-heading text-4xl leading-tight font-black text-primary md:text-5xl;
+  }
+
+  h2 {
+    @apply max-w-2xl text-lg leading-relaxed text-balance text-secondary md:text-xl;
+  }
+
+  .logoBox {
+    @apply rounded-2xl bg-gradient-to-br gradient-primary p-4 shadow-xl;
+    @apply shadow-blue-500/25 dark:shadow-blue-400/20;
+  }
+</style>

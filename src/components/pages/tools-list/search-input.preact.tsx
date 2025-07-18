@@ -1,6 +1,7 @@
 import IconSearch from '~icons/mdi/magnify';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
+import styles from './search-input.module.css';
 
 export interface SearchInputProps {
   className?: string;
@@ -11,16 +12,16 @@ export function SearchInputPreact({ className, placeholder }: SearchInputProps) 
   const [search, changeSearch] = useSearchParam({ name: 'search' });
 
   return (
-    <div className={cn('relative w-full', className)}>
-      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-        <IconSearch className="size-5 text-text-placeholder" />
+    <div className={cn(styles.container, className)}>
+      <div className={styles.icon}>
+        <IconSearch />
       </div>
       <input
         type="search"
         value={search}
         onInput={(e) => changeSearch(e.currentTarget.value)}
         placeholder={placeholder}
-        className="w-full rounded-2xl border-1 border-gray-200 bg-gray-100 py-4 pr-4 pl-12 text-text-primary transition-optimized duration-200 placeholder:text-text-placeholder focus:focus-outline dark:border-gray-700 dark:bg-gray-800"
+        className={styles.input}
       />
     </div>
   );

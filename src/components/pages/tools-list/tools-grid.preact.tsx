@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef } from 'preact/hooks';
 import { useIsClient } from '@/hooks/use-is-client';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
+import styles from './tools-grid.module.css';
 
 export interface ToolsGridProps {
   className?: string;
@@ -28,17 +29,15 @@ export function ToolsGridPreact({ tools, className, i18n }: ToolsGridProps) {
 
   if (results.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 text-center">
-        <div className="text-lg font-medium text-text-primary">
-          {tag ? i18n.noResultsForSearchAndTag : i18n.noResultsForSearch}
-        </div>
-        <div className="mt-2 text-sm text-text-tertiary">Try adjusting your search or filter criteria</div>
+      <div className={styles.noResults}>
+        <p>{tag ? i18n.noResultsForSearchAndTag : i18n.noResultsForSearch}</p>
+        <p>Try adjusting your search or filter criteria</p>
       </div>
     );
   }
 
   return (
-    <ul ref={listRef} className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
+    <ul ref={listRef} className={cn(styles.list, className)}>
       {results.map((tool) => (
         <ToolsGridItem key={tool.id} tool={tool} />
       ))}
@@ -48,24 +47,14 @@ export function ToolsGridPreact({ tools, className, i18n }: ToolsGridProps) {
 
 function ToolsGridItem({ className, tool }: { className?: string; tool: Tool }) {
   return (
-    <li
-      className={cn(
-        'group relative flex rounded-2xl border border-gray-200/60 bg-white shadow-md transition-optimized duration-300 content-auto hover:-translate-y-2 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/15 has-focus:focus-outline dark:border-gray-700/60 dark:bg-gray-800 dark:hover:border-blue-600/50 dark:hover:shadow-blue-400/15',
-        className,
-      )}
-    >
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-blue-950/20 dark:to-indigo-950/20" />
-      <a href={tool.url} className="relative z-10 flex w-full flex-col px-6 py-5">
-        <h3 className="mb-2 font-heading text-xl leading-tight font-extrabold text-text-primary transition-colors duration-200 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-          {tool.name}
-        </h3>
-        <p className="flex-grow text-sm leading-relaxed text-pretty text-text-tertiary">{tool.summary}</p>
-        <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
+    <li className={cn(styles.item, className)}>
+      <a href={tool.url} className={styles.link}>
+        <h3 className={styles.name}>{tool.name}</h3>
+        <p className={styles.summary}>{tool.summary}</p>
+        <ul className={styles.tags}>
           {tool.tags.map((tag) => (
-            <li key={tag.id}>
-              <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-text-secondary ring-1 ring-gray-200 dark:bg-gray-700 dark:ring-gray-600">
-                {tag.name}
-              </span>
+            <li key={tag.id} className={styles.tag}>
+              {tag.name}
             </li>
           ))}
         </ul>

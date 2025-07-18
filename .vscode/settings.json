@@ -57,5 +57,12 @@
   "[astro]": {
     "editor.defaultFormatter": "Jota0222.multi-formatter",
     "multiFormatter.formatterList": ["astro-build.astro-vscode", "esbenp.prettier-vscode"]
+  },
+
+  "explorer.fileNesting.patterns": {
+    "*.md": "$(capture).*",
+    "*.ts": "$(capture).tsx, $(capture).*.ts, $(capture)-*.ts, $(capture).*.tsx, $(capture)-*.tsx",
+    "*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)-*.tsx, $(capture).*.ts, $(capture)-*.ts, $(capture).css, $(capture).module.css",
+    "*.astro": "$(capture).ts, $(capture).*.tsx, $(capture)-*.tsx, $(capture).*.ts, $(capture)-*.ts, $(capture).*.astro, $(capture)-*.astro, $(capture).css, $(capture).module.css"
   }
 }

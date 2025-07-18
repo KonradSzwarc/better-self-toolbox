@@ -1,0 +1,50 @@
+@reference '@/styles/global.css';
+
+@layer components {
+  .trigger {
+    @apply flex size-12 cursor-pointer items-center justify-center rounded-2xl border shadow-lg transition-colors focus-visible:focus-outline;
+    @apply border-gray-200 dark:border-gray-700;
+    @apply bg-white dark:bg-gray-800;
+    @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+  }
+
+  .content {
+    @apply z-50 min-w-[140px] overflow-hidden rounded-2xl border-1 shadow-2xl backdrop-blur-md;
+    @apply bg-white dark:bg-gray-800;
+    @apply border-gray-200/60 dark:border-gray-700/60;
+  }
+
+  .item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 outline-none focus-visible:inset-ring-2;
+
+    &:not([data-selected='true']) {
+      @apply cursor-pointer;
+      @apply text-gray-700 dark:text-gray-300;
+      @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+      @apply focus-visible:bg-gray-100 focus-visible:inset-ring-blue-500/50 dark:focus-visible:bg-gray-700;
+    }
+
+    &[data-selected='true'] {
+      @apply pointer-events-none;
+      @apply bg-blue-50 dark:bg-blue-950/50;
+      @apply text-blue-700 dark:text-blue-300;
+    }
+  }
+
+  .dot {
+    @apply size-2 rounded-full;
+    @apply bg-blue-500 dark:bg-blue-400;
+  }
+
+  .iconSun {
+    @apply text-amber-500 dark:text-amber-400;
+  }
+
+  .iconMoon {
+    @apply text-indigo-500 dark:text-indigo-400;
+  }
+
+  .iconComputer {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+}

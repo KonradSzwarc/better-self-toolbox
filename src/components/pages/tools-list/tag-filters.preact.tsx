@@ -1,6 +1,7 @@
 import { RadioGroup } from 'radix-ui';
 import { useSearchParam } from '@/hooks/use-search-param';
 import { cn } from '@/utils/styles';
+import styles from './tag-filters.module.css';
 
 export interface TagFiltersProps {
   className?: string;
@@ -16,10 +17,10 @@ export function TagFiltersPreact({ className, label, allTagLabel, tags }: TagFil
   const [selectedTag, changeSelectedTag] = useSearchParam({ name: 'tag', defaultValue: 'all' });
 
   return (
-    <div className={cn('flex w-full max-w-6xl flex-col items-center gap-3', className)}>
-      <div className="text-sm font-medium text-text-tertiary">{label}</div>
+    <div className={cn(styles.container, className)}>
+      <div className={styles.label}>{label}</div>
       <RadioGroup.Root
-        className="flex w-full flex-wrap justify-center gap-2"
+        className={styles.group}
         aria-label={label}
         value={selectedTag}
         onValueChange={changeSelectedTag}
@@ -33,23 +34,9 @@ export function TagFiltersPreact({ className, label, allTagLabel, tags }: TagFil
   );
 }
 
-interface TagFilterProps {
-  id: string;
-  name: string;
-}
-
-function TagFilter({ id, name }: TagFilterProps) {
+function TagFilter({ id, name }: { id: string; name: string }) {
   return (
-    <RadioGroup.Item
-      value={id}
-      className={cn(
-        'cursor-pointer rounded-full border-0 bg-gray-100 px-4 py-2.5 text-sm font-medium text-text-secondary transition-optimized duration-200 select-none focus:focus-outline',
-        'data-[state=unchecked]:hover:scale-105 data-[state=unchecked]:hover:bg-gray-200',
-        'data-[state=checked]:bg-gradient-to-r data-[state=checked]:gradient-primary data-[state=checked]:text-white data-[state=checked]:shadow-lg data-[state=checked]:shadow-blue-500/25',
-        'dark:bg-gray-800 dark:data-[state=unchecked]:hover:bg-gray-700',
-        'dark:data-[state=checked]:shadow-blue-400/20',
-      )}
-    >
+    <RadioGroup.Item value={id} className={styles.item}>
       {name}
     </RadioGroup.Item>
   );

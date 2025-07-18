@@ -1,0 +1,30 @@
+@reference '@/styles/global.css';
+
+@layer components {
+  .container {
+    @apply flex w-full max-w-6xl flex-col items-center gap-3;
+  }
+
+  .label {
+    @apply text-sm font-medium text-tertiary;
+  }
+
+  .group {
+    @apply flex w-full flex-wrap justify-center gap-2;
+  }
+
+  .item {
+    @apply cursor-pointer rounded-full border-0 px-4 py-2.5 text-sm font-medium text-secondary transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline;
+    @apply bg-gray-100 dark:bg-gray-800;
+
+    &[data-state='checked'] {
+      @apply bg-gradient-to-r gradient-primary text-white shadow-lg;
+      @apply shadow-blue-500/25 dark:shadow-blue-400/20;
+    }
+
+    &[data-state='unchecked']:hover {
+      @apply scale-105;
+      @apply bg-gray-200 dark:bg-gray-700;
+    }
+  }
+}
