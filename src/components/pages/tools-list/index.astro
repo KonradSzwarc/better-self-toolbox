@@ -32,18 +32,18 @@ const tools = toolsCollection.map((tool) => ({
 ---
 
 <Layout title={t('seo.title')} description={t('seo.description')}>
-  <main class="container mx-auto grid place-items-center px-4 pt-8 pb-10">
-    <section class="flex flex-col items-center px-4 py-6 text-center md:px-10">
+  <main class="container mx-auto grid place-items-center px-4 py-6 sm:py-10 md:py-20">
+    <section class="flex flex-col items-center py-6 text-center sm:px-4 md:px-10">
       <div class={cn('logoBox', 'mb-6')}>
-        <IconToolbox className="size-16 text-white" />
+        <IconToolbox />
       </div>
       <h1 class="mb-4">{t('title')}</h1>
       <h2>{t('description')}</h2>
     </section>
 
     <section class="mt-4 mb-12 flex max-w-5xl flex-col items-center">
-      <SearchInput className="mb-4 w-full max-w-xl" placeholder={t('search')} />
-      <TagFilters tags={tags} className="mt-4" label={t('tag_filters_label')} allTagLabel={t('all_tag')} />
+      <SearchInput className="mb-4" placeholder={t('search')} />
+      <TagFilters tags={tags} className="mt-2 sm:mt-4" label={t('tag_filters_label')} allTagLabel={t('all_tag')} />
     </section>
 
     <section data-tools-section class="flex flex-col items-center">
@@ -62,15 +62,19 @@ const tools = toolsCollection.map((tool) => ({
   @reference '@/styles/global.css';
 
   h1 {
-    @apply font-heading text-4xl leading-tight font-black text-primary md:text-5xl;
+    @apply font-heading text-3xl leading-tight font-black text-primary sm:text-4xl md:text-5xl;
   }
 
   h2 {
-    @apply max-w-2xl text-lg leading-relaxed text-balance text-secondary md:text-xl;
+    @apply max-w-2xl leading-relaxed text-balance text-secondary sm:text-lg md:text-xl;
   }
 
   .logoBox {
     @apply rounded-2xl bg-gradient-to-br gradient-primary p-4 shadow-xl;
     @apply shadow-blue-500/25 dark:shadow-blue-400/20;
+
+    svg {
+      @apply size-12 text-white sm:size-16;
+    }
   }
 </style>

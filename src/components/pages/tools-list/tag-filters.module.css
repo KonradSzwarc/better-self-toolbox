@@ -2,11 +2,11 @@
 
 @layer components {
   .container {
-    @apply flex w-full max-w-6xl flex-col items-center gap-3;
+    @apply flex w-full flex-col items-center gap-3;
   }
 
   .label {
-    @apply text-sm font-medium text-tertiary;
+    @apply text-sm font-medium text-tertiary max-sm:hidden;
   }
 
   .group {
@@ -14,7 +14,7 @@
   }
 
   .item {
-    @apply cursor-pointer rounded-full border-0 px-4 py-2.5 text-sm font-medium text-secondary transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline;
+    @apply cursor-pointer rounded-full px-3 py-1.5 font-medium text-secondary transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline max-xl:text-sm sm:px-4 sm:py-2.5;
     @apply bg-gray-100 dark:bg-gray-800;
 
     &[data-state='checked'] {
