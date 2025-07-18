@@ -28,7 +28,7 @@ export function ThemeSwitcherPreact({ label, labels, className }: Props) {
   const changeTheme = (theme: Theme) => () => {
     const isDark =
       theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
 
     localStorage.setItem('theme', theme);
     setTheme(theme);

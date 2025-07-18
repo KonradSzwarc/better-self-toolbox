@@ -3,6 +3,6 @@
   const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const isDark = storageTheme === 'dark' || (storageTheme === 'system' && colorScheme === 'dark');
 
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
   localStorage.setItem('theme', storageTheme);
 </script>
