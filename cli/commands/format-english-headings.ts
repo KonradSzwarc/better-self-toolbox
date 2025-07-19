@@ -52,6 +52,7 @@ async function capitalizeHeadingsInFile(filePath: string) {
             'KPI',
             'KPIs',
             'PMR',
+            'NVC',
             ...numbers.flatMap((number) => articles.map((article) => `${number}. ${article}`)),
           ],
         });
