@@ -13,6 +13,7 @@ import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-
 import ThemeSwitcherScript from '@/components/theme-switcher-script.astro';
 import ThemeSwitcher from '@/components/theme-switcher.astro';
 import { getLocale, localeCodes } from '@/utils/i18n';
+import Footer from '@/components/footer.astro';
 
 interface Props {
   title: string;
@@ -29,8 +30,7 @@ const nunitoUrl = locale === 'pl' ? nunitoLatinExtUrl : nunitoLatinUrl;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<!-- https://aykevl.nl/2014/09/fix-jumping-scrollbar  -->
-<html lang={localeCodes[locale]} class="scroll-smooth lg:mr-0 lg:ml-[calc(100vw-100%)]">
+<html lang={localeCodes[locale]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -57,10 +57,31 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
     </style>
     <ThemeSwitcherScript />
   </head>
-  <body class="bg-white font-body text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
-    <div class="relative flex h-0 w-full justify-end">
-      <ThemeSwitcher class="absolute top-4 right-4" />
-    </div>
+  <body>
+    <slot name="header">
+      <div class="relative flex h-0 w-full justify-end">
+        <ThemeSwitcher class="absolute top-4 right-4" />
+      </div>
+    </slot>
     <slot />
+    <Footer class="footer" />
   </body>
 </html>
+
+<style>
+  @reference '@/styles/global.css';
+
+  html {
+    @apply scroll-smooth;
+    @apply lg:mr-0 lg:ml-[calc(100vw-100%)]; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+  }
+
+  body {
+    @apply font-body text-secondary antialiased;
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .footer {
+    @apply lg:-ml-[calc(100vw-100%)];
+  }
+</style>

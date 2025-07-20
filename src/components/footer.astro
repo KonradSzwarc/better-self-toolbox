@@ -1,0 +1,57 @@
+---
+import { getLocale, getTranslations, localizedPath } from '@/utils/i18n';
+import Anchor from '@/components/markdown-content/anchor.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'footer'> {}
+
+const locale = getLocale(Astro);
+const t = getTranslations(Astro, 'components.footer');
+---
+
+<footer {...Astro.props}>
+  <nav>
+    <a href={localizedPath('/', locale)}>{t('all_tools')}</a>
+    <span>•</span>
+    <a href={localizedPath('/about', locale)}>{t('about')}</a>
+    <span>•</span>
+    <Anchor href="https://github.com/KonradSzwarc/better-self-toolbox">{t('github')}</Anchor>
+  </nav>
+  <p>
+    {t('copyright')}
+    <span>
+      {t('license')}
+      <Anchor href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0</Anchor>.
+    </span>
+  </p>
+</footer>
+
+<style>
+  @reference '@/styles/global.css';
+
+  footer {
+    @apply flex flex-col items-center gap-6 border-t px-4 pt-6 pb-8 text-center sm:px-6;
+    @apply bg-gray-50 dark:bg-gray-950;
+    @apply border-gray-200/60 dark:border-gray-800/60;
+  }
+
+  nav {
+    @apply flex flex-wrap items-center justify-center gap-2 text-secondary max-sm:text-sm sm:gap-3;
+
+    a {
+      @apply font-semibold text-nowrap hover:underline;
+    }
+  }
+
+  p {
+    @apply flex flex-wrap justify-center gap-0.5 text-sm text-tertiary;
+
+    span {
+      @apply text-nowrap;
+    }
+
+    a {
+      @apply underline decoration-dotted hover:decoration-solid;
+    }
+  }
+</style>

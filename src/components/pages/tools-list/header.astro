@@ -1,0 +1,49 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import MdiInformationSlabCircleOutline from '~icons/mdi/information-slab-circle-outline';
+import ThemeSwitcher from '@/components/theme-switcher.astro';
+import { getLocale, getTranslations, localizedPath } from '@/utils/i18n';
+
+interface Props extends HTMLAttributes<'header'> {}
+
+const { class: className, ...props } = Astro.props;
+
+const locale = getLocale(Astro);
+const t = getTranslations(Astro, 'pages.tools_list.header');
+---
+
+<header class={className} {...props}>
+  <nav>
+    <a class="about" href={localizedPath('/about', locale)}>
+      <span>{t('about')}</span>
+      <MdiInformationSlabCircleOutline aria-label={t('about')} />
+    </a>
+    <ThemeSwitcher />
+  </nav>
+</header>
+
+<style>
+  @reference '@/styles/global.css';
+
+  header {
+    @apply absolute inset-x-4 top-4 flex;
+  }
+
+  nav {
+    @apply flex w-full items-center justify-between gap-3 sm:justify-end sm:gap-4;
+  }
+
+  .about {
+    @apply flex h-9 items-center justify-center rounded-xl text-sm font-semibold text-secondary max-sm:w-9 sm:px-3;
+    @apply transition-[color,background-color] hover:text-primary focus-visible:focus-outline;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+
+    span {
+      @apply hidden sm:inline;
+    }
+
+    svg {
+      @apply size-5 sm:hidden;
+    }
+  }
+</style>

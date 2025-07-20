@@ -18,6 +18,13 @@
       "likert_table": {
         "total": "Result"
       }
+    },
+    "footer": {
+      "copyright": "© 2025 Better Self Toolbox by Konrad Szwarc.",
+      "license": "Licensed under",
+      "all_tools": "All tools list",
+      "about": "About the project",
+      "github": "GitHub repository"
     }
   },
   "pages": {
@@ -27,6 +34,9 @@
       "seo": {
         "title": "Better Self Toolbox: Simple Tools for Personal Development",
         "description": "A comprehensive collection of tools to help you think clearly, choose wisely, and grow meaningfully. Choose from over 150 practical tools and improve your life."
+      },
+      "header": {
+        "about": "About"
       },
       "search": "Search for tools...",
       "all_tag": "All",

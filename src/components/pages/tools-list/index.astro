@@ -5,6 +5,7 @@ import Layout from '@/layouts/layout.astro';
 import { entriesForLocale, getLocale, getTranslations, localizedPath, omitLocale } from '@/utils/i18n';
 import { cn } from '@/utils/styles';
 import { publishedToolsForLocale } from '@/utils/tools';
+import Header from './header.astro';
 import SearchInput from './search-input.astro';
 import TagFilters from './tag-filters.astro';
 import ToolsGrid from './tools-grid.astro';
@@ -36,6 +37,7 @@ const tools = toolsCollection
 ---
 
 <Layout title={t('seo.title')} description={t('seo.description')}>
+  <Header slot="header" />
   <main class="container mx-auto grid place-items-center px-4 py-6 sm:py-10 md:py-20">
     <section class="flex flex-col items-center py-6 text-center sm:px-4 md:px-10">
       <div class={cn('logoBox', 'mb-6')}>

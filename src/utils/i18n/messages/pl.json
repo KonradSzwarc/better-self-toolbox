@@ -18,6 +18,13 @@
       "likert_table": {
         "total": "Wynik"
       }
+    },
+    "footer": {
+      "copyright": "© 2025 Better Self Toolbox — Konrad Szwarc.",
+      "license": "Licencja",
+      "all_tools": "Wszystkie narzędzia",
+      "about": "O projekcie",
+      "github": "Repozytorium GitHub"
     }
   },
   "pages": {
@@ -27,6 +34,9 @@
       "seo": {
         "title": "Better Self Toolbox: Twoje narzędzia do rozwoju osobistego",
         "description": "Praktyczna kolekcja narzędzi, które pomogą Ci myśleć klarownie, działać efektywnie i świadomie kształtować swój rozwój. Wybieraj z ponad 150 sprawdzonych narzędzi."
+      },
+      "header": {
+        "about": "O projekcie"
       },
       "search": "Wyszukaj narzędzia...",
       "all_tag": "Wszystkie",

@@ -20,4 +20,6 @@ const t = getTranslations(Astro, 'components.theme_switcher');
     system: t('system'),
   }}
   className={className}
-/>
+>
+  <div slot="fallback" class="size-9"></div>
+</ThemeSwitcherPreact>
