@@ -2,10 +2,12 @@
 
 @layer components {
   .trigger {
-    @apply flex size-12 cursor-pointer items-center justify-center rounded-2xl border shadow-lg transition-colors focus-visible:focus-outline;
-    @apply border-gray-200 dark:border-gray-700;
-    @apply bg-white dark:bg-gray-800;
-    @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+    @apply flex cursor-pointer items-center justify-center rounded-lg p-2 transition-[background-color] focus-visible:focus-outline;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+
+    > svg {
+      @apply size-5;
+    }
   }
 
   .content {

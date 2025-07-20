@@ -14,9 +14,9 @@
   }
 
   .input {
-    @apply w-full rounded-2xl border-1 py-2.5 pr-2.5 pl-8 text-primary focus-visible:focus-outline max-sm:text-sm sm:py-4 sm:pr-4 sm:pl-12;
+    @apply w-full rounded-xl border-1 py-2.5 pr-2.5 pl-8 text-primary focus-visible:focus-outline max-sm:text-sm sm:rounded-2xl sm:py-4 sm:pr-4 sm:pl-12;
     @apply placeholder:text-gray-500 dark:placeholder:text-gray-400;
     @apply bg-gray-100 dark:bg-gray-800;
-    @apply border-gray-200 dark:border-gray-700;
+    @apply border-gray-200/60 dark:border-gray-700/60;
   }
 }

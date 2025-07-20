@@ -39,11 +39,11 @@ export function ThemeSwitcherPreact({ label, labels, className }: Props) {
       <DropdownMenu.Trigger asChild>
         <button type="button" className={cn(styles.trigger, className)} aria-label={label}>
           {theme === 'light' ? (
-            <IconSun className={cn('size-5', styles.iconSun)} />
+            <IconSun className={styles.iconSun} />
           ) : theme === 'dark' ? (
-            <IconMoon className={cn('size-5', styles.iconMoon)} />
+            <IconMoon className={styles.iconMoon} />
           ) : (
-            <IconComputer className={cn('size-5', styles.iconComputer)} />
+            <IconComputer className={styles.iconComputer} />
           )}
         </button>
       </DropdownMenu.Trigger>

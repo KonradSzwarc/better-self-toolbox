@@ -2,13 +2,13 @@
 
 @layer components {
   .list {
-    @apply grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3;
+    @apply grid w-full grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3;
   }
 
   .item {
-    @apply relative flex rounded-2xl border shadow-md transition-[border,shadow,translate] duration-200 hover:-translate-y-1 hover:shadow-2xl has-focus-visible:focus-outline;
+    @apply relative flex rounded-2xl border shadow-md/5 transition-[border,shadow,translate] duration-200 hover:-translate-y-1 hover:shadow-2xl has-focus-visible:focus-outline;
     @apply bg-white dark:bg-gray-800;
-    @apply border-gray-200/60 dark:border-gray-700/60;
+    @apply border-gray-200/75 dark:border-gray-700/75;
 
     content-visibility: auto;
 

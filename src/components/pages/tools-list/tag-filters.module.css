@@ -14,12 +14,14 @@
   }
 
   .item {
-    @apply cursor-pointer rounded-full px-3 py-1.5 font-medium text-secondary transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline max-xl:text-sm sm:px-4 sm:py-2.5;
+    @apply cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-secondary ring-1 transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline sm:px-4 sm:py-2;
     @apply bg-gray-100 dark:bg-gray-800;
+    @apply ring-gray-200/60 dark:ring-gray-700/60;
 
     &[data-state='checked'] {
       @apply bg-gradient-to-r gradient-primary text-white shadow-lg;
       @apply shadow-blue-500/25 dark:shadow-blue-400/20;
+      @apply ring-transparent;
     }
 
     &[data-state='unchecked']:hover {
