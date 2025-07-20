@@ -4,13 +4,14 @@ import '@/styles/global.css';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/nunito';
 
+// eslint-disable-next-line perfectionist/sort-imports -- side effects first
 import interLatinExtUrl from '@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2';
 import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import nunitoLatinExtUrl from '@fontsource-variable/nunito/files/nunito-latin-ext-wght-normal.woff2?url';
 import nunitoLatinUrl from '@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2?url';
 
-import ThemeSwitcher from '@/components/theme-switcher.astro';
 import ThemeSwitcherScript from '@/components/theme-switcher-script.astro';
+import ThemeSwitcher from '@/components/theme-switcher.astro';
 import { getLocale, localeCodes } from '@/utils/i18n';
 
 interface Props {

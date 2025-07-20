@@ -1,0 +1,48 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import IconArrowBack from '~icons/mdi/arrow-back';
+import { getLocale, getTranslations, localizedPath } from '@/utils/i18n';
+
+interface Props extends HTMLAttributes<'button'> {}
+
+const locale = getLocale(Astro);
+const t = getTranslations(Astro, 'components.back_button');
+---
+
+<a data-back-to-tools-list href={localizedPath('/', locale)} {...Astro.props}>
+  <IconArrowBack />
+  <span>{t('back')}</span>
+</a>
+
+<style>
+  @reference '@/styles/global.css';
+
+  a {
+    @apply flex w-fit items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium focus-visible:focus-outline;
+    @apply ring-1 ring-gray-200 dark:ring-gray-700;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+
+    svg {
+      @apply size-4;
+    }
+  }
+</style>
+
+<script>
+  function initBackToToolsList() {
+    const backToToolsListButton = document.querySelector<HTMLAnchorElement>('[data-back-to-tools-list]');
+
+    if (!backToToolsListButton) return;
+
+    const isBackToToolsList = new URL(backToToolsListButton.href).pathname === new URL(document.referrer).pathname;
+
+    if (!isBackToToolsList) return;
+
+    backToToolsListButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.history.back();
+    });
+  }
+
+  initBackToToolsList();
+</script>

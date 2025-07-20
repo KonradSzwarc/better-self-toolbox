@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'a'> {}
+
+const customProps: HTMLAttributes<'a'> = {};
+
+const href = Astro.props.href?.toString();
+
+const isExternal = href && Astro.site && href.startsWith('http') && !href.includes(Astro.site.href);
+
+if (isExternal) {
+  customProps.target = '_blank';
+  customProps.rel = 'noopener noreferrer nofollow';
+}
+---
+
+<a {...Astro.props} {...customProps}><slot /></a>

@@ -1,5 +1,8 @@
 {
   "components": {
+    "back_button": {
+      "back": "Powrót do listy narzędzi"
+    },
     "language_switcher": {
       "english": "Angielski",
       "polish": "Polski",
@@ -34,7 +37,6 @@
     "tool_details": {
       "category": "Kategoria",
       "also_known_as": "Inne nazwy",
-      "back": "Powrót do listy",
       "footnotes": "Przypisy",
       "footnote_back_label": "Powrót do odnośnika {{name}}",
       "anchor_label": "Sekcja {{name}}"

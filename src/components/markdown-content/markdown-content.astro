@@ -1,0 +1,159 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cn } from '@/utils/styles';
+
+interface Props extends HTMLAttributes<'div'> {}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div class={cn('content', className)} {...props}>
+  <slot />
+</div>
+
+<style is:global>
+  @reference '@/styles/global.css';
+
+  @layer base {
+    ol,
+    ul,
+    menu {
+      list-style: revert-layer !important;
+    }
+  }
+
+  @layer components {
+    .content {
+      @apply text-base leading-[1.75] text-pretty text-secondary first:mt-0 last:mb-0;
+
+      > :first-child {
+        @apply mt-0;
+      }
+
+      > :last-child {
+        @apply mb-0;
+      }
+
+      :where(p) {
+        @apply my-[1.25em];
+      }
+
+      :where(a) {
+        @apply font-medium underline decoration-blue-500 decoration-dotted underline-offset-4 hover:text-primary hover:decoration-solid;
+      }
+
+      :where(h1, h2, h3, h4, h5, h6) {
+        @apply scroll-mt-[1em] font-heading font-black text-primary;
+      }
+
+      :where(h1, h2, h3, h4, h5, h6),
+      :where(div:has(:where(h2, h3) + a)) {
+        & + * {
+          @apply mt-0;
+        }
+      }
+
+      :where(h2, h3):has(+ a) {
+        @apply mr-[0.25em] inline;
+        font-size: inherit;
+      }
+
+      :where(h2:not(:has(+ a)), div:has(h2 + a)) {
+        @apply mt-[2em] mb-[1em] text-[1.5em] leading-[1.3];
+      }
+
+      :where(h3:not(:has(+ a)), div:has(h3 + a)) {
+        @apply mt-[1.6em] mb-[0.6em] text-[1.25em] leading-[1.4];
+      }
+
+      :where(h4) {
+        @apply mt-[1.5em] mb-[0.5em] text-[1em] leading-[1.5];
+      }
+
+      :where(blockquote) {
+        @apply my-[1.6em] border-s-4 ps-[1em] font-medium italic;
+        @apply text-gray-800 dark:text-gray-100;
+        @apply border-s-gray-300 dark:border-s-gray-600;
+
+        quotes: '\201C' '\201D' '\2018' '\2019';
+      }
+
+      :where(blockquote:not(.no-quotation) p:first-of-type)::before {
+        content: open-quote;
+      }
+
+      :where(blockquote:not(.no-quotation) p:last-of-type)::after {
+        content: close-quote;
+      }
+
+      :where(li) {
+        @apply my-[0.5em];
+      }
+
+      :where(ol, ul) {
+        @apply my-[1.25em] ps-[1.625em];
+      }
+
+      :where(ol > li, ul > li) {
+        @apply ps-[0.375em];
+      }
+
+      :where(ol > li p, ul > li p) {
+        @apply my-[0.75em];
+      }
+
+      :where(ol > li > p, ul > li > p) {
+        @apply first:mt-[1.25em] last:mb-[1.25em];
+      }
+
+      :where(ul ul, ul ol, ol ul, ol ol) {
+        @apply my-[0.75em];
+      }
+
+      :where(hr) {
+        @apply my-[3em] border-t-1 border-gray-300 dark:border-gray-600;
+      }
+
+      :where(hr + *) {
+        @apply mt-0;
+      }
+
+      :where(table) {
+        @apply my-[2em] w-full table-auto text-[0.875em] leading-[1.7];
+      }
+
+      :where(thead) {
+        @apply border-b-1 border-gray-300 dark:border-gray-600;
+      }
+
+      :where(thead th) {
+        @apply px-[0.5em] pb-[0.5em] align-bottom font-semibold;
+        @apply first:ps-0 last:pe-0;
+      }
+
+      :where(tbody tr) {
+        @apply border-b-1 border-gray-200 last:border-b-0 dark:border-gray-700;
+      }
+
+      :where(tbody td) {
+        vertical-align: baseline;
+      }
+
+      :where(tbody td, tfoot td) {
+        @apply px-[0.5em] py-[0.5em] first:ps-0 last:pe-0;
+      }
+
+      :where(tfoot) {
+        @apply border-t-1 border-gray-300 dark:border-gray-600;
+      }
+
+      :where(tfoot td) {
+        @apply align-top;
+      }
+
+      :where(th, td) {
+        @apply text-start;
+      }
+    }
+  }
+</style>

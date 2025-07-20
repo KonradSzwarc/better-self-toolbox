@@ -1,31 +1,28 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import MdiUndoVariant from '~icons/mdi/undo-variant';
+import MdAnchor from '@/components/markdown-content/anchor.astro';
 import { getLocale, getTranslations } from '@/utils/i18n';
 import { getHrefForMdxTool } from './anchor.utils';
 
 export interface Props extends HTMLAttributes<'a'> {}
 
-const { href: _href, ...props } = Astro.props;
-let href = _href?.toString();
+const customProps: HTMLAttributes<'a'> = {};
 
 const locale = getLocale(Astro);
 const t = getTranslations(Astro, 'pages.tool_details');
 
-const isExternal = href && Astro.site && href.startsWith('http') && !href.includes(Astro.site.href);
-if (isExternal) {
-  props.target = '_blank';
-  props.rel = 'noopener noreferrer nofollow';
-}
-
-const isFootnoteBackref = typeof props['data-footnote-backref'] === 'string';
+const isFootnoteBackref = typeof Astro.props['data-footnote-backref'] === 'string';
 if (isFootnoteBackref) {
-  props['aria-label'] = t('footnote_back_label', { name: props['aria-label']?.split(' ').pop() ?? '' });
+  customProps['aria-label'] = t('footnote_back_label', { name: Astro.props['aria-label']?.split(' ').pop() ?? '' });
 }
 
+const href = Astro.props.href?.toString();
 if (href?.endsWith('.mdx')) {
-  href = await getHrefForMdxTool(href, locale);
+  customProps.href = await getHrefForMdxTool(href, locale);
 }
+
+const props = { ...Astro.props, ...customProps };
 ---
 
-<a href={href} {...props}>{isFootnoteBackref ? <MdiUndoVariant className="inline-block" /> : <slot />}</a>
+<MdAnchor href={href} {...props}>{isFootnoteBackref ? <MdiUndoVariant className="inline-block" /> : <slot />}</MdAnchor>

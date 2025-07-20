@@ -28,4 +28,14 @@ const tags = defineCollection({
   }),
 });
 
-export const collections = { tools, tags };
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/data/pages' }),
+  schema: z.object({
+    seo: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+  }),
+});
+
+export const collections = { tools, tags, pages };

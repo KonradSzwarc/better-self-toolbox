@@ -1,0 +1,27 @@
+---
+import { getEntry, render } from 'astro:content';
+import BackButton from '@/components/back-button.astro';
+import Anchor from '@/components/markdown-content/anchor.astro';
+import Blockquote from '@/components/markdown-content/blockquote.astro';
+import MarkdownContent from '@/components/markdown-content/markdown-content.astro';
+import Layout from '@/layouts/layout.astro';
+import { getLocale, prependLocale } from '@/utils/i18n';
+
+const locale = getLocale(Astro);
+const entry = await getEntry('pages', prependLocale('about', locale));
+
+if (!entry) {
+  throw new Error('About page not found');
+}
+
+const { Content } = await render(entry);
+---
+
+<Layout title={entry.data.seo.title} description={entry.data.seo.description}>
+  <main class="container mx-auto grid max-w-prose px-4 py-10">
+    <BackButton class="mb-8" />
+    <MarkdownContent>
+      <Content components={{ a: Anchor, blockquote: Blockquote }} />
+    </MarkdownContent>
+  </main>
+</Layout>

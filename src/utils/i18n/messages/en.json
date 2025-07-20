@@ -1,5 +1,8 @@
 {
   "components": {
+    "back_button": {
+      "back": "Back to the tools list"
+    },
     "language_switcher": {
       "english": "English",
       "polish": "Polish",
@@ -34,7 +37,6 @@
     "tool_details": {
       "category": "Category",
       "also_known_as": "Known as",
-      "back": "Back to list",
       "footnotes": "Footnotes",
       "footnote_back_label": "Back to reference {{name}}",
       "anchor_label": "Section {{name}}"
