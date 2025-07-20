@@ -31,7 +31,9 @@ const label = isFootnoteHeading ? footnoteLabel : await Astro.slots.render('defa
   @reference '@/styles/global.css';
 
   div:hover a {
-    @apply opacity-40;
+    @media (hover: hover) {
+      @apply opacity-40;
+    }
   }
 
   a {

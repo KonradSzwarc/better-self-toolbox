@@ -15,10 +15,12 @@ const { class: className, ...props } = Astro.props;
   @reference '@/styles/global.css';
 
   @layer base {
-    ol,
-    ul,
-    menu {
-      list-style: revert-layer !important;
+    .content {
+      ol,
+      ul,
+      menu {
+        list-style: revert-layer;
+      }
     }
   }
 

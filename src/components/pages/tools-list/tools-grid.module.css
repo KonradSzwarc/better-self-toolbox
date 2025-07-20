@@ -17,22 +17,24 @@
     }
 
     &:hover {
-      @apply border-blue-200 dark:border-blue-600/50;
-      @apply shadow-blue-500/15 dark:shadow-blue-400/15;
-      @apply after:from-blue-50/50 after:to-indigo-50/50 dark:after:from-blue-950/20 dark:after:to-indigo-950/20;
-
-      &::after {
-        @apply opacity-100;
-      }
-
-      .name {
-        @apply text-blue-600 dark:text-blue-400;
-      }
-
-      .tag {
+      @media (hover: hover) {
         @apply border-blue-200 dark:border-blue-600/50;
-        @apply bg-blue-50 dark:bg-blue-950/20;
-        @apply text-blue-600 dark:text-blue-400;
+        @apply shadow-blue-500/15 dark:shadow-blue-400/15;
+        @apply after:from-blue-50/50 after:to-indigo-50/50 dark:after:from-blue-950/20 dark:after:to-indigo-950/20;
+
+        &::after {
+          @apply opacity-100;
+        }
+
+        .name {
+          @apply text-blue-600 dark:text-blue-400;
+        }
+
+        .tag {
+          @apply border-blue-200 dark:border-blue-600/50;
+          @apply bg-blue-50 dark:bg-blue-950/20;
+          @apply text-blue-600 dark:text-blue-400;
+        }
       }
     }
   }

@@ -10,11 +10,12 @@
   }
 
   .group {
-    @apply flex w-full flex-wrap justify-center gap-2;
+    @apply flex w-full flex-wrap justify-center gap-y-2;
   }
 
   .item {
-    @apply cursor-pointer rounded-full px-3 py-1.5 text-sm font-medium text-secondary ring-1 transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline sm:px-4 sm:py-2;
+    @apply cursor-pointer rounded-full px-4 py-2 font-medium text-secondary ring-1 transition-[scale,background-color] duration-200 select-none focus-visible:focus-outline;
+    @apply scale-90; /* trick for Safari to prevent zoom in on clicking */
     @apply bg-gray-100 dark:bg-gray-800;
     @apply ring-gray-200/60 dark:ring-gray-700/60;
 
@@ -25,8 +26,10 @@
     }
 
     &[data-state='unchecked']:hover {
-      @apply scale-105;
-      @apply bg-gray-200 dark:bg-gray-700;
+      @media (hover: hover) {
+        @apply scale-95;
+        @apply bg-gray-200 dark:bg-gray-700;
+      }
     }
   }
 }
