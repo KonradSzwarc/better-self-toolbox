@@ -37,6 +37,12 @@ export default defineConfig({
         'astro:build:done': generateAssets,
       },
     },
+    {
+      name: 'add-trailing-slash', // Prevent redirect on Cloudflare Pages
+      hooks: {
+        'astro:build:done': addTrailingSlash,
+      },
+    },
     sitemap({
       i18n: {
         defaultLocale,
@@ -204,6 +210,27 @@ async function generateAssets({ assets }: Parameters<BaseIntegrationHooks['astro
       };
 
       await Promise.all([generateFaviconFormats(), generateOgImage(), updateToolHtml()]);
+    }),
+  );
+}
+
+/** Add trailing slash to all internal links */
+async function addTrailingSlash({ assets }: Parameters<BaseIntegrationHooks['astro:build:done']>[0]) {
+  const htmlFiles = [...assets.values()]
+    .flatMap((asset) => asset.map((file) => file.pathname))
+    .filter((path) => path.endsWith('.html'));
+
+  await Promise.all(
+    htmlFiles.map(async (path) => {
+      const $ = cheerio.load(await readFile(path, 'utf8'));
+      $('a').each((_, link) => {
+        const href = $(link).attr('href');
+        const isInternalLink = href && (href.startsWith('/') || href.startsWith(site));
+        if (isInternalLink && !href.endsWith('/')) {
+          $(link).attr('href', href + '/');
+        }
+      });
+      await writeFile(path, $.html());
     }),
   );
 }
