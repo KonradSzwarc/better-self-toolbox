@@ -49,7 +49,12 @@
       "also_known_as": "Known as",
       "footnotes": "Footnotes",
       "footnote_back_label": "Back to reference {{name}}",
-      "anchor_label": "Section {{name}}"
+      "anchor_label": "Section {{name}}",
+      "toc": {
+        "title": "Table of Contents",
+        "label_open": "Show Table of Contents",
+        "label_close": "Hide Table of Contents"
+      }
     },
     "404": {
       "title": "Page not found",

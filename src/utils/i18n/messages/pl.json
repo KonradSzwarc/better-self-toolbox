@@ -49,7 +49,12 @@
       "also_known_as": "Inne nazwy",
       "footnotes": "Przypisy",
       "footnote_back_label": "Powrót do odnośnika {{name}}",
-      "anchor_label": "Sekcja {{name}}"
+      "anchor_label": "Sekcja {{name}}",
+      "toc": {
+        "title": "Spis treści",
+        "label_open": "Pokaż spis treści",
+        "label_close": "Ukryj spis treści"
+      }
     },
     "404": {
       "title": "Nie znaleziono strony",

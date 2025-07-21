@@ -58,6 +58,11 @@ export default defineConfig({
   ],
 
   vite: {
+    server: {
+      watch: {
+        ignored: ['**/node_modules/**', '**/.vscode/**'],
+      },
+    },
     plugins: [
       tailwindcss(),
       Icons({

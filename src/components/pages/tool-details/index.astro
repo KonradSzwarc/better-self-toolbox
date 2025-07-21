@@ -10,6 +10,7 @@ import Anchor from './anchor.astro';
 import H2 from './h2.astro';
 import H3 from './h3.astro';
 import HeadingWithAnchorIcon from './heading-with-anchor-icon.astro';
+import Toc from './toc.astro';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
@@ -22,7 +23,7 @@ const { tool } = Astro.props;
 
 const tags = await getCollection('tags', (tag) => tool.data.tags.some((t) => prependLocale(t.id, locale) === tag.id));
 
-const { Content } = await render(tool);
+const { Content, headings } = await render(tool);
 
 function toSortedList(items: string[]) {
   return items.toSorted((a, b) => a.localeCompare(b)).join(', ');
@@ -61,6 +62,7 @@ function toSortedList(items: string[]) {
         <Content components={{ h2: H2, h3: H3, a: Anchor, blockquote: Blockquote }} />
       </MarkdownContent>
     </article>
+    <Toc headings={headings} />
   </main>
 </Layout>
 

@@ -1,0 +1,25 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+import { buildToc } from './toc.utils';
+import { getTranslations } from '@/utils/i18n';
+import { TocPreact } from './toc.preact';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const t = getTranslations(Astro, 'pages.tool_details.toc');
+---
+
+<TocPreact
+  client:only="preact"
+  toc={buildToc(headings)}
+  t={{
+    title: t('title'),
+    labelOpen: t('label_open'),
+    labelClose: t('label_close'),
+  }}
+/>

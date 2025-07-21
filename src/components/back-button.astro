@@ -38,10 +38,22 @@ const t = getTranslations(Astro, 'components.back_button');
 
     if (!isBackToToolsList) return;
 
-    backToToolsListButton.addEventListener('click', (event) => {
+    backToToolsListButton.setAttribute('href', document.referrer);
+
+    function handleButtonClick(event: MouseEvent) {
       event.preventDefault();
       window.history.back();
-    });
+    }
+
+    function handleAnyAnchorClick({ target }: MouseEvent) {
+      if (target instanceof HTMLAnchorElement && target !== backToToolsListButton) {
+        backToToolsListButton?.removeEventListener('click', handleButtonClick);
+        document.removeEventListener('click', handleAnyAnchorClick);
+      }
+    }
+
+    backToToolsListButton.addEventListener('click', handleButtonClick);
+    document.addEventListener('click', handleAnyAnchorClick);
   }
 
   initBackToToolsList();

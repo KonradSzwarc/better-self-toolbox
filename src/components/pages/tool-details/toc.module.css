@@ -1,0 +1,68 @@
+@reference '@/styles/global.css';
+
+.toggle {
+  @apply fixed right-4 bottom-4 z-40 size-12 sm:right-6 sm:bottom-6 sm:size-14;
+  @apply flex cursor-pointer items-center justify-center rounded-full shadow-lg/8 transition-[scale,shadow] duration-300;
+  @apply bg-white dark:bg-gray-950;
+  @apply text-gray-700 dark:text-white;
+  @apply ring-1 ring-gray-200/60 dark:ring-gray-800;
+  @apply hover:scale-105 focus-visible:focus-outline;
+
+  svg {
+    @apply size-5 sm:size-6;
+  }
+}
+
+.backdrop {
+  @apply fixed inset-0 hidden bg-black/25 backdrop-blur-xs dark:bg-black/50;
+
+  &:has(+ [data-open='true']) {
+    @media (max-width: 1320px) {
+      @apply block animate-in duration-300 fade-in;
+    }
+  }
+}
+
+.sidebar {
+  @apply fixed inset-y-0 right-0 z-10 h-full translate-x-full overflow-y-auto duration-300 ease-in-out;
+  @apply w-80 max-w-full pt-6 pr-6 pb-8 pl-5;
+  @apply bg-gray-50 dark:bg-gray-800;
+  @apply border-l border-gray-200 dark:border-gray-700;
+
+  &[data-open='true'] {
+    @apply translate-x-0;
+  }
+
+  @media (max-width: 1320px) {
+    @apply bg-white dark:bg-gray-800;
+  }
+
+  h2 {
+    @apply mb-4 font-heading text-lg font-black text-secondary sm:text-xl;
+  }
+
+  ul ul {
+    @apply mt-2 ml-4;
+
+    a {
+      @apply font-normal;
+    }
+  }
+
+  li + li {
+    @apply mt-2;
+  }
+
+  li:has(ul) + li {
+    @apply mt-4;
+  }
+
+  a {
+    @apply block rounded-lg text-sm font-semibold transition-[color] duration-200 focus-visible:focus-outline;
+    @apply text-tertiary hover:text-primary;
+
+    &[aria-current='true'] {
+      @apply text-blue-600 hover:text-blue-500 dark:text-blue-300 dark:hover:text-blue-200;
+    }
+  }
+}
