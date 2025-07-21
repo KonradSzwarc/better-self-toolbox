@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
-import BackButton from '@/components/back-button.astro';
 import Blockquote from '@/components/markdown-content/blockquote.astro';
 import MarkdownContent from '@/components/markdown-content/markdown-content.astro';
 import Layout from '@/layouts/layout.astro';
@@ -11,6 +10,7 @@ import H2 from './h2.astro';
 import H3 from './h3.astro';
 import HeadingWithAnchorIcon from './heading-with-anchor-icon.astro';
 import Toc from './toc.astro';
+import Header from './header.astro';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
@@ -36,8 +36,8 @@ function toSortedList(items: string[]) {
   type="article"
 >
   <HeadingWithAnchorIcon />
+  <Header slot="header" />
   <main>
-    <BackButton class="mb-8" />
     <article>
       <header>
         <h1>{tool.data.name}</h1>
@@ -70,7 +70,7 @@ function toSortedList(items: string[]) {
   @reference '@/styles/global.css';
 
   main {
-    @apply container mx-auto grid max-w-prose px-4 py-10;
+    @apply container mx-auto grid max-w-prose px-4 pt-20 pb-12 xl:pt-12;
   }
 
   header {

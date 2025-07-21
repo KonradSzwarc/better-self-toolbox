@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import BackButton from '@/components/back-button.astro';
+import ThemeSwitcher from '@/components/theme-switcher.astro';
+
+interface Props extends HTMLAttributes<'header'> {}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<>
+  <header class={className} {...props}>
+    <div>
+      <BackButton />
+    </div>
+    <div>
+      <ThemeSwitcher />
+    </div>
+  </header>
+</>
+
+<style>
+  @reference '@/styles/global.css';
+
+  div:first-child {
+    @apply absolute top-4 left-2 lg:left-4 xl:fixed;
+  }
+
+  div:last-child {
+    @apply absolute top-4 right-4;
+  }
+</style>
