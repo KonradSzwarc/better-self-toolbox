@@ -84,3 +84,18 @@ const tools = toolsCollection
     }
   }
 </style>
+
+<style is:global>
+  /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+
+  @media (hover: hover) {
+    html {
+      margin-right: 0;
+      margin-left: calc(100vw - 100%);
+    }
+
+    footer {
+      margin-left: calc(100% - 100vw);
+    }
+  }
+</style>

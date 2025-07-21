@@ -64,7 +64,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       </div>
     </slot>
     <slot />
-    <Footer class="footer" />
+    <Footer />
   </body>
 </html>
 
@@ -73,15 +73,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
   html {
     @apply scroll-smooth;
-    @apply lg:mr-0 lg:ml-[calc(100vw-100%)]; /* https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+
+    scrollbar-width: thin;
   }
 
   body {
-    @apply font-body text-secondary antialiased;
+    @apply grid min-h-dvh font-body text-secondary antialiased;
     @apply bg-white dark:bg-gray-900;
-  }
-
-  .footer {
-    @apply lg:-ml-[calc(100vw-100%)];
   }
 </style>
