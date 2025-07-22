@@ -40,11 +40,15 @@
   }
 
   .link {
-    @apply z-10 flex w-full flex-col px-6 py-5;
+    @apply z-10 flex w-full flex-col px-6 pt-4.5 pb-5;
+  }
+
+  .icon {
+    @apply mr-2.5 inline-block h-lh w-6 -translate-y-0.5 bg-current mask-contain mask-center mask-no-repeat align-middle;
   }
 
   .name {
-    @apply mb-2 font-heading text-xl leading-tight font-extrabold transition-colors duration-200;
+    @apply mb-2 align-middle font-heading text-xl leading-tight font-extrabold transition-colors duration-200;
     @apply text-gray-900 dark:text-white;
   }
 

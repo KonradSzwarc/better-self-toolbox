@@ -49,7 +49,10 @@ function ToolsGridItem({ className, tool }: { className?: string; tool: Tool }) 
   return (
     <li className={cn(styles.item, className)}>
       <a href={tool.url} className={styles.link}>
-        <h3 className={styles.name}>{tool.name}</h3>
+        <h3 className={styles.name}>
+          <span style={{ maskImage: `url(/${tool.id}/favicon.svg)` }} aria-hidden="true" className={styles.icon} />
+          <span>{tool.name}</span>
+        </h3>
         <p className={styles.summary}>{tool.summary}</p>
         <ul className={styles.tags}>
           {tool.tags.map((tag) => (
