@@ -227,7 +227,7 @@ async function addTrailingSlash({ assets }: Parameters<BaseIntegrationHooks['ast
         const href = $(link).attr('href');
         const isInternalLink = href && (href.startsWith('/') || href.startsWith(site));
         if (isInternalLink && !href.endsWith('/')) {
-          $(link).attr('href', href + '/');
+          $(link).attr('href', `${href}/`);
         }
       });
       await writeFile(path, $.html());

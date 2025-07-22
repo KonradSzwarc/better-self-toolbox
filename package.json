@@ -25,7 +25,7 @@
     "format": "concurrently \"prettier --write .\" \"eslint . --fix\" -n prettier,eslint -c yellow,magenta"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.3.0",
+    "@astrojs/mdx": "4.3.1",
     "@fontsource-variable/inter": "5.2.6",
     "@fontsource-variable/nunito": "5.2.6",
     "clsx": "2.1.1",
@@ -52,11 +52,11 @@
     "@tailwindcss/vite": "4.1.11",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/lodash-es": "4.17.12",
-    "@types/node": "24.0.14",
+    "@types/node": "24.1.0",
     "@vercel/og": "0.7.2",
-    "astro": "5.11.2",
+    "astro": "5.12.1",
     "astro-eslint-parser": "1.2.2",
-    "cheerio": "1.1.0",
+    "cheerio": "1.1.2",
     "commander": "14.0.0",
     "concurrently": "9.2.0",
     "eslint": "9.31.0",
