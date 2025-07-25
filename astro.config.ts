@@ -4,6 +4,7 @@ import type { Locale } from './src/utils/i18n/constants';
 import { Buffer } from 'node:buffer';
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import process from 'node:process';
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
@@ -20,7 +21,7 @@ import { defaultLocale, localeCodes, locales, regexLocales } from './src/utils/i
 import { generateToolOpenGraph } from './src/utils/og';
 import { isPublished } from './src/utils/tools/is-published';
 
-const site = import.meta.env.ASTRO_SITE ?? 'http://localhost:4321';
+const site = process.env.ASTRO_SITE ?? 'http://localhost:4321';
 const toolPagesMaps = await createToolPagesMaps();
 
 export default defineConfig({
