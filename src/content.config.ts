@@ -7,6 +7,7 @@ const tools = defineCollection({
   schema: z.object({
     name: z.string(),
     summary: z.string(),
+    llmSummary: z.string().nullish(),
     status: z.enum(['draft', 'published']),
     path: z.string().nullish(),
     synonyms: z.array(z.string()).nullish(),
